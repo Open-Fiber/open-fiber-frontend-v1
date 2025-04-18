@@ -1,0 +1,90 @@
+/* src/components/Header/header.css */
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:wght@800&display=swap');
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: transparent; /* Fondo completamente transparente */
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+  position: relative;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  /*border-bottom: 2px solid white;*/ /* Línea inferior azul (como en el diseño) */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+.wave-icon {
+  width: 40px;
+  height: auto;
+  color: #00ff99; /* Color del ícono de onda */
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  gap: 1.5rem; /* Espaciado entre enlaces */
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  border-right: 1px dashed transparent; /* Líneas punteadas entre enlaces */
+}
+
+.nav-link:last-child {
+  border-right: none; /* Elimina la línea del último enlace */
+}
+
+.bar {
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  background: white; /* Barra dinámica azul */
+  transition: all 0.3s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.nav:hover .bar {
+  opacity: 1;
+}
+
+.profile-icon {
+  cursor: pointer;
+  color: white;
+}
+
+.icon {
+  width: 30px;
+  height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .nav {
+    display: none;
+  }
+}
