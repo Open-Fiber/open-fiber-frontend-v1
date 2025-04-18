@@ -7,13 +7,13 @@ import Register from "./pages/auth/Register";
 import "./app.css";
 import Footer from "./components/footer/Footer";
 
-//import Home_Header from "./components/home_header/Home_Header";
-import Second_Header from "./components/second_header/Second_Header";
+import Home_Header from "./components/home_header/Home_Header";
+//import Second_Header from "./components/second_header/Second_Header";
 function App() {
   return (
     <BrowserRouter>
       <div className="app-container">
-        <Second_Header />
+        <Home_Header />
         <video autoPlay loop muted playsInline className="background-video">
           <source
             src="https://res.cloudinary.com/dwzjheic7/video/upload/v1744945255/WhatsApp_Video_2025-04-17_at_23.00.21_utueeb.mp4"
