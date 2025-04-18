@@ -4,7 +4,8 @@ import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 
-import "./app.css";import Footer from "./pages/auth/Footer";
+import "./app.css";
+import Footer from "./components/footer/Footer";
 
 //import Home_Header from "./components/home_header/Home_Header";
 import Second_Header from "./components/second_header/Second_Header";
