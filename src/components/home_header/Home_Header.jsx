@@ -2,9 +2,9 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
-import "./header.css";
+import "./home_header.css";
 
-const Header = () => {
+const Home_Header = () => {
   const [barPosition, setBarPosition] = useState({ left: 0, width: 0 });
   const navRef = useRef(null);
 
@@ -26,32 +26,16 @@ const Header = () => {
 
       {/* Navegación */}
       <nav className="nav" ref={navRef}>
-        <Link
-          to="/nosotros"
-          className="nav-link"
-          onMouseEnter={handleHover}
-        >
+        <Link to="/nosotros" className="nav-link" onMouseEnter={handleHover}>
           NOSOTROS
         </Link>
-        <Link
-          to="/aprende"
-          className="nav-link"
-          onMouseEnter={handleHover}
-        >
+        <Link to="/aprende" className="nav-link" onMouseEnter={handleHover}>
           APRENDE +
         </Link>
-        <Link
-          to="/comunidad"
-          className="nav-link"
-          onMouseEnter={handleHover}
-        >
+        <Link to="/comunidad" className="nav-link" onMouseEnter={handleHover}>
           COMUNIDAD
         </Link>
-        <Link
-          to="/contacto"
-          className="nav-link"
-          onMouseEnter={handleHover}
-        >
+        <Link to="/contacto" className="nav-link" onMouseEnter={handleHover}>
           CONTACTO
         </Link>
 
@@ -73,4 +57,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Home_Header;
