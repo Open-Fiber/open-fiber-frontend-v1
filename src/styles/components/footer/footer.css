@@ -2,39 +2,42 @@
 
 .footer {
   background-color: #000;
-  color: white; 
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px; 
+  padding: 20px 40px;
 }
-  
+
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-  
-.footer-left, .footer-right {
- font-size: 14px; 
+
+.footer-left,
+.footer-right {
+  font-size: 14px;
 }
-.footer-left{
-    font-family: 'Poppins', sans-serif;
+
+.footer-left {
+  font-family: 'Poppins', sans-serif;
 }
-.footer-right{
-    font-family: 'Architects Daughter', cursive;
+
+.footer-right {
+  font-family: 'Architects Daughter', cursive;
 }
-  
+
 .footer-center {
   display: flex;
   font-family: 'Architects Daughter', cursive;
-  gap: 20px; 
+  gap: 20px;
 }
-  
+
 .footer-center p {
   text-decoration: none;
-  color: inherit; 
-  font-size: 16px; 
+  color: inherit;
+  font-size: 16px;
   margin: 0;
 }

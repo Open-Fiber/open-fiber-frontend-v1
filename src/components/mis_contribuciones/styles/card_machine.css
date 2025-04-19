@@ -1,0 +1,64 @@
+/* src/components/mis_contribuciones/styles/card_machine.css */
+.machine-card {
+  width: 350px;
+  height: 450px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.machine-image-container {
+  width: 100%;
+  height: 280px;
+  background-color: #e0e0e0;
+}
+
+.machine-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.machine-content {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.machine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.machine-title {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.machine-description {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 auto 0;
+}
+
+.machine-likes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.machine-like-icon {
+  font-size: 18px;
+}
+
+.machine-like-count {
+  font-size: 16px;
+}
