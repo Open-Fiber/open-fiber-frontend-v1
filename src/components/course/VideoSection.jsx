@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaCog, FaDownload } from "react-icons/fa";
 import { BiVolumeFull, BiVolumeMute } from "react-icons/bi";
 import { MdFullscreen, MdSpeed } from "react-icons/md";
+import "./styles/videosection.css";
 
 const VideoSection = ({ isPlaying, toggleVideo }) => {
   const [isLoading, setIsLoading] = useState(true);
