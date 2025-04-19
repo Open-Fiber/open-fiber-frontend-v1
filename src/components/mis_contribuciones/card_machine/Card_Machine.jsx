@@ -2,6 +2,7 @@
 import React from "react";
 import "../styles/card_machine.css";
 import FlagIcon from "../FlagIcon";
+import { AiOutlineLike } from "react-icons/ai";
 
 const Card_Machine = ({ image, nombre, descripcion, pais, likes }) => {
   return (
@@ -20,7 +21,9 @@ const Card_Machine = ({ image, nombre, descripcion, pais, likes }) => {
         </div>
         <p className="machine-description">{descripcion}</p>
         <div className="machine-likes">
-          <span className="machine-like-icon">👍</span>
+          <div className="machine-like-icon">
+            <AiOutlineLike />
+          </div>
           <span className="machine-like-count">{likes}</span>
         </div>
       </div>
