@@ -18,10 +18,12 @@ const Second_Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className="second-header">
       {/* Logo */}
       <div className="logo-container">
-        <span className="logo-text">Open Fiber</span>
+        <span className="logo-text">
+          <Link to="/">Open Fiber</Link>{" "}
+        </span>
       </div>
 
       {/* Navegación */}

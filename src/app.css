@@ -16,3 +16,22 @@
   z-index: 0;
   /* Coloca el video detrás de todo */
 }
+
+* {
+  cursor: url("./assets/Group.png"), auto !important;
+}
+
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.clickable {
+  cursor: url("./assets/Group.png"), pointer !important;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: url("./assets/Group.png"), text !important;
+}

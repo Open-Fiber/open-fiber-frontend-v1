@@ -1,0 +1,23 @@
+* {
+  cursor: url("https://res.cloudinary.com/dvqsabodr/image/upload/v1745034796/zqunwh1rllimt7krn3za.png"),
+    auto !important;
+}
+* {
+  cursor: url("https://res.cloudinary.com/dvqsabodr/image/upload/v1745034796/zqunwh1rllimt7krn3za.png")
+      16 16,
+    auto !important;
+}
+
+a,
+button,
+.clickable {
+  cursor: url("https://res.cloudinary.com/dvqsabodr/image/upload/v1745034796/zqunwh1rllimt7krn3za.png"),
+    pointer !important;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: url("https://res.cloudinary.com/dvqsabodr/image/upload/v1745034796/zqunwh1rllimt7krn3za.png"),
+    text !important;
+}
