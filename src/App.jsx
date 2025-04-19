@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer";
 
 //import Home_Header from "./components/home_header/Home_Header";
 import Second_Header from "./components/second_header/Second_Header";
+import Course from "./pages/course/Course";
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/course" element={<Course />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
     </BrowserRouter>
