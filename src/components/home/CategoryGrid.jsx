@@ -1,6 +1,6 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
-import "./styles/CategoryGrid.css";
+import "./styles/categorygrid.css";
 
 const CategoryGrid = () => {
   const categories = [
