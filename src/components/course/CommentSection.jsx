@@ -1,8 +1,7 @@
 import React from "react";
-import { FaHeart, FaComments, FaPaperclip } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 const CommentsSection = ({
-  activeTab,
   commentText,
   setCommentText,
   isCommentExpanded,
@@ -12,7 +11,6 @@ const CommentsSection = ({
   handlePublishClick,
   filterTab,
   setFilterTab,
-  handleBottomTabChange,
 }) => {
   return (
     <>
@@ -145,23 +143,29 @@ const CommentsSection = ({
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="bottom-tabs">
-        <button
-          className={`bottom-tab ${activeTab === "recursos" ? "active" : ""}`}
-          onClick={() => handleBottomTabChange("recursos")}
-        >
-          <FaPaperclip className="tab-icon" /> Recursos
-        </button>
-        <button
-          className={`bottom-tab ${
-            activeTab === "comentarios" ? "active" : ""
-          }`}
-          onClick={() => handleBottomTabChange("comentarios")}
-        >
-          <FaComments className="tab-icon" /> Comentarios
-        </button>
+        {/* Comment 3 */}
+        <div className="comment">
+          <div className="comment-avatar"></div>
+          <div className="comment-content">
+            <div className="comment-actions">
+              <div className="like-button">
+                <FaHeart />
+                <span className="like-count">10</span>
+              </div>
+            </div>
+            <div className="comment-text">
+              NSM - Están enfocadas en su segmento para el crecimiento de la
+              startup. Es la métrica que mejor captura el valor clave del
+              producto que se brinda a los usuarios. Son las métricas outputs,
+              que reflejan el resultado de todas tus estrategias y actividades
+              sin intervenir tu directamente en su aumento. Las métricas inputs
+              son aquellas métricas en las que tu actividades si van a afectar
+              directamente. Las métricas leads es recomendable que estén
+              enfocadas en dos cosas importantes
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

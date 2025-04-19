@@ -4,6 +4,7 @@ import Sidebar from "../../components/course/Sidebar";
 import VideoSection from "../../components/course/VideoSection";
 import CommentsSection from "../../components/course/CommentSection";
 import ResourcesSection from "../../components/course/ResourcesSection";
+import { FaComments, FaPaperclip } from "react-icons/fa";
 
 const Course = () => {
   // State for controlling sidebar chapters collapse/expand
@@ -80,27 +81,41 @@ const Course = () => {
 
       {/* Right Sidebar */}
       <div className="comments-section">
-        {activeTab === "comentarios" ? (
-          <CommentsSection
-            activeTab={activeTab}
-            commentText={commentText}
-            setCommentText={setCommentText}
-            isCommentExpanded={isCommentExpanded}
-            handleCommentFocus={handleCommentFocus}
-            commentType={commentType}
-            handleCommentTypeChange={handleCommentTypeChange}
-            handlePublishClick={handlePublishClick}
-            filterTab={filterTab}
-            setFilterTab={setFilterTab}
-            handleBottomTabChange={handleBottomTabChange}
-          />
-        ) : (
-          <ResourcesSection
-            resources={resources}
-            activeTab={activeTab}
-            handleBottomTabChange={handleBottomTabChange}
-          />
-        )}
+        <div className="comments-content-area">
+          {activeTab === "comentarios" ? (
+            <CommentsSection
+              commentText={commentText}
+              setCommentText={setCommentText}
+              isCommentExpanded={isCommentExpanded}
+              handleCommentFocus={handleCommentFocus}
+              commentType={commentType}
+              handleCommentTypeChange={handleCommentTypeChange}
+              handlePublishClick={handlePublishClick}
+              filterTab={filterTab}
+              setFilterTab={setFilterTab}
+            />
+          ) : (
+            <ResourcesSection resources={resources} />
+          )}
+        </div>
+
+        {/* Bottom tabs moved outside the component */}
+        <div className="bottom-tabs">
+          <button
+            className={`bottom-tab ${activeTab === "recursos" ? "active" : ""}`}
+            onClick={() => handleBottomTabChange("recursos")}
+          >
+            <FaPaperclip className="tab-icon" /> Recursos
+          </button>
+          <button
+            className={`bottom-tab ${
+              activeTab === "comentarios" ? "active" : ""
+            }`}
+            onClick={() => handleBottomTabChange("comentarios")}
+          >
+            <FaComments className="tab-icon" /> Comentarios
+          </button>
+        </div>
       </div>
     </div>
   );

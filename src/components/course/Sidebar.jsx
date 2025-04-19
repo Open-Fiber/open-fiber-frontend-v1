@@ -4,9 +4,6 @@ import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 const Sidebar = ({ chapters, toggleChapter }) => {
   return (
     <div className="sidebar">
-      <div className="brand">
-        <h1>Open Fiber</h1>
-      </div>
       <div className="sidebar-nav">
         <div className="sidebar-header">
           <h3>CONSTRUYE +</h3>
