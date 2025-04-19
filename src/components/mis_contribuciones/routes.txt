@@ -1,0 +1,20 @@
+src/
+└── components/
+    └── mis_contribuciones/
+        ├── CardMachine/
+        |   ├─── CardMachine.jsx             // Componente para "Mis Maquinas Hackeadas"
+        |   ├─── cardmachine.css
+        ├── CardApp/
+        |   ├─── CardApp.jsx                 // Componente para "Mis Aplicaciones"
+        |   ├─── cardapp.css
+        ├── CardProposal/       
+        |   ├─── CardProposal.jsx     // Componente para "Propuestas"     
+        |   ├─── cardproposal.css
+        ├─── MisContribuciones.jsx       // Contenedor principal
+        ├─── miscontribuciones.css  
+
+        
+        ├── FlagIcon.js                 // Componente para iconos de banderas
+        ├── styles/
+        │   └── mis-contribuciones.css  // Estilos globales
+        └── data.js                     // Datos simulados

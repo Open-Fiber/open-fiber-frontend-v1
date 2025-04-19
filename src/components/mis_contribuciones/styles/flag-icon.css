@@ -1,0 +1,6 @@
+/* src/components/mis_contribuciones/styles/flag-icon.css */
+.flag-icon {
+  width: 24px;
+  height: 16px;
+  object-fit: contain;
+}

@@ -1,0 +1,46 @@
+/* src/components/mis_contribuciones/styles/mis_contribuciones.css */
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+.mis-contribuciones {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.seccion {
+  margin-bottom: 4rem;
+}
+
+.seccion h2 {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  align-items: center;
+}
+
+.add-button {
+  width: 80px;
+  height: 80px;
+  background: #cccccc;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0 1rem;
+  color: white;
+}
+
+.add-button:hover {
+  background: #bbbbbb;
+}

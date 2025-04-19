@@ -1,0 +1,79 @@
+/* src/components/mis_contribuciones/styles/card_proposal.css */
+.proposal-card {
+  width: 350px;
+  height: 450px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.proposal-image-container {
+  width: 100%;
+  height: 280px;
+  background-color: #e0e0e0;
+}
+
+.proposal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proposal-content {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.proposal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.proposal-title {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.proposal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proposal-fecha,
+.proposal-estado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.proposal-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.proposal-value {
+  font-size: 14px;
+  text-align: right;
+}
+
+.estado-revision {
+  color: #b45309;
+}
+
+.estado-rechazado {
+  color: #dc2626;
+}
+
+.estado-aceptado {
+  color: #059669;
+}
