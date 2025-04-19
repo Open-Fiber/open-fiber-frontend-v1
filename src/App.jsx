@@ -16,17 +16,7 @@ function App() {
     <BrowserRouter>
       <div className="app-container">
         <Home_Header />
-        <video autoPlay loop muted playsInline className="background-video">
-          <source
-            src="https://res.cloudinary.com/dwzjheic7/video/upload/v1744945255/WhatsApp_Video_2025-04-17_at_23.00.21_utueeb.mp4"
-            type="video/mp4"
-          />
-        </video>
-
-        {/* Renderiza Mis_Contribuciones */}
-        <Mis_Contribuciones />
-
-        {/* Contenido de la app */}
+        
       </div>
 
       <Routes>
@@ -34,7 +24,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/course" element={<Course />} />
-        <Route path="/footer" element={<Footer />} />
+        <Route path="/my-machines" element={<Mis_Contribuciones />} />
       </Routes>
     </BrowserRouter>
   );

@@ -18,42 +18,51 @@ const Home_Header = () => {
   };
 
   return (
-    <header className="header">
-      {/* Logo */}
-      <div className="logo-container">
-        <span className="logo-text">Open Fiber</span>
-      </div>
+    <>
+      <header className="header">
+        {/* Logo */}
+        <div className="logo-container">
+          <span className="logo-text">Open Fiber</span>
+        </div>
 
-      {/* Navegación */}
-      <nav className="nav" ref={navRef}>
-        <Link to="/nosotros" className="nav-link" onMouseEnter={handleHover}>
-          NOSOTROS
-        </Link>
-        <Link to="/aprende" className="nav-link" onMouseEnter={handleHover}>
-          APRENDE +
-        </Link>
-        <Link to="/comunidad" className="nav-link" onMouseEnter={handleHover}>
-          COMUNIDAD
-        </Link>
-        <Link to="/contacto" className="nav-link" onMouseEnter={handleHover}>
-          CONTACTO
-        </Link>
+        {/* Navegación */}
+        <nav className="nav" ref={navRef}>
+          <Link to="/nosotros" className="nav-link" onMouseEnter={handleHover}>
+            NOSOTROS
+          </Link>
+          <Link to="/aprende" className="nav-link" onMouseEnter={handleHover}>
+            APRENDE +
+          </Link>
+          <Link to="/comunidad" className="nav-link" onMouseEnter={handleHover}>
+            COMUNIDAD
+          </Link>
+          <Link to="/contacto" className="nav-link" onMouseEnter={handleHover}>
+            CONTACTO
+          </Link>
 
-        {/* Barra dinámica */}
-        <span
-          className="bar"
-          style={{
-            left: `${barPosition.left}px`,
-            width: `${barPosition.width}px`,
-          }}
-        ></span>
-      </nav>
+          {/* Barra dinámica */}
+          <span
+            className="bar"
+            style={{
+              left: `${barPosition.left}px`,
+              width: `${barPosition.width}px`,
+            }}
+          ></span>
+        </nav>
 
-      {/* Icono de perfil */}
-      <div className="profile-icon">
-        <FaRegCircleUser className="icon" />
-      </div>
-    </header>
+        {/* Icono de perfil */}
+        <div className="profile-icon">
+          <FaRegCircleUser className="icon" />
+        </div>
+      </header>
+
+      <video autoPlay loop muted playsInline className="background-video">
+        <source
+          src="https://res.cloudinary.com/dwzjheic7/video/upload/v1744945255/WhatsApp_Video_2025-04-17_at_23.00.21_utueeb.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </>
   );
 };
 
