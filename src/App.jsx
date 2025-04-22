@@ -40,7 +40,7 @@ const AppLayout = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/course" element={<Course />} />
+        <Route path="/aprende" element={<Course />} />
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
       </Routes>
 
