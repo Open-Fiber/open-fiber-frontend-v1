@@ -1,0 +1,119 @@
+.nosotros-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 4.5rem;
+  padding: 20px;
+}
+
+.seccion {
+  padding: 40px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.mitad-seccion {
+  display: flex;
+  gap: 12rem;
+  width: 100%;
+}
+.mitad-seccion:nth-child(3) .ilustracion {
+  order: 2;
+}
+.mitad-seccion p {
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.6;
+}
+.mitad-seccion .ilustracion {
+  width: 30%;
+}
+
+.contenedor-titulo-descripcion {
+  display: flex;
+  flex-direction: column;
+}
+.contenedor-titulo-descripcion h2 {
+  font-size: 2em;
+  color: #333;
+  width: 70%;
+}
+.contenedor-titulo-vision .ilustracion {
+  width: 90%;
+}
+
+.ilustracion {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.seccion h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.seccion p {
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Galería de fotos */
+.galeria .fotos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.foto {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.equipo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.titulo-equipo {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.galeria-equipo {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 6rem;
+}
+
+.miembro {
+  position: relative;
+  text-align: center;
+}
+
+.foto-miembro {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nombre-miembro {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+}

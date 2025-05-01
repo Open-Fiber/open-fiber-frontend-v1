@@ -13,6 +13,10 @@ export const Home = () => {
 
   return (
     <div className="home-container">
+
+      {/* Category grid */}
+      <CategoryGrid />
+
       {/* First section with image on the left */}
       <ImageTextSection
         imageUrl={sectionContent.imageUrl}
@@ -29,9 +33,9 @@ export const Home = () => {
         imageOnLeft={false}
       />
 
-      <CategoryGrid />
-
+      {/* Collage section */}
       <CollageSection />
+
     </div>
   );
 };
