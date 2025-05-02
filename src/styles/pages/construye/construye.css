@@ -1,0 +1,111 @@
+/* Estilos para la página Construye */
+.construye-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.construye-title {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 30;
+  font-weight: normal;
+  text-align: left;
+  margin: 40px 0 20px 0;
+  color: #000;
+}
+
+.featured-image-container {
+  width: 100%;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.featured-image-wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.fixed-dimension-container {
+  width: 1118px;
+  height: 324px;
+  border: 2px /*solid black*/;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+}
+
+.featured-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.construye-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 70px 0 20px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.tab-links {
+  display: flex;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-family: 'Architects Daughter', cursive;
+  margin-right: 40px;
+  font-size: 1rem;
+  color: #333;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.filter-dropdown select {
+  padding: 8px 25px 8px 10px;
+  border: none;
+  background-color: transparent;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 12px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 40px 0;
+}
+
+@media (max-width: 992px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}

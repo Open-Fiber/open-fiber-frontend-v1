@@ -1,7 +1,8 @@
 // src/components/mis_contribuciones/card_proposal/Card_Proposal.jsx
+// eslint-disable-next-line no-unused-vars
 import React from "react";
-import "../styles/card_proposal.css";
-import FlagIcon from "../FlagIcon";
+import "../styles/card_proposal.css"; // Asegúrate de que la ruta sea correcta
+import FlagIcon from "../../mis_contribuciones/FlagIcon";
 
 const Card_Proposal = ({ image, nombre, fechaLanzamiento, estado, pais }) => {
   // Determinar la clase CSS para el estado

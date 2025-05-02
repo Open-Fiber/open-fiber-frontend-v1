@@ -34,6 +34,9 @@ const Second_Header = () => {
         <Link to="/aprende" className="nav-link" onMouseEnter={handleHover}>
           APRENDE +
         </Link>
+        <Link to="/construye" className="nav-link" onMouseEnter={handleHover}>
+          CONSTRUYE
+        </Link>
         <Link to="/comunidad" className="nav-link" onMouseEnter={handleHover}>
           COMUNIDAD
         </Link>
