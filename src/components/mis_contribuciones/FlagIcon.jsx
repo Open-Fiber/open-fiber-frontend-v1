@@ -1,4 +1,4 @@
-// src/components/mis_contribuciones/FlagIcon.jsx
+
 import React from "react";
 import "./styles/flag-icon.css";
 

@@ -1,5 +1,6 @@
 // src/components/mis_contribuciones/MisContribuciones.jsx
 import React from "react";
+import Second_Header from "../second_header/Second_Header";
 import "./styles/mis_contribuciones.css";
 import {
   machinesHacked,
@@ -7,13 +8,14 @@ import {
   proposalsPending,
   proposalsReviewed,
 } from "./data";
-import Card_Machine from "./card_machine/Card_Machine";
-import Card_App from "./card_app/Card_App";
-import Card_Proposal from "./card_proposal/Card_Proposal";
+import Card_Machine from "../cards/card_machine/Card_Machine";
+import Card_App from "../cards/card_app/Card_App";
+import Card_Proposal from "../cards/card_proposal/Card_Proposal";
 import { FaPlus } from "react-icons/fa";
 
 const MisContribuciones = () => {
   return (
+    Second_Header,
     <div className="mis-contribuciones">
       {/* Sección 1: Mis Máquinas Hackeadas */}
       <section className="seccion">

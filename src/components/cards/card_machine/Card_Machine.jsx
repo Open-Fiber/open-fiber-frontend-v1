@@ -1,7 +1,7 @@
 // src/components/mis_contribuciones/card_machine/Card_Machine.jsx
 import React from "react";
 import "../styles/card_machine.css";
-import FlagIcon from "../FlagIcon";
+import FlagIcon from "../../mis_contribuciones/FlagIcon";
 import { AiOutlineLike } from "react-icons/ai";
 
 const Card_Machine = ({ image, nombre, descripcion, pais, likes }) => {

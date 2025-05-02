@@ -11,6 +11,7 @@ import Course from "./pages/course/Course";
 import CustomCursor from "./components/cursor/CustomCursor";
 import cursorImage from "./assets/Group.png";
 import "./app.css";
+import Construye from "./pages/construye/Construye";
 
 const rootStyle = {
   cursor: `url(${cursorImage}), auto`,
@@ -41,6 +42,7 @@ const AppLayout = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/aprende" element={<Course />} />
+        <Route path="/construye" element={<Construye />} />
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
       </Routes>
 
