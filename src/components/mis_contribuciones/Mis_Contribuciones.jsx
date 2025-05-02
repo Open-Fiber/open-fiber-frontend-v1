@@ -1,5 +1,7 @@
 // src/components/mis_contribuciones/MisContribuciones.jsx
+// eslint-disable-next-line no-unused-vars
 import React from "react";
+import second_header from "../second_header/Second_Header";
 import "./styles/mis_contribuciones.css";
 import {
   machinesHacked,
@@ -14,6 +16,7 @@ import { FaPlus } from "react-icons/fa";
 
 const MisContribuciones = () => {
   return (
+    second_header,
     <div className="mis-contribuciones">
       {/* Sección 1: Mis Máquinas Hackeadas */}
       <section className="seccion">
