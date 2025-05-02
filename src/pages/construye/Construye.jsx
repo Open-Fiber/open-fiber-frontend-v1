@@ -29,12 +29,11 @@ const Construye = () => {
         <div className="featured-image-wrapper">
           <div className="fixed-dimension-container">
             <img 
-              src="/path-to-hero-image.jpg" 
+              src="https://res.cloudinary.com/dwzjheic7/image/upload/v1746227945/6_700_Simple_Cat_Line_Art_Stock_Illustrations_Royalty-Free_Vector_Graphics_Clip_Art_nwjz77.jpg" 
               alt="Colaboración creativa" 
               className="featured-image"
             />
           </div>
-          <div className="image-dimensions"></div>
           
         </div>
       </div>
