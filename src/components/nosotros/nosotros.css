@@ -1,32 +1,37 @@
-.nosotros-container {
+.nosotros-container-informacion {
   display: flex;
   flex-direction: column;
-  max-width: 1100px;
-  margin: 0 auto;
+  align-items: center;
   gap: 4.5rem;
-  padding: 20px;
+  padding: 2rem;
+  max-width: 1100px;
+  width: 100vw;
+  margin: 0 auto;
 }
 
 .seccion {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
   padding: 40px 0;
   background-color: #fff;
   text-align: center;
 }
 
-.mitad-seccion {
+.nosotros-container-informacion .mitad-seccion {
   display: flex;
   gap: 12rem;
   width: 100%;
 }
-.mitad-seccion:nth-child(3) .ilustracion {
+.nosotros-container-informacion .mitad-seccion:nth-child(3) .ilustracion {
   order: 2;
 }
-.mitad-seccion p {
+.nosotros-container-informacion .mitad-seccion p {
   font-size: 1.1em;
   color: #666;
   line-height: 1.6;
 }
-.mitad-seccion .ilustracion {
+.nosotros-container-informacion .mitad-seccion .ilustracion {
   width: 30%;
 }
 
@@ -38,6 +43,7 @@
   font-size: 2em;
   color: #333;
   width: 70%;
+  font-family: Gloria Hallelujah;
 }
 .contenedor-titulo-vision .ilustracion {
   width: 90%;
@@ -64,6 +70,7 @@
 }
 
 /* Galería de fotos */
+
 .galeria .fotos {
   display: flex;
   flex-wrap: wrap;
@@ -76,32 +83,57 @@
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .equipo-container {
-  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
-  padding: 20px;
   text-align: center;
+  width: 100%;
+  background: linear-gradient(white, #edededed, #edededed);
 }
 
 .titulo-equipo {
   font-size: 2em;
   color: #333;
   margin-bottom: 20px;
+  font-family: Gloria Hallelujah, cursive;
 }
 
 .galeria-equipo {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 6rem;
+  max-width: 800px;
+  padding-bottom: 5rem;
 }
 
 .miembro {
   position: relative;
   text-align: center;
+  background-color: white;
+  padding: 0.5rem;
+  transform: rotate(2deg);
+  box-shadow: 3px 3px 10px rgb(180, 180, 180);
+}
+.miembro:nth-child(1) {
+  transform: rotate(10.88deg) translateY(-1.5rem);
+}
+.miembro:nth-child(2) {
+  transform: rotate(1.48deg);
+}
+.miembro:nth-child(3) {
+  transform: rotate(-16.93deg) translateY(-1.6rem);
+}
+.miembro:nth-child(4) {
+  transform: rotate(2.45deg);
+}
+.miembro:nth-child(5) {
+  transform: rotate(-6deg) translateY(-1rem);
 }
 
 .foto-miembro {
@@ -109,11 +141,13 @@
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .nombre-miembro {
   font-size: 0.9em;
   color: #666;
   margin-top: 5px;
+  font-family: Gloria Hallelujah, cursive;
+  color: black;
+  font-size: 0.7rem;
 }
