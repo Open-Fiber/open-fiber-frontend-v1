@@ -6,6 +6,7 @@ import Register from "./pages/auth/Register";
 import Footer from "./components/footer/Footer";
 import Home_Header from "./components/home_header/Home_Header";
 import Mis_Contribuciones from "./components/mis_contribuciones/Mis_Contribuciones";
+import Nosotros from "./components/nosotros/Nosotros";
 import Second_Header from "./components/second_header/Second_Header";
 import Course from "./pages/course/Course";
 import CustomCursor from "./components/cursor/CustomCursor";
@@ -43,6 +44,7 @@ const AppLayout = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/aprende" element={<Course />} />
         <Route path="/construye" element={<Construye />} />
+        <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
       </Routes>
 
