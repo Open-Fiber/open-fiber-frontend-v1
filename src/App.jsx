@@ -1,5 +1,6 @@
 // src/App.jsx
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -10,9 +11,10 @@ import Nosotros from "./components/nosotros/Nosotros";
 import Second_Header from "./components/second_header/Second_Header";
 import Course from "./pages/course/Course";
 import CustomCursor from "./components/cursor/CustomCursor";
+import Construye from "./pages/construye/Construye";
+import { initSmoothScrolling } from "./utils/scroll";
 import cursorImage from "./assets/Group.png";
 import "./app.css";
-import Construye from "./pages/construye/Construye";
 
 const rootStyle = {
   cursor: `url(${cursorImage}), auto`,
@@ -23,6 +25,21 @@ const AppLayout = () => {
   const location = useLocation();
   const path = location.pathname;
 
+  // Initialize smooth scrolling when app loads
+  useEffect(() => {
+    initSmoothScrolling();
+
+    // Cleanup function
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+  }, []);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   // Determine which header to show (if any)
   const showHomeHeader = path === "/";
   const showSecondHeader = !["/", "/login", "/register"].includes(path);
@@ -32,7 +49,7 @@ const AppLayout = () => {
 
   return (
     <div className="app-container" style={rootStyle}>
-      {/* Add the custom cursor component with no props needed now */}
+      {/* Add the custom cursor component */}
       <CustomCursor />
 
       {showHomeHeader && <Home_Header />}

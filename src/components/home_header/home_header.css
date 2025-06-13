@@ -1,221 +1,442 @@
-/* src/components/Header/home_header.css */
-@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:wght@800&display=swap");
+/* src/components/home_header/home_header.css */
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0px;
+  padding: 20px 40px;
   top: 0;
-  max-width: 100%;
-  /* Fondo completamente transparente */
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
   font-family: "Gloria Hallelujah", cursive;
-  position: absolute;
-  width: 100vw;
+  position: fixed;
   z-index: 1000;
-  background-color: black;
-  opacity: 0.6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
 
-  /* Asegura que esté sobre otros elementos */
-  /*border-bottom: 2px solid white;*/
-  /* Línea inferior azul (como en el diseño) */
+.header:hover {
+  background: rgba(0, 0, 0, 0.98);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding-left: 25px;
 }
 
 .logo-text {
   font-family: "Poppins", sans-serif;
   font-weight: 800;
-  font-size: 30px;
-  line-height: 24px;
-  letter-spacing: 0px;
+  font-size: 28px;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 0%, #4caf50 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
 }
 
-.logo-text a {
-  color: white;
-  text-decoration: none;
-}
-
-.logo-text:visited {
-  color: white;
-  text-decoration: none;
-}
-
-.wave-icon {
-  width: 40px;
-  height: auto;
-  color: #00ff99;
-  /* Color del ícono de onda */
+.logo-text:hover {
+  transform: scale(1.05);
 }
 
 .nav {
   position: relative;
   display: flex;
-  gap: 1.5rem;
-  /* Espaciado entre enlaces */
+  gap: 2rem;
 }
 
 .nav-link {
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-  border-right: 1px dashed transparent;
-  /* Líneas punteadas entre enlaces */
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
-.nav-link:last-child {
-  border-right: none;
-  /* Elimina la línea del último enlace */
+.nav-link:hover {
+  color: #4caf50;
+  transform: translateY(-2px);
 }
 
 .bar {
   position: absolute;
-  bottom: -5px;
+  bottom: -2px;
   height: 2px;
-  background: white;
-  /* Barra dinámica azul */
-  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
   opacity: 0;
+  border-radius: 2px;
 }
 
 .nav:hover .bar {
   opacity: 1;
 }
 
-/* Estilos para el icono de perfil y dropdown */
 .profile-container {
   position: relative;
-  padding-right: 30px;
 }
 
 .profile-icon {
   cursor: pointer;
   color: white;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.profile-icon:hover {
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+  transform: scale(1.1);
 }
 
 .icon {
-  width: 30px;
-  height: auto;
+  width: 24px;
+  height: 24px;
 }
 
-/* Estilos para el dropdown */
 .profile-dropdown {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   padding: 0.5rem 0;
   margin-top: 0.5rem;
-  min-width: 150px;
+  min-width: 160px;
   z-index: 1001;
-  animation: fadeIn 0.2s ease-in-out;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes fadeIn {
+@keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .dropdown-item {
   display: block;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   color: white;
   text-decoration: none;
-  transition: background-color 0.2s ease;
-  text-align: center;
+  transition: all 0.3s ease;
+  text-align: left;
   font-size: 0.9rem;
+  font-family: "Inter", sans-serif;
 }
 
 .dropdown-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(76, 175, 80, 0.15);
+  color: #4caf50;
+  transform: translateX(4px);
 }
 
-/* Estilos para el texto de revolución */
-.revolution-text {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  color: white;
-  text-align: right;
-  z-index: 100;
-  font-family: "Gloria Hallelujah", cursive;
-}
-
-.revolution-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-}
-
-.revolution-text p {
-  font-size: 1.2rem;
-}
-
-/* Video container y overlay para oscurecer el video */
-.video-container-home {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+/* Hero Section Styles */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f1419 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
-  z-index: -2;
+  padding: 0 2rem;
 }
 
-.video-overlay-home {
+.hero-section::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0);
-  opacity: 0.2;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(76, 175, 80, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(33, 150, 243, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 70%,
+      rgba(156, 39, 176, 0.05) 0%,
+      transparent 50%
+    );
   z-index: 1;
 }
 
-.background-video {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.text-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.animated-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.1em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.animated-title .char {
+  display: inline-block;
+  transform-origin: center bottom;
+  transition: all 0.3s ease;
+}
+
+.animated-subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  opacity: 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Decorative Elements */
+.hero-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fiber-strand {
+  position: absolute;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(76, 175, 80, 0.6),
+    transparent
+  );
+  border-radius: 2px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.strand-1 {
+  width: 200px;
+  height: 2px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  transform: rotate(25deg);
+}
+
+.strand-2 {
+  width: 150px;
+  height: 1.5px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+  transform: rotate(-15deg);
+}
+
+.strand-3 {
+  width: 180px;
+  height: 2px;
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 4s;
+  transform: rotate(45deg);
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(76, 175, 80, 0.8);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.particle-1 {
+  top: 30%;
+  left: 25%;
+  animation-delay: 1s;
+}
+
+.particle-2 {
+  top: 70%;
+  right: 30%;
+  animation-delay: 3s;
+}
+
+.particle-3 {
+  bottom: 40%;
+  left: 70%;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rotation, 0deg));
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) rotate(var(--rotation, 0deg));
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+/* Smooth scrolling for all browsers */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .header {
-    padding: 1rem;
+    padding: 15px 20px;
   }
 
   .nav {
     display: none;
   }
 
-  .revolution-text {
-    bottom: 1rem;
-    right: 1rem;
+  .logo-text {
+    font-size: 24px;
   }
 
-  .revolution-text h2 {
-    font-size: 1.8rem;
+  .hero-section {
+    padding: 0 1rem;
+    min-height: calc(100vh - 60px);
   }
 
-  .revolution-text p {
-    font-size: 1rem;
+  .animated-title {
+    min-height: 150px;
+    margin-bottom: 1rem;
   }
+
+  .fiber-strand,
+  .particle {
+    display: none; /* Hide decorative elements on mobile for performance */
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 15px;
+  }
+
+  .hero-section {
+    padding: 0 0.5rem;
+  }
+
+  .animated-title {
+    min-height: 120px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .header {
+    background: rgba(0, 0, 0, 1);
+    border-bottom: 2px solid white;
+  }
+
+  .hero-section {
+    background: #000;
+  }
+
+  .animated-title {
+    color: #fff;
+    text-shadow: none;
+  }
+
+  .animated-subtitle {
+    color: #fff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fiber-strand,
+  .particle {
+    animation: none;
+  }
+
+  .nav-link:hover {
+    transform: none;
+  }
+
+  .logo-text:hover {
+    transform: none;
+  }
+
+  .profile-icon:hover {
+    transform: none;
+  }
+
+  .dropdown-item:hover {
+    transform: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.nav-link:focus,
+.profile-icon:focus,
+.dropdown-item:focus {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.hero-section.loading .animated-title,
+.hero-section.loading .animated-subtitle {
+  opacity: 0;
 }

@@ -1,37 +1,59 @@
-/* src/App.css */
-.app-container {
-  width: 100%;
-  height: 100vh;
-}
+/* src/app.css */
 
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.8);
-  /* Oscurece el video para mejor contraste */
-  z-index: 0;
-  /* Coloca el video detrás de todo */
-}
-
+/* Global smooth scrolling */
 * {
-  cursor: url("./assets/Group.png"), auto !important;
+  box-sizing: border-box;
 }
 
-a,
-button,
-[role="button"],
-input[type="submit"],
-input[type="button"],
-.clickable {
-  cursor: url("./assets/Group.png"), pointer !important;
+html {
+  scroll-behavior: smooth;
 }
 
-input,
-textarea,
-[contenteditable="true"] {
-  cursor: url("./assets/Group.png"), text !important;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Smooth scroll for anchor links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4caf50;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #45a049;
+}
+
+/* Ensure smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Override transition for animations that need specific timing */
+.main-phrase,
+.subtitle-phrase {
+  transition: none;
 }
