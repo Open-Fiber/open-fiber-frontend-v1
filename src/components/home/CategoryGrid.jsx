@@ -133,19 +133,6 @@ const CategoryGrid = () => {
               ease: "outBack",
             });
 
-            // Add floating animation after entrance
-            setTimeout(() => {
-              cards.forEach((card, i) => {
-                animate(card, {
-                  translateY: [0, -10, 0],
-                  duration: 3000 + i * 200,
-                  delay: i * 500,
-                  ease: "inOutSine",
-                  loop: true,
-                });
-              });
-            }, 1200);
-
             observer.unobserve(entry.target);
           }
         });
