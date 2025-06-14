@@ -1,3 +1,4 @@
+/* src/components/home_header/home_header.css */
 @import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Aukim:300,400,500,600,700");
 
@@ -12,7 +13,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: white;
-  font-family: "Aukim", "Poppins", sans-serif;
+  font-family: "Gloria Hallelujah", cursive;
   position: fixed;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -253,6 +254,77 @@ html {
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) {
+  .header {
+    padding: 18px 35px;
+  }
+
+  .logo-text {
+    font-size: 34px;
+  }
+
+  .nav {
+    gap: 1.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 16px 30px;
+  }
+
+  .logo-text {
+    font-size: 32px;
+  }
+
+  .nav {
+    gap: 1.5rem;
+  }
+
+  .animated-title {
+    font-size: clamp(3.5rem, 5vw, 4rem);
+    min-height: 140px;
+    max-height: 280px;
+  }
+
+  .hero-section {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    padding: 15px 25px;
+  }
+
+  .logo-text {
+    font-size: 28px;
+  }
+
+  .nav {
+    gap: 1.25rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+
+  .animated-title {
+    font-size: clamp(3rem, 5vw, 3.5rem);
+    min-height: 120px;
+    max-height: 260px;
+  }
+
+  .animated-subtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 15px 20px;
@@ -263,7 +335,7 @@ html {
   }
 
   .logo-text {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .hero-section {
@@ -272,15 +344,53 @@ html {
   }
 
   .animated-title {
-    min-height: 140px;
-    max-height: 240px;
+    min-height: 120px;
+    max-height: 220px;
     margin-bottom: 1rem;
-    font-size: clamp(1.5rem, 6vw, 2.8rem);
+    font-size: clamp(2.5rem, 6vw, 3rem);
     padding: 0 0.5rem;
   }
 
   .text-container {
     margin-bottom: 1rem;
+  }
+
+  .animated-subtitle {
+    font-size: clamp(0.85rem, 2.2vw, 1.1rem);
+  }
+
+  .profile-dropdown {
+    min-width: 140px;
+  }
+
+  .dropdown-item {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 12px 15px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .animated-title {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    min-height: 100px;
+    max-height: 200px;
+  }
+
+  .animated-subtitle {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -294,10 +404,67 @@ html {
   }
 
   .animated-title {
-    min-height: 120px;
-    max-height: 200px;
-    font-size: clamp(1.2rem, 5.5vw, 2.2rem);
+    min-height: 90px;
+    max-height: 180px;
+    font-size: clamp(1.75rem, 5.5vw, 2.5rem);
     line-height: 1.2;
+    padding: 0 0.25rem;
+  }
+
+  .animated-subtitle {
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .profile-dropdown {
+    min-width: 130px;
+    margin-top: 0.25rem;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .animated-title {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    min-height: 80px;
+    max-height: 160px;
+  }
+
+  .animated-subtitle {
+    font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+  }
+
+  .hero-section {
+    padding: 0 0.25rem;
+  }
+
+  .profile-dropdown {
+    min-width: 120px;
+  }
+
+  .dropdown-item {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -319,6 +486,13 @@ html {
 
   .animated-subtitle {
     color: #fff;
+  }
+
+  .logo-text {
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
@@ -352,6 +526,14 @@ html {
   .animated-title {
     min-height: auto !important;
   }
+
+  .slideIn {
+    animation: none;
+  }
+
+  .profile-dropdown {
+    animation: none;
+  }
 }
 
 /* Focus styles for accessibility */
@@ -360,4 +542,58 @@ html {
 .dropdown-item:focus {
   outline: 2px solid #abc3ff;
   outline-offset: 2px;
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:hover {
+    color: white;
+    transform: none;
+  }
+
+  .logo-text:hover {
+    transform: none;
+  }
+
+  .profile-icon:hover {
+    color: white;
+    background: transparent;
+    transform: none;
+  }
+
+  .dropdown-item:hover {
+    background: transparent;
+    color: white;
+    transform: none;
+  }
+
+  /* Increase touch targets */
+  .nav-link {
+    padding: 1rem 0.5rem;
+  }
+
+  .profile-icon {
+    padding: 12px;
+  }
+
+  .dropdown-item {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh;
+  }
+
+  .animated-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    min-height: 80px;
+    max-height: 120px;
+  }
+
+  .animated-subtitle {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+  }
 }

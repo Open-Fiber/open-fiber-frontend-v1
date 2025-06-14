@@ -1,3 +1,4 @@
+/* src/components/Header/header.css */
 @import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:wght@800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Aukim:300,400,500,600,700");
 
@@ -7,14 +8,10 @@
   justify-content: space-between;
   padding: 1rem 2rem;
   background: #141414;
-  /* Fondo completamente transparente */
   color: white;
   font-family: "Gloria Hallelujah", cursive;
   position: relative;
   z-index: 1000;
-  /* Asegura que esté sobre otros elementos */
-  /*border-bottom: 2px solid white;*/
-  /* Línea inferior azul (como en el diseño) */
 }
 
 .logo-container {
@@ -48,7 +45,6 @@
   position: relative;
   display: flex;
   gap: 1.5rem;
-  /* Espaciado entre enlaces */
 }
 
 .nav-link {
@@ -59,17 +55,15 @@
   font-size: 1.1rem;
   transition: color 0.3s ease;
   border-right: 1px dashed transparent;
-  /* Líneas punteadas entre enlaces */
+}
+
+.nav-link:last-child {
+  border-right: none;
 }
 
 .nav-link:hover {
   color: #abc3ff;
   transform: translateY(-2px);
-}
-
-.nav-link:last-child {
-  border-right: none;
-  /* Elimina la línea del último enlace */
 }
 
 .bar {
@@ -89,6 +83,9 @@
 .profile-icon {
   cursor: pointer;
   color: white;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
 }
 
 .profile-icon:hover {
@@ -103,12 +100,286 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) {
+  .second-header {
+    padding: 1rem 1.75rem;
+  }
+
+  .logo-text {
+    font-size: 28px;
+  }
+
+  .nav {
+    gap: 1.25rem;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .second-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 26px;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .icon {
+    width: 28px;
+  }
+}
+
+@media (max-width: 992px) {
+  .second-header {
+    padding: 0.875rem 1.25rem;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .nav {
+    gap: 0.875rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    padding: 0.375rem 0;
+  }
+
+  .icon {
+    width: 26px;
+  }
+}
+
 @media (max-width: 768px) {
-  .header {
+  .second-header {
     padding: 1rem;
   }
 
   .nav {
+    display: none;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .icon {
+    width: 24px;
+  }
+
+  .profile-icon {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .second-header {
+    padding: 0.875rem 0.75rem;
+  }
+
+  .logo-text {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .icon {
+    width: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .second-header {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .icon {
+    width: 20px;
+  }
+
+  .profile-icon {
+    padding: 4px;
+  }
+}
+
+@media (max-width: 360px) {
+  .second-header {
+    padding: 0.625rem 0.375rem;
+  }
+
+  .logo-text {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .icon {
+    width: 18px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .second-header {
+    background: #000;
+    border-bottom: 2px solid white;
+  }
+
+  .logo-text a {
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-link:hover {
+    color: white;
+  }
+
+  .profile-icon:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .bar {
+    background: white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .logo-text a:hover {
+    transform: none;
+  }
+
+  .nav-link:hover {
+    transform: none;
+  }
+
+  .profile-icon:hover {
+    transform: none;
+  }
+
+  .bar {
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.nav-link:focus,
+.profile-icon:focus,
+.logo-text a:focus {
+  outline: 2px solid #abc3ff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:hover {
+    color: white;
+    transform: none;
+  }
+
+  .logo-text a:hover {
+    transform: none;
+  }
+
+  .profile-icon:hover {
+    color: white;
+    background: transparent;
+    transform: none;
+  }
+
+  /* Increase touch targets */
+  .nav-link {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .profile-icon {
+    padding: 12px;
+  }
+
+  .logo-text a {
+    padding: 0.25rem;
+    display: inline-block;
+  }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .second-header {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .icon {
+    width: 22px;
+  }
+}
+
+/* Large screen optimization */
+@media (min-width: 1600px) {
+  .second-header {
+    padding: 1.25rem 2.5rem;
+  }
+
+  .logo-text {
+    font-size: 32px;
+  }
+
+  .nav {
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 1.125rem;
+  }
+
+  .icon {
+    width: 32px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .second-header {
+    background: white !important;
+    color: black !important;
+    border-bottom: 2px solid black;
+  }
+
+  .logo-text a {
+    background: black;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .profile-icon {
     display: none;
   }
 }
