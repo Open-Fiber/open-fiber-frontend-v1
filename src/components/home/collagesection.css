@@ -152,11 +152,11 @@
 }
 
 /* Enhanced Button */
-.cta-button {
+.cta-button-collage {
   position: relative;
 }
 
-.cta-button button {
+.cta-button-collage button {
   position: relative;
   background: linear-gradient(135deg, #1f2937, #374151);
   color: white;
@@ -190,7 +190,7 @@
   z-index: 1;
 }
 
-.cta-button button:hover .button-bg {
+.cta-button-collage button:hover .button-bg {
   opacity: 1;
 }
 
@@ -207,7 +207,7 @@
   z-index: 2;
 }
 
-.cta-button button:active .button-ripple {
+.cta-button-collage button:active .button-ripple {
   width: 200px;
   height: 200px;
 }
@@ -418,7 +418,7 @@
     font-size: 2rem;
   }
 
-  .cta-button button {
+  .cta-button-collage button {
     padding: 16px 28px;
     font-size: 1rem;
   }

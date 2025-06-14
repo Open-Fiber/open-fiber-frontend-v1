@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Aukim:300,400,500,600,700");
 
 .category-grid-section {
   position: relative;
@@ -135,11 +137,11 @@
 }
 
 .category-main-title {
-  font-family: "Inter", sans-serif;
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #1e293b, #475569, #64748b);
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -293,9 +295,9 @@
 }
 
 .card-title {
-  font-family: "Inter", sans-serif;
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
   font-size: 1.5rem;
-  font-weight: 700;
   color: white;
   margin: 0;
   line-height: 1.2;
@@ -424,7 +426,7 @@
   height: 100%;
   background: radial-gradient(
     circle at 50% 50%,
-    rgba(59, 130, 246, 0.1) 0%,
+    rgba(73, 73, 233, 0.1) 0%,
     transparent 70%
   );
   opacity: 0;
@@ -448,7 +450,7 @@
 
 .border-line {
   position: absolute;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, #abc3ff, #4949e9);
   opacity: 0;
   transition: all 0.4s ease;
 }
@@ -537,18 +539,23 @@
   align-items: center;
   gap: 12px;
   padding: 16px 32px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
   color: white;
   border: none;
   border-radius: 16px;
-  font-family: "Inter", sans-serif;
+  font-family: "Aukim", "Inter", sans-serif;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 300;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 20px rgba(73, 73, 233, 0.3);
   position: relative;
   overflow: hidden;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(73, 73, 233, 0.4);
 }
 
 .cta-button::before {
@@ -569,11 +576,6 @@
 
 .cta-button:hover::before {
   left: 100%;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
 }
 
 .cta-icon {

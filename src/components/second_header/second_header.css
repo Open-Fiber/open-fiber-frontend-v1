@@ -1,93 +1,114 @@
-/* src/components/Header/header.css */
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Aukim:300,400,500,600,700");
 
 .second-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background: #141414;
-    /* Fondo completamente transparente */
-    color: white;
-    font-family: 'Gloria Hallelujah', cursive;
-    position: relative;
-    z-index: 1000;
-    /* Asegura que esté sobre otros elementos */
-    /*border-bottom: 2px solid white;*/
-    /* Línea inferior azul (como en el diseño) */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #141414;
+  /* Fondo completamente transparente */
+  color: white;
+  font-family: "Gloria Hallelujah", cursive;
+  position: relative;
+  z-index: 1000;
+  /* Asegura que esté sobre otros elementos */
+  /*border-bottom: 2px solid white;*/
+  /* Línea inferior azul (como en el diseño) */
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .logo-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 24px;
-    letter-spacing: 0px;
+  font-family: "Aukim", "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 24px;
+  letter-spacing: 0px;
 }
 
+.logo-text a {
+  background: linear-gradient(135deg, #4949e9 0%, #abc3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
 
+.logo-text a:hover {
+  transform: scale(1.05);
+}
 
 .nav {
-    position: relative;
-    display: flex;
-    gap: 1.5rem;
-    /* Espaciado entre enlaces */
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  /* Espaciado entre enlaces */
 }
 
 .nav-link {
-    position: relative;
-    padding: 0.5rem 0;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-    border-right: 1px dashed transparent;
-    /* Líneas punteadas entre enlaces */
+  position: relative;
+  padding: 0.5rem 0;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  border-right: 1px dashed transparent;
+  /* Líneas punteadas entre enlaces */
+}
+
+.nav-link:hover {
+  color: #abc3ff;
+  transform: translateY(-2px);
 }
 
 .nav-link:last-child {
-    border-right: none;
-    /* Elimina la línea del último enlace */
+  border-right: none;
+  /* Elimina la línea del último enlace */
 }
 
 .bar {
-    position: absolute;
-    bottom: -5px;
-    height: 2px;
-    background: white;
-    /* Barra dinámica azul */
-    transition: all 0.3s ease;
-    pointer-events: none;
-    opacity: 0;
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  background: linear-gradient(90deg, #4949e9, #abc3ff);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .nav:hover .bar {
-    opacity: 1;
+  opacity: 1;
 }
 
 .profile-icon {
-    cursor: pointer;
-    color: white;
+  cursor: pointer;
+  color: white;
+}
+
+.profile-icon:hover {
+  color: #abc3ff;
+  background: rgba(171, 195, 255, 0.1);
+  transform: scale(1.1);
 }
 
 .icon {
-    width: 30px;
-    height: auto;
+  width: 30px;
+  height: auto;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .header {
-        padding: 1rem;
-    }
+  .header {
+    padding: 1rem;
+  }
 
-    .nav {
-        display: none;
-    }
+  .nav {
+    display: none;
+  }
 }

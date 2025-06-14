@@ -1,5 +1,7 @@
 /* Enhanced Footer Styles */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Aukim:300,400,500,600,700");
 
 .footer {
   position: relative;
@@ -28,17 +30,17 @@
   height: 100%;
   background: radial-gradient(
       circle at 20% 80%,
-      rgba(59, 130, 246, 0.1) 0%,
+      rgba(171, 195, 255, 0.1) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 20%,
-      rgba(139, 92, 246, 0.1) 0%,
+      rgba(73, 73, 233, 0.1) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 40% 40%,
-      rgba(34, 197, 94, 0.05) 0%,
+      rgba(220, 243, 66, 0.05) 0%,
       transparent 50%
     );
 }
@@ -55,18 +57,18 @@
   position: absolute;
   width: 4px;
   height: 4px;
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(171, 195, 255, 0.3);
   border-radius: 50%;
   animation: float 20s infinite linear;
 }
 
 .particle:nth-child(odd) {
-  background: rgba(139, 92, 246, 0.3);
+  background: rgba(73, 73, 233, 0.3);
   animation-duration: 25s;
 }
 
 .particle:nth-child(3n) {
-  background: rgba(34, 197, 94, 0.3);
+  background: rgba(220, 243, 66, 0.3);
   animation-duration: 30s;
 }
 
@@ -205,7 +207,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, #4949e9, #abc3ff);
   border-radius: 1px;
 }
 
@@ -218,10 +220,11 @@
 }
 
 .company-logo h3 {
+  font-family: "Aukim", "Inter", sans-serif;
   font-size: 1.75rem;
-  font-weight: 800;
+  font-weight: 300;
   margin: 0;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -229,7 +232,7 @@
 
 .logo-icon {
   font-size: 1.5rem;
-  color: #3b82f6;
+  color: #4949e9;
   animation: rocket 2s ease-in-out infinite;
 }
 
@@ -268,7 +271,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  color: #cbd5e1;
+  color: #abc3ff;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -282,21 +285,21 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
-}
-
-.social-icon:hover::before {
-  opacity: 1;
 }
 
 .social-icon:hover {
   transform: translateY(-2px);
   color: white;
   border-color: transparent;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(73, 73, 233, 0.3);
+}
+
+.social-icon:hover::before {
+  opacity: 1;
 }
 
 .social-icon.github:hover {
@@ -347,7 +350,7 @@
   transform: translateY(-50%);
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, #4949e9, #abc3ff);
   transition: width 0.3s ease;
 }
 
@@ -378,7 +381,7 @@
 }
 
 .contact-icon {
-  color: #3b82f6;
+  color: #4949e9;
   font-size: 1rem;
   min-width: 16px;
 }
@@ -418,19 +421,20 @@
 
 .newsletter-input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #4949e9;
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(73, 73, 233, 0.1);
 }
 
 .newsletter-btn {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
   border: none;
   border-radius: 8px;
   color: white;
   font-weight: 600;
   font-size: 0.95rem;
+  font-family: "Aukim", "Inter", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -439,11 +443,11 @@
 
 .newsletter-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(73, 73, 233, 0.3);
 }
 
 .newsletter-btn.subscribed {
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #dcf342, #abc3ff);
   cursor: default;
 }
 
@@ -453,7 +457,7 @@
 }
 
 .success-message {
-  color: #10b981;
+  color: #dcf342;
   font-size: 0.875rem;
   margin: 0;
   animation: fadeInUp 0.5s ease;
@@ -538,7 +542,7 @@
   right: 2rem;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
   border: none;
   border-radius: 50%;
   color: white;
@@ -546,8 +550,13 @@
   cursor: pointer;
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 20px rgba(73, 73, 233, 0.3);
   animation: slideInUp 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(73, 73, 233, 0.4);
 }
 
 @keyframes slideInUp {
@@ -559,11 +568,6 @@
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-.scroll-top-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
 }
 
 /* Responsive Design */
