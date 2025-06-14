@@ -217,7 +217,7 @@ const CollageSection = () => {
               CON NOSOTROS
             </h2>
           </div>
-          <div className="cta-button-collage">
+          <div className="cta-button">
             <button ref={buttonRef}>
               <span className="button-text">
                 <span className="highlight">CONSTRUYE +</span>

@@ -259,7 +259,10 @@ const CategoryGrid = () => {
         {/* Call to Action */}
         <div className="category-cta">
           <p>¿Listo para comenzar tu viaje sostenible?</p>
-          <button className="cta-button" onClick={() => navigate("/construye")}>
+          <button
+            className="cta-button-category"
+            onClick={() => navigate("/construye")}
+          >
             <FaPlay className="cta-icon" />
             <span>Comenzar Ahora</span>
           </button>
