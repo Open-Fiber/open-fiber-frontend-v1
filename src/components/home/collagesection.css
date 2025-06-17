@@ -540,17 +540,21 @@
   .img-1,
   .img-2,
   .img-3 {
-    width: 180px;
+    width: 333px;
+  }
+
+  .img-1 {
+    top: 10px;
   }
 
   .img-2 {
-    right: 15px;
-    top: 130px;
+    left: -80px;
+    top: 200px;
   }
 
   .img-3 {
-    left: 15px;
-    top: 260px;
+    left: 190px;
+    top: 400px;
   }
 
   .floating-background {
@@ -656,20 +660,21 @@
   .img-1,
   .img-2,
   .img-3 {
-    width: 140px;
+    width: 220px;
   }
 
   .img-1 {
-    top: 5px;
+    top: 26px;
+    left: 120px;
   }
 
   .img-2 {
-    top: 110px;
-    right: 8px;
+    top: 330px;
+    right: 30px;
   }
 
   .img-3 {
-    top: 200px;
+    top: 170px;
     left: 8px;
   }
 

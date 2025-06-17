@@ -1,11 +1,12 @@
-// src/components/Header/Header.jsx
+// src/components/second_header/Second_Header.jsx
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
 import "./second_header.css";
 
-const Second_Header = () => {
+const Second_Header = ({ isFixed = false, className = "" }) => {
   const [barPosition, setBarPosition] = useState({ left: 0, width: 0 });
+  const [showDropdown, setShowDropdown] = useState(false);
   const navRef = useRef(null);
 
   const handleHover = (e) => {
@@ -17,16 +18,22 @@ const Second_Header = () => {
     });
   };
 
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const headerClass = `second-header ${
+    isFixed ? "fixed" : ""
+  } ${className}`.trim();
+
   return (
-    <header className="second-header">
-      {/* Logo */}
+    <header className={headerClass}>
       <div className="logo-container">
-        <span className="logo-text">
-          <Link to="/">Open Fiber</Link>{" "}
-        </span>
+        <Link to="/" className="logo-link">
+          <span className="logo-text">Open Fiber</span>
+        </Link>
       </div>
 
-      {/* Navegación */}
       <nav className="nav" ref={navRef}>
         <Link to="/nosotros" className="nav-link" onMouseEnter={handleHover}>
           NOSOTROS
@@ -44,7 +51,6 @@ const Second_Header = () => {
           CONTACTO
         </Link>
 
-        {/* Barra dinámica */}
         <span
           className="bar"
           style={{
@@ -54,9 +60,21 @@ const Second_Header = () => {
         ></span>
       </nav>
 
-      {/* Icono de perfil */}
-      <div className="profile-icon">
-        <FaRegCircleUser className="icon" />
+      <div className="profile-container">
+        <div className="profile-icon" onClick={toggleDropdown}>
+          <FaRegCircleUser className="icon" />
+        </div>
+
+        {showDropdown && (
+          <div className="profile-dropdown">
+            <Link to="/login" className="dropdown-item">
+              Iniciar sesión
+            </Link>
+            <Link to="/register" className="dropdown-item">
+              Registrarse
+            </Link>
+          </div>
+        )}
       </div>
     </header>
   );

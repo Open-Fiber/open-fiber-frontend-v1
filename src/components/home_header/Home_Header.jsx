@@ -1,14 +1,10 @@
 // src/components/home_header/Home_Header.jsx
-import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
-import { FaRegCircleUser } from "react-icons/fa6";
+import Second_Header from "../second_header/Second_Header";
 import "./home_header.css";
 
 const Home_Header = () => {
-  const [barPosition, setBarPosition] = useState({ left: 0, width: 0 });
-  const [showDropdown, setShowDropdown] = useState(false);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const navRef = useRef(null);
   const canvasRef = useRef(null);
   const textRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -16,13 +12,13 @@ const Home_Header = () => {
   const particlesRef = useRef([]);
   const configRef = useRef({
     particleDensity: 2,
-    particleSizeMultiplier: 1 / 45,
+    particleSizeMultiplier: 1 / 30,
     gravity: 0.08,
     friction: 0.98,
-    bounce: 0.7,
-    returnSpeed: 0.08,
-    formationDelay: 2500, // More time for formation
-    holdDuration: 3000,
+    bounce: 0.6,
+    returnSpeed: 0.05,
+    formationDelay: 3000, // More time for formation
+    holdDuration: 10000,
     fallingDuration: 4000,
     nextPhraseDelay: 800,
   });
@@ -163,7 +159,7 @@ const Home_Header = () => {
     const lineHeight = fontSize * 1.3; // Line height multiplier
 
     tempCtx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
-    tempCtx.fillStyle = "#ffffff";
+    tempCtx.fillStyle = "#4949e9";
     tempCtx.textAlign = "center";
     tempCtx.textBaseline = "middle";
 
@@ -209,7 +205,7 @@ const Home_Header = () => {
           const canvasY = offsetY + y;
 
           particles.push(
-            new Particle(canvasX, canvasY, "#ffffff", particleSize)
+            new Particle(canvasX, canvasY, "#4949e9", particleSize)
           );
         }
       }
@@ -319,69 +315,9 @@ const Home_Header = () => {
     };
   }, []);
 
-  const handleHover = (e) => {
-    const navRect = navRef.current.getBoundingClientRect();
-    const linkRect = e.target.getBoundingClientRect();
-    setBarPosition({
-      left: linkRect.left - navRect.left,
-      width: linkRect.width,
-    });
-  };
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
-
   return (
     <>
-      <header className="header">
-        <div className="logo-container">
-          <span className="logo-text">Open Fiber</span>
-        </div>
-
-        <nav className="nav" ref={navRef}>
-          <Link to="/nosotros" className="nav-link" onMouseEnter={handleHover}>
-            NOSOTROS
-          </Link>
-          <Link to="/aprende" className="nav-link" onMouseEnter={handleHover}>
-            APRENDE +
-          </Link>
-          <Link to="/construye" className="nav-link" onMouseEnter={handleHover}>
-            CONSTRUYE
-          </Link>
-          <Link to="/comunidad" className="nav-link" onMouseEnter={handleHover}>
-            COMUNIDAD
-          </Link>
-          <Link to="/contacto" className="nav-link" onMouseEnter={handleHover}>
-            CONTACTO
-          </Link>
-
-          <span
-            className="bar"
-            style={{
-              left: `${barPosition.left}px`,
-              width: `${barPosition.width}px`,
-            }}
-          ></span>
-        </nav>
-
-        <div className="profile-container">
-          <div className="profile-icon" onClick={toggleDropdown}>
-            <FaRegCircleUser className="icon" />
-          </div>
-
-          {showDropdown && (
-            <div className="profile-dropdown">
-              <Link to="/login" className="dropdown-item">
-                Iniciar sesión
-              </Link>
-              <Link to="/register" className="dropdown-item">
-                Registrarse
-              </Link>
-            </div>
-          )}
-        </div>
-      </header>
+      <Second_Header isFixed={true} />
 
       <div className="hero-section">
         <div className="hero-content">
