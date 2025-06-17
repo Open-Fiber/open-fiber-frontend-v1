@@ -30,7 +30,7 @@ const Second_Header = ({ isFixed = false, className = "" }) => {
     <header className={headerClass}>
       <div className="logo-container">
         <Link to="/" className="logo-link">
-          <span className="logo-text">Open Fiber</span>
+          <span className="logo-text" draggable={false}>Open Fiber</span>
         </Link>
       </div>
 
