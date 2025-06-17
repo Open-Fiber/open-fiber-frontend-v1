@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ParticlesBackground from "./../../components/ParticlesBackground/ParticlesBackground";
 import "./../../styles/pages/auth/login.css";
 
 const Login = () => {
@@ -30,13 +31,7 @@ const Login = () => {
 
   return (
     <div className="login-page">
-      <div className="login-background">
-        <div className="background-shapes">
-          <div className="shape shape-1"></div>
-          <div className="shape shape-2"></div>
-          <div className="shape shape-3"></div>
-        </div>
-      </div>
+      <ParticlesBackground />
 
       <div className="login-container">
         <div className="login-card">
@@ -109,6 +104,11 @@ const Login = () => {
               ¿No tienes una cuenta?{" "}
               <Link to="/register" className="signup-link">
                 Regístrate aquí
+              </Link>
+            </p>
+            <p className="signup-prompt">
+              <Link to="/" className="signup-link">
+                Volver al Inicio
               </Link>
             </p>
           </div>
