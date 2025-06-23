@@ -11,16 +11,16 @@ const Home_Header = () => {
   const animationRef = useRef(null);
   const particlesRef = useRef([]);
   const configRef = useRef({
-    particleDensity: 2,
-    particleSizeMultiplier: 1 / 30,
-    gravity: 0.08,
+    particleDensity: 3,
+    particleSizeMultiplier: 1 / 40,
+    gravity: 0.09,
     friction: 0.98,
     bounce: 0.6,
     returnSpeed: 0.05,
     formationDelay: 3000, // More time for formation
-    holdDuration: 10000,
-    fallingDuration: 4000,
-    nextPhraseDelay: 800,
+    holdDuration: 7000,
+    fallingDuration: 6000,
+    nextPhraseDelay: 900,
   });
 
   // Sophisticated phrases related to Open Fiber project
@@ -320,7 +320,7 @@ const Home_Header = () => {
       <Second_Header isFixed={true} />
 
       <div className="hero-section">
-        <div className="hero-content">
+        <div className="hero-content-home">
           <div className="text-container">
             <h1 className="animated-title" ref={textRef}></h1>
             <p className="animated-subtitle" ref={subtitleRef}>

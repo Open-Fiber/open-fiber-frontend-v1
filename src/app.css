@@ -39,7 +39,7 @@ a[href^="#"] {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4caf50;
+  background: #4949e9;
   border-radius: 4px;
 }
 
