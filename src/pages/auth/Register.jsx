@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./../../styles/pages/auth/login.css";
+import "./../../styles/pages/auth/auth.css";
 const Register = () => {
   const [formData, setFormData] = useState({
     email: "",
