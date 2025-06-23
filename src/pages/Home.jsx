@@ -1,4 +1,3 @@
-import React from "react";
 import CategoryGrid from "../components/home/CategoryGrid";
 import ImageTextSection from "../components/home/ImageTextSection";
 import CollageSection from "../components/home/CollageSection";

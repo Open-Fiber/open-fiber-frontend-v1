@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
-
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
 body
 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-height: 100vh;
 	background: #f1f1f1;
-}
-.container
-{
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .square
 {
@@ -89,13 +87,12 @@ body
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-  gap : 10px;
+	gap: 20px;
 }
 .login h2 
 {
-	font-size: 3em;
+	font-size: 2em;
 	color: #6b7280;
-  margin: 7px 0;
 }
 .login .inputBx 
 {
@@ -131,16 +128,15 @@ body
 }
 .login .inputBx input::placeholder 
 {
-	color: #424a5b;
+	color: #24272d;
 }
 .login .links
 {
 	position: relative;
 	width: 100%;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	gap: 20px;
+	justify-content: space-between;
 	padding: 0 20px;
 }
 .login .links a:hover 
@@ -152,5 +148,4 @@ body
 {
 	color: #6b7280;
 	text-decoration: none;
-  margin: 0 4px;
 }
