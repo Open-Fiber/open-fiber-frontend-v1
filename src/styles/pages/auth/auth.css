@@ -119,19 +119,21 @@ body
 {
 	width: 100%;
 	background: #0078ff;
-	background: linear-gradient(45deg,#abc3ff,#dcf342);
+	background: linear-gradient(120deg,#665dec,#dcf342);
 	border:1px solid #665dec ;
+	font-weight: bold;
+	font-size: 1.4em;
 	cursor: pointer;
-	color: #24272d;
+	color: #292f2b;
 	transition: transform 0.3s ease;
 }
 .login .inputBx input[type="submit"]:hover
 {
-	transform: scale(1.05);
+	transform: scale(1.05) rotateX(180deg);
 }
 .login .inputBx input::placeholder 
 {
-	color: #424a5b;
+	color: #282e39;
 }
 .login .links
 {
