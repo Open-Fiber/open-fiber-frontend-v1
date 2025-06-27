@@ -9,6 +9,15 @@ import ConfirmationDialog from '../../components/settingsComponent/ConfirmationD
 import CountrySettings from '../../components/settingsComponent/country/countrySettings';
 
 const Settings = () => {
+  // Placeholder for user data. In a real app, this would come from an auth context or API.
+  const [user, setUser] = useState({ name: 'John Doe', profileImageUrl: null });
+
+  const getInitials = (name) => {
+    if (!name) return '';
+    const names = name.split(' ');
+    const initials = names.map(n => n[0]).join('');
+    return initials.slice(0, 2).toUpperCase();
+  };
   const [activeSection, setActiveSection] = useState('overview');
   const [theme, setTheme] = useState('light');
   const [language, setLanguage] = useState('en');
@@ -83,12 +92,16 @@ const Settings = () => {
       default:
         return (
           <div className="settings-overview">
-            <div className="settings-header">
-              <div className="settings-icon">
-                <IoSettings />
+                        <div className="settings-header">
+              <div className="avatar-placeholder">
+                {user.profileImageUrl ? (
+                  <img src={user.profileImageUrl} alt="Profile" className="avatar-image" />
+                ) : (
+                  <span className="avatar-initials">{getInitials(user.name)}</span>
+                )}
               </div>
-              <h1 className="settings-title">Settings</h1>
-              <p className="settings-subtitle">Customize your experience</p>
+              <h1 className="settings-title">{user.name}</h1>
+              <p className="settings-subtitle">Manage your account and preferences</p>
             </div>
 
             <div className="settings-grid">

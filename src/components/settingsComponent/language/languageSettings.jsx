@@ -1,66 +1,81 @@
 import React from 'react';
-import { IoArrowBack, IoGlobe, IoCheckmark } from 'react-icons/io5';
+import { useState, useMemo } from 'react';
+import { IoArrowBack, IoSearch, IoCheckmark } from 'react-icons/io5';
+import { languages as allLanguages } from './languages';
 import './languageSettings.css';
 
 const LanguageSettings = ({ language, setLanguage, onBack, showConfirmation }) => {
-    const handleLanguageSelect = (lang) => {
-    if (lang.code !== language) {
-      showConfirmation(`Are you sure you want to change the language to ${lang.name}?`, () => {
-        setLanguage(lang.code);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleLanguageSelect = (code, name) => {
+    if (code !== language) {
+      showConfirmation(`Are you sure you want to change the language to ${name}?`, () => {
+        setLanguage(code);
       });
     }
   };
 
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
-    { code: 'pt', name: 'Português', flag: '🇵🇹' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'ja', name: '日本語', flag: '🇯🇵' },
-    { code: 'ko', name: '한국어', flag: '🇰🇷' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' }
-  ];
+  const languageList = useMemo(() => {
+    return Object.entries(allLanguages).map(([code, { name, nativeName }]) => ({
+      code,
+      name,
+      nativeName,
+    }));
+  }, []);
+
+  const filteredLanguages = useMemo(() => {
+    if (!searchTerm) {
+      return languageList;
+    }
+    return languageList.filter(
+      (lang) =>
+        lang.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        lang.nativeName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm, languageList]);
 
   return (
     <div className="language-settings">
       <div className="language-header">
-        <button
-          onClick={onBack}
-          className="back-button"
-        >
-          <IoArrowBack className="back-icon" />
+        <button onClick={onBack} className="back-button">
+          <IoArrowBack />
         </button>
-        <div>
-          <h2 className="title">Idioma</h2>
-          <p className="subtitle">Elige tu idioma preferido</p>
+        <div className="header-text">
+            <h2>Language</h2>
+            <p>Choose your preferred language</p>
         </div>
       </div>
 
-      <div className="languages-list">
-        {languages.map((lang) => (
-          <button
-            key={lang.code}
-            onClick={() => handleLanguageSelect(lang)}
-            className={`language-option ${language === lang.code ? 'active' : ''}`}
-          >
-            <div className="language-content">
-              <div className="language-info">
-                <span className="flag">{lang.flag}</span>
-                <span className="language-name">{lang.name}</span>
-              </div>
-              {language === lang.code && (
-                <div className="active-indicator">
-                  <IoCheckmark className="check-icon" />
-                </div>
-              )}
-            </div>
-          </button>
-        ))}
+      <div className="search-bar-container">
+        <IoSearch className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search for a language..."
+          className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
+      <ul className="language-list">
+        {filteredLanguages.length > 0 ? (
+          filteredLanguages.map(({ code, name, nativeName }) => (
+            <li
+              key={code}
+              className={`language-item ${language === code ? 'active' : ''}`}
+              onClick={() => handleLanguageSelect(code, name)}
+            >
+              <div className="language-info">
+                <span className="language-name">{name}</span>
+                <span className="language-native-name">{nativeName}</span>
+              </div>
+              {language === code && <IoCheckmark className="checkmark-icon" />}
+            </li>
+          ))
+        ) : (
+          <li className="no-results">No languages found.</li>
+        )}
+      </ul>
     </div>
   );
 };

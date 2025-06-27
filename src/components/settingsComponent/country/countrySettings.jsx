@@ -1,78 +1,95 @@
-import React, { useState } from 'react';
-import { IoArrowBack, IoCheckmark, IoSaveOutline } from 'react-icons/io5';
+import React, { useState, useMemo } from 'react';
+import { IoArrowBack, IoSearch, IoCheckmarkCircle, IoChevronDown } from 'react-icons/io5';
+import { countries as allCountries } from './countries';
 import './countrySettings.css';
 
-const CountrySettings = ({ country: currentCountry, setCountry, onBack, showConfirmation }) => {
-    const handleCountrySelect = (loc) => {
-    if (loc.code.toUpperCase() !== currentCountry) {
-      showConfirmation(`Are you sure you want to set your country to ${loc.name}?`, () => {
-        setCountry(loc.code.toUpperCase());
+const INITIAL_LOAD_COUNT = 24;
+
+const CountrySettings = ({ country, setCountry, onBack, showConfirmation }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD_COUNT);
+
+  const handleCountrySelect = (code, name) => {
+    if (code.toUpperCase() !== country) {
+      showConfirmation(`Are you sure you want to set your country to ${name}?`, () => {
+        setCountry(code.toUpperCase());
       });
     }
   };
 
-  const countries = [
-    { code: 'bo', name: 'Bolivia' },
-    { code: 'us', name: 'United States' },
-    { code: 'br', name: 'Brazil' },
-    { code: 'es', name: 'Spain' },
-    { code: 'fr', name: 'France' },
-    { code: 'de', name: 'Germany' },
-    { code: 'it', name: 'Italy' },
-    { code: 'pt', name: 'Portugal' },
-    { code: 'ru', name: 'Russia' },
-    { code: 'jp', name: 'Japan' },
-    { code: 'kr', name: 'South Korea' },
-    { code: 'cn', name: 'China' },
-    { code: 'mx', name: 'Mexico' },
-    { code: 'ca', name: 'Canada' },
-    { code: 'gb', name: 'United Kingdom' },
-    { code: 'ar', name: 'Argentina' },
-    { code: 'au', name: 'Australia' },
-    { code: 'nz', name: 'New Zealand' },
-    { code: 'in', name: 'India' },
-    { code: 'pk', name: 'Pakistan' },
-    { code: 'ir', name: 'Iran'}
-  ];
+  const filteredCountries = useMemo(() => {
+    const results = allCountries.filter((c) =>
+      c.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    // Reset visible count when search term changes
+    setVisibleCount(INITIAL_LOAD_COUNT);
+    return results;
+  }, [searchTerm]);
+
+  const countriesToShow = useMemo(() => {
+    return filteredCountries.slice(0, visibleCount);
+  }, [filteredCountries, visibleCount]);
+
+  const handleLoadMore = () => {
+    setVisibleCount(prevCount => prevCount + INITIAL_LOAD_COUNT);
+  };
 
   return (
     <div className="country-settings">
       <div className="country-header">
-        <button
-          onClick={onBack}
-          className="back-button"
-        >
-          <IoArrowBack className="back-icon" />
+        <button onClick={onBack} className="back-button">
+          <IoArrowBack />
         </button>
-        <div>
-          <h2 className="title">Country Settings</h2>
-          <p className="subtitle">Choose your country</p>
+        <div className="header-text">
+          <h2>Country</h2>
+          <p>Select your country of residence</p>
         </div>
       </div>
 
-      <div className="countries-list">
-        {countries.map((loc) => (
-          <button
-            key={loc.code}
-            onClick={() => handleCountrySelect(loc)}
-            className={`country-option ${currentCountry === loc.code.toUpperCase() ? 'active' : ''}`}
-          >
-            <img
-              src={`https://flagcdn.com/w80/${loc.code}.png`}
-              alt={`${loc.name} flag`}
-              className="flag-icon"
-            />
-            <span className="country-name">{loc.name}</span>
-            {currentCountry === loc.code.toUpperCase() && (
-              <div className="active-indicator">
-                <IoCheckmark className="check-icon" />
-              </div>
-            )}
-          </button>
-        ))}
+      <div className="search-bar-container">
+        <IoSearch className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search for a country..."
+          className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
+      <div className="country-grid-container">
+        {countriesToShow.map((loc) => (
+          <div
+            key={loc.code}
+            className={`country-card ${country === loc.code.toUpperCase() ? 'active' : ''}`}
+            onClick={() => handleCountrySelect(loc.code, loc.name)}
+          >
+            <div className="country-icon-container">
+              <img
+                src={`https://flagcdn.com/w40/${loc.code.toLowerCase()}.png`}
+                alt={`${loc.name} flag`}
+                className="country-flag-icon"
+              />
+            </div>
+            <span className="country-name">{loc.name}</span>
+            {country === loc.code.toUpperCase() && (
+              <IoCheckmarkCircle className="checkmark-icon" />
+            )}
+          </div>
+        ))}
+        {filteredCountries.length === 0 && searchTerm && (
+          <p className="no-results">No countries found.</p>
+        )}
+      </div>
 
+      {visibleCount < filteredCountries.length && (
+        <div className="load-more-container">
+          <button onClick={handleLoadMore} className="load-more-button">
+            <span>Ver más</span>
+            <IoChevronDown />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
