@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
 
 .container {
   position: relative;
@@ -101,7 +100,7 @@
   transition: transform 0.3s ease;
 }
 .login .inputBx input[type="submit"]:hover {
-  transform: scale(1.05) rotateX(180deg);
+  transform: scale(1.05) ;
 }
 .login .inputBx input::placeholder {
   color: #282e39;
