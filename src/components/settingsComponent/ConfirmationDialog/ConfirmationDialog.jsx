@@ -12,10 +12,10 @@ const ConfirmationDialog = ({ isOpen, message, onConfirm, onCancel }) => {
         <p className="dialog-message">{message}</p>
         <div className="dialog-buttons">
           <button onClick={onCancel} className="dialog-button cancel-button">
-            Cancel
+            Cancelar
           </button>
           <button onClick={onConfirm} className="dialog-button confirm-button">
-            Confirm
+            Confirmar
           </button>
         </div>
       </div>

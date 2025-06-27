@@ -18,24 +18,34 @@ const PasswordSettings = ({ onBack }) => {
 
   const validatePassword = (password) => {
     const errors = [];
-    if (password.length < 8) errors.push('At least 8 characters');
-    if (!/(?=.*[a-z])/.test(password)) errors.push('One lowercase letter');
-    if (!/(?=.*[A-Z])/.test(password)) errors.push('One uppercase letter');
-    if (!/(?=.*\d)/.test(password)) errors.push('One number');
-    if (!/(?=.*[!@#$%^&*])/.test(password)) errors.push('One special character');
-    return errors;
+    const requirements = {
+      'Al menos 8 caracteres': password.length >= 8,
+      'Una letra mayúscula': /[A-Z]/.test(password),
+      'Una letra minúscula': /[a-z]/.test(password),
+      'Un número': /\d/.test(password),
+      'Un carácter especial': /[!@#$%^&*(),.?":{}|<>]/.test(password)
+    };
+    
+    return Object.entries(requirements)
+      .filter(([_, isValid]) => !isValid)
+      .map(([requirement]) => requirement);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validatePassword(formData.newPassword);
+    const validationErrors = [];
+    const passwordErrors = validatePassword(formData.newPassword);
+    
+    if (passwordErrors.length > 0) {
+      validationErrors.push(...passwordErrors);
+    }
     
     if (formData.newPassword !== formData.confirmPassword) {
-      validationErrors.push('Passwords do not match');
+      validationErrors.push('Las contraseñas no coinciden');
     }
     
     if (!formData.currentPassword) {
-      validationErrors.push('Current password is required');
+      validationErrors.push('La contraseña actual es requerida');
     }
 
     setErrors(validationErrors);
@@ -63,15 +73,15 @@ const PasswordSettings = ({ onBack }) => {
           <IoArrowBack className="back-icon" />
         </button>
         <div>
-          <h2 className="title">Password Settings</h2>
-          <p className="subtitle">Update your security credentials</p>
+          <h2 className="title">Contraseña</h2>
+          <p className="subtitle">Actualiza tus credenciales de seguridad</p>
         </div>
       </div>
 
       {success && (
         <div className="success-message">
           <IoCheckmarkCircle className="success-icon" />
-          <span className="success-text">Password updated successfully!</span>
+          <span className="success-text">Contraseña actualizada exitosamente!</span>
         </div>
       )}
 
@@ -79,7 +89,7 @@ const PasswordSettings = ({ onBack }) => {
         <div className="form-section">
           <div className="form-group">
             <label className="form-label">
-              Current Password
+              Contraseña actual
             </label>
             <div className="input-container">
               <input
@@ -87,7 +97,7 @@ const PasswordSettings = ({ onBack }) => {
                 value={formData.currentPassword}
                 onChange={(e) => setFormData({ ...formData, currentPassword: e.target.value })}
                 className="form-input"
-                placeholder="Enter your current password"
+                placeholder="Introduce tu contraseña actual"
               />
               <button
                 type="button"
@@ -104,7 +114,7 @@ const PasswordSettings = ({ onBack }) => {
 
           <div className="form-group">
             <label className="form-label">
-              New Password
+              Nueva Contraseña
             </label>
             <div className="input-container">
               <input
@@ -112,7 +122,7 @@ const PasswordSettings = ({ onBack }) => {
                 value={formData.newPassword}
                 onChange={(e) => setFormData({ ...formData, newPassword: e.target.value })}
                 className="form-input"
-                placeholder="Create a new password"
+                placeholder="Introduce tu nueva contraseña"
               />
               <button
                 type="button"
@@ -129,7 +139,7 @@ const PasswordSettings = ({ onBack }) => {
 
           <div className="form-group">
             <label className="form-label">
-              Confirm New Password
+              Confirmar Nueva Contraseña
             </label>
             <div className="input-container">
               <input
@@ -137,7 +147,7 @@ const PasswordSettings = ({ onBack }) => {
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 className="form-input"
-                placeholder="Confirm your new password"
+                placeholder="Confirma tu nueva contraseña"
               />
               <button
                 type="button"
@@ -155,14 +165,14 @@ const PasswordSettings = ({ onBack }) => {
 
         {errors.length > 0 && (
           <div className="requirements">
-            <h3 className="requirements-title">Password Requirements</h3>
+            <h3 className="requirements-title">Requisitos de Contraseña</h3>
             <ul className="requirement-list">
               {[
-                'At least 8 characters',
-                'One uppercase letter',
-                'One lowercase letter',
-                'One number',
-                'One special character'
+                'Al menos 8 caracteres',
+                'Una letra mayúscula',
+                'Una letra minúscula',
+                'Un número',
+                'Un carácter especial'
               ].map((req) => {
                 const isValid = !validatePassword(formData.newPassword).includes(req);
                 return (
@@ -186,7 +196,7 @@ const PasswordSettings = ({ onBack }) => {
           type="submit"
           className="submit-button"
         >
-          Update Password
+          Actualizar Contraseña
         </button>
       </form>
     </div>

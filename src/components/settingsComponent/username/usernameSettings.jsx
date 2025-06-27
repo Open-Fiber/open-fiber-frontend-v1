@@ -12,13 +12,13 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
 
   const checkUsernameAvailability = async (username) => {
     if (username.length < 3) {
-      setError('Username must be at least 3 characters');
+      setError('El nombre de usuario debe tener al menos 3 caracteres');
       setIsAvailable(false);
       return;
     }
 
     if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-      setError('Username can only contain letters, numbers, and underscores');
+      setError('El nombre de usuario puede contener solo letras, números y guiones bajos');
       setIsAvailable(false);
       return;
     }
@@ -33,7 +33,7 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
       setIsAvailable(available);
       setIsChecking(false);
       if (!available) {
-        setError('Username is already taken');
+        setError('El nombre de usuario ya está en uso');
       }
     }, 1000);
   };
@@ -52,7 +52,7 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isAvailable && newUsername) {
-      showConfirmation(`Are you sure you want to change your username to "${newUsername}"?`, () => {
+      showConfirmation(`¿Estás seguro de que quieres cambiar tu nombre de usuario a "${newUsername}"?`, () => {
         setCurrentUsername(newUsername);
         setSuccess(true);
         setTimeout(() => {
@@ -74,15 +74,15 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
           <IoArrowBack className="back-icon" />
         </button>
         <div>
-          <h2 className="title">Username Settings</h2>
-          <p className="subtitle">Change your display name</p>
+          <h2 className="title">Usuario</h2>
+          <p className="subtitle">Cambia tu nombre de usuario</p>
         </div>
       </div>
 
       {success && (
         <div className="success-message">
           <IoCheckmarkCircle className="success-icon" />
-          <span className="success-text">Username updated successfully!</span>
+          <span className="success-text">Nombre de usuario actualizado exitosamente!</span>
         </div>
       )}
 
@@ -92,7 +92,7 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
             <IoPerson className="avatar-icon" />
           </div>
           <div>
-            <h3 className="current-username">Current Username</h3>
+            <h3 className="current-username">Nombre de usuario actual</h3>
             <p className="username-handle">@{currentUsername}</p>
           </div>
         </div>
@@ -101,7 +101,7 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
       <form onSubmit={handleSubmit} className="username-form">
         <div className="form-group">
           <label className="form-label">
-            New Username
+            Nuevo nombre de usuario
           </label>
           <div className="input-container">
             <input
@@ -115,7 +115,7 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
                   ? 'border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
                   : ''
               }`}
-              placeholder="Enter a new username"
+              placeholder="Introduce un nuevo nombre de usuario"
             />
             {isChecking && (
               <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -127,24 +127,24 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
           {isAvailable === true && (
             <div className="available">
               <IoCheckmarkCircle className="availability-icon" />
-              <span>Username is available!</span>
+              <span>Nombre de usuario disponible!</span>
             </div>
           )}
           
           {isAvailable === false && (
             <div className="unavailable">
               <IoAlertCircle className="availability-icon" />
-              <span>{error || 'Username is not available'}</span>
+              <span>{error || 'Nombre de usuario no disponible'}</span>
             </div>
           )}
           
           <div className="mt-4 text-sm text-[#64748b]">
-            <p>Your username must be unique and can only contain:</p>
+            <p>El nombre de usuario debe ser único y puede contener solo:</p>
             <ul className="list-disc pl-5 mt-1 space-y-1">
-              <li>Letters (a-z, A-Z)</li>
-              <li>Numbers (0-9)</li>
-              <li>Underscores (_)</li>
-              <li>Minimum 3 characters</li>
+              <li>Letras (a-z, A-Z)</li>
+              <li>Números (0-9)</li>
+              <li>Guiones bajos (_)</li>
+              <li>Mínimo 3 caracteres</li>
             </ul>
           </div>
         </div>
@@ -154,7 +154,7 @@ const UsernameSettings = ({ onBack, showConfirmation }) => {
           disabled={!isAvailable || !newUsername || isChecking}
           className="submit-button"
         >
-          Update Username
+          Actualizar nombre de usuario
         </button>
       </form>
     </div>
