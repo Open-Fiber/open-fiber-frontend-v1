@@ -1,4 +1,4 @@
-.category-card {
+.category-card-single {
   padding: 10px;
   position: relative;
   font-family: "Gloria Hallelujah", cursive;
@@ -27,7 +27,7 @@
   padding-bottom: 20px;
 }
 
-.card-overlay {
+.category-card-single-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,7 +37,7 @@
   transition: background-color 0.3s ease;
 }
 
-.card-container:hover .card-overlay {
+.card-container:hover .category-card-overlay {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
