@@ -15,6 +15,7 @@ import Construye from "./pages/construye/Construye";
 import { initSmoothScrolling } from "./utils/scroll";
 import cursorImage from "./assets/Group.png";
 import "./app.css";
+import Settings from "./pages/Settings/Settings";
 
 const rootStyle = {
   cursor: `url(${cursorImage}), auto`,
@@ -63,6 +64,7 @@ const AppLayout = () => {
         <Route path="/construye" element={<Construye />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
 
       {showFooter && <Footer />}
