@@ -56,7 +56,7 @@ const Login = () => {
             />
           </div>
           <div className="links">
-            <Link to="/forgot-password">Cambiar Contraseña</Link>
+            <Link to="/Settings">Cambiar Contraseña</Link>
           </div>
           <div className="links">
             <Link to="/register">Registrate</Link>
