@@ -1,19 +1,8 @@
-:root {
-    --azul-primario: #4949e9;
-    --azul-claro: #abc3ff;
-    --acento-amarillo: #dcf342;
-    --base-neutra-clara: #f8fafc;
-    --base-neutra-media: #e2e8f0;
-    --texto-primario: #1a1a1a;
-    --texto-secundario: #64748b;
-    --border-radius: 24px;
-}
-
 /* Estilos generales de la página */
 .pagina-comunidad {
     width: 100%;
-    background-color: var(--base-neutra-clara);
-    color: var(--texto-primario);
+    background-color: #f8fafc;
+    color: #1a1a1a;
     font-family: 'Inter', 'Arial', sans-serif;
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
@@ -22,7 +11,7 @@
     text-align: center;
     font-size: 2.8rem;
     margin-bottom: 50px;
-    color: var(--texto-primario);
+    color: #1a1a1a;
     font-weight: 700;
 }
 
@@ -75,7 +64,7 @@
     z-index: 3;
     background-color: rgba(26, 26, 26, 0.5);
     padding: 40px;
-    border-radius: var(--border-radius);
+    border-radius: 24px;
     max-width: 650px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -91,7 +80,7 @@
 .hero-contenido p {
     font-size: 1.3rem;
     margin: 0;
-    color: var(--base-neutra-media);
+    color: #e2e8f0;
 }
 
 /* --- 2. Sección de Features --- */
@@ -105,7 +94,7 @@
 .feature-card {
     position: relative;
     height: 70vh;
-    border-radius: var(--border-radius);
+    border-radius: 24px;
     overflow: hidden;
     color: white;
     display: flex;
@@ -152,14 +141,14 @@
 
 .feature-card p {
     font-size: 1.1rem;
-    color: var(--base-neutra-media);
+    color: #e2e8f0;
 }
 
 
 /* --- 3. Sección de Máquinas --- */
 .seccion-maquinas {
     padding: 80px 20px;
-    background-color: var(--base-neutra-clara);
+    background-color: #f8fafc;
 }
 
 .contenedor-maquinas {
@@ -193,7 +182,7 @@
     gap: 20px;
     padding: 40px 30px;
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: var(--border-radius);
+    border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
@@ -210,26 +199,26 @@
     height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--azul-primario);
+    border: 3px solid #4949e9;
 }
 
 .organizacion-info h4 {
     margin: 0 0 8px 0;
     font-size: 1.5rem;
-    color: var(--texto-primario);
+    color: #1a1a1a;
     font-weight: 600;
 }
 
 .organizacion-info p {
     margin: 0;
     font-size: 1rem;
-    color: var(--texto-secundario);
+    color: #64748b;
 }
 
 /* --- 5. Sección de Eventos --- */
 .seccion-eventos {
     padding: 80px 20px;
-    background-color: var(--base-neutra-clara);
+    background-color: #f8fafc;
 }
 
 .contenedor-eventos {
@@ -245,10 +234,10 @@
     align-items: center;
     background-color: #fff;
     padding: 30px;
-    border-radius: var(--border-radius);
+    border-radius: 24px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--base-neutra-media);
+    border: 1px solid #e2e8f0;
 }
 
 .evento-card:hover {
@@ -262,7 +251,7 @@
     align-items: center;
     justify-content: center;
     margin-right: 30px;
-    color: var(--azul-primario);
+    color: #4949e9;
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
@@ -277,18 +266,18 @@
 .evento-info h4 {
     margin: 0 0 10px 0;
     font-size: 1.6rem;
-    color: var(--texto-primario);
+    color: #1a1a1a;
 }
 
 .evento-info p {
     margin: 0;
-    color: var(--texto-secundario);
+    color: #64748b;
     line-height: 1.6;
 }
 
 .evento-desc {
     font-size: 0.9rem;
-    color: var(--texto-secundario);
+    color: #64748b;
 }
 
 /* --- ANIMACIONES DE SCROLL (CSS) --- */
