@@ -41,8 +41,8 @@ const LanguageSettings = ({ language, setLanguage, onBack, showConfirmation }) =
           <IoArrowBack />
         </button>
         <div className="header-text">
-            <h2>Language</h2>
-            <p>Choose your preferred language</p>
+            <h2>Idioma</h2>
+            <p>Seleccione su idioma preferido</p>
         </div>
       </div>
 
@@ -50,7 +50,7 @@ const LanguageSettings = ({ language, setLanguage, onBack, showConfirmation }) =
         <IoSearch className="search-icon" />
         <input
           type="text"
-          placeholder="Search for a language..."
+          placeholder="Buscar idioma..."
           className="search-input"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}

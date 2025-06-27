@@ -41,8 +41,8 @@ const CountrySettings = ({ country, setCountry, onBack, showConfirmation }) => {
           <IoArrowBack />
         </button>
         <div className="header-text">
-          <h2>Country</h2>
-          <p>Select your country of residence</p>
+          <h2>Pais</h2>
+          <p>Seleccione su pais de residencia</p>
         </div>
       </div>
 
@@ -50,7 +50,7 @@ const CountrySettings = ({ country, setCountry, onBack, showConfirmation }) => {
         <IoSearch className="search-icon" />
         <input
           type="text"
-          placeholder="Search for a country..."
+          placeholder="Encuentra tu Pais"
           className="search-input"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
