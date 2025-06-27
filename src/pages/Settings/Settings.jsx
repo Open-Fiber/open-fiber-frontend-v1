@@ -10,7 +10,7 @@ import CountrySettings from '../../components/settingsComponent/country/countryS
 
 const Settings = () => {
   // Placeholder for user data. In a real app, this would come from an auth context or API.
-  const [user, setUser] = useState({ name: 'John Doe', profileImageUrl: null });
+  const [user, setUser] = useState({ name: 'John Doe Mamani', profileImageUrl: null });
 
   const getInitials = (name) => {
     if (!name) return '';
@@ -101,7 +101,7 @@ const Settings = () => {
                 )}
               </div>
               <h1 className="settings-title">{user.name}</h1>
-              <p className="settings-subtitle">Manage your account and preferences</p>
+              <p className="settings-subtitle">Gestiona tu cuenta y preferencias</p>
             </div>
 
             <div className="settings-grid">
