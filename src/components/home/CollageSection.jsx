@@ -200,7 +200,10 @@ const CollageSection = () => {
       <div className="floating-background">
         <div ref={addToFloatingRef} className="floating-circle circle-1"></div>
         <div ref={addToFloatingRef} className="floating-circle circle-2"></div>
-        <div ref={addToFloatingRef} className="floating-square square-1"></div>
+        <div
+          ref={addToFloatingRef}
+          className="floating-square square-collage-1"
+        ></div>
         <div
           ref={addToFloatingRef}
           className="floating-triangle triangle-1"

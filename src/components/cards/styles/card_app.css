@@ -218,12 +218,13 @@
 
 /* Hidden content that slides up */
 .app-details {
-  padding: 0 2rem 2rem 2rem;
+  padding: 0 2rem 0rem 2rem;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   max-height: 0;
   overflow: hidden;
+  margin-bottom: 0.4rem;
 }
 
 .app-description {
@@ -309,7 +310,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
+  padding-top: 0.7rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
