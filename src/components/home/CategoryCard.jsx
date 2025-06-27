@@ -3,13 +3,13 @@ import "./styles/categorycard.css";
 
 const CategoryCard = ({ imageUrl, title }) => {
   return (
-    <div className="category-card">
+    <div className="category-card-single">
       <div className="card-container">
         <div
           className="card-image"
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
-          <div className="card-overlay"></div>
+          <div className="category-card-single-overlay"></div>
           <div className="spotlight-effect">
             <div className="spotlight-line top-left"></div>
             <div className="spotlight-line top-right"></div>

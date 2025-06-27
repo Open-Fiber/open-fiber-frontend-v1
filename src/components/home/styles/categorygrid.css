@@ -749,11 +749,12 @@
 
 @media (max-width: 480px) {
   .category-grid-section {
-    padding: 40px 10px;
+    padding: 30px 10px;
   }
 
   .category-card {
     height: 340px;
+    opacity: 1 !important;
   }
 
   .card-header {
@@ -813,6 +814,7 @@
 
   .category-card {
     height: 320px;
+    opacity: 1 !important;
   }
 
   .card-title {
