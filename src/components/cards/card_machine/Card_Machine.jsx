@@ -144,15 +144,15 @@ const Card_Machine = ({
           {/* app Stats */}
           <div className="app-stats">
             <div className="stat">
-              <FaCalendarAlt className="stat-icon" />
+              <FaCalendarAlt className="stat-icon-machine" />
               <span>{formatDate(createdAt)}</span>
             </div>
             <div className="stat">
-              <FaPrint className="stat-icon" />
+              <FaPrint className="stat-icon-machine" />
               <span>Imprimible 3D</span>
             </div>
             <div className="stat">
-              <FaEye className="stat-icon" />
+              <FaEye className="stat-icon-machine" />
               <span>Open Source</span>
             </div>
           </div>
