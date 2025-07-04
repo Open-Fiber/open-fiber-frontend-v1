@@ -73,6 +73,9 @@ const Second_Header = ({ isFixed = false, className = "" }) => {
             <Link to="/register" className="dropdown-item">
               Registrarse
             </Link>
+            <Link to="/settings" className="dropdown-item">
+              Ajustes
+            </Link>
           </div>
         )}
       </div>
