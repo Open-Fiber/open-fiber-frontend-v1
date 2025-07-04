@@ -158,7 +158,7 @@
 
 /* Header - Always visible */
 .machine-header {
-  padding: 2rem 2rem 1.5rem 2rem;
+  padding: 1rem 2rem 0.3rem 2rem;
   transition: all 0.4s ease;
 }
 
@@ -302,7 +302,9 @@
 .machine-card:hover .machine-details {
   opacity: 1;
   transform: translateY(0);
-  max-height: 250px;
+  max-height: 280px;
+  margin-bottom: 0;
+  padding-bottom: 20px;
 }
 
 /* Action Bar */
@@ -310,7 +312,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.5rem;
+  padding-top: 0.7rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 

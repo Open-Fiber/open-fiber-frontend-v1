@@ -140,7 +140,7 @@
 /* Card Content - Slide up interaction */
 .app-content {
   position: absolute;
-  bottom: 0;
+  bottom: -0.7rem;
   left: 0;
   right: 0;
   background: linear-gradient(
@@ -158,7 +158,7 @@
 
 /* Header - Always visible */
 .app-header {
-  padding: 2rem 2rem 1.5rem 2rem;
+  padding: 1rem 2rem 0rem 2rem;
   transition: all 0.4s ease;
 }
 
@@ -171,12 +171,13 @@
 .app-title {
   font-family: "Aukim", "Inter", sans-serif;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.39rem;
   color: white;
   margin: 0;
   line-height: 1.2;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
 }
 
 .header-meta {
@@ -231,9 +232,9 @@
   font-family: "Inter", sans-serif;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.3;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.9rem;
 }
 
 /* Tags */
@@ -302,7 +303,9 @@
 .app-card:hover .app-details {
   opacity: 1;
   transform: translateY(0);
-  max-height: 250px;
+  max-height: 280px;
+  margin-bottom: 0;
+  padding-bottom: 20px;
 }
 
 /* Action Bar */

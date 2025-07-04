@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { animate, stagger } from "animejs";
 import { FaFilter, FaSearch, FaSortAmountDown } from "react-icons/fa";
 import Card_Machine from "../../components/cards/card_machine/Card_Machine";
 import Card_App from "../../components/cards/card_app/Card_App";
+import { cardData, appData } from "../../utils/mock/construyeMock";
 import "../../styles/pages/construye/construye.css";
 
 const Construye = () => {
@@ -27,59 +28,6 @@ const Construye = () => {
     }
   };
 
-  // Sample data with enhanced properties
-  const cardData = Array(9)
-    .fill()
-    .map((_, index) => ({
-      id: index + 1,
-      nombre: `Máquina ${index + 1}`,
-      descripcion:
-        "Innovadora máquina que transforma botellas PET en fibras textiles de alta calidad usando tecnología de fabricación",
-      pais: ["BO", "AR", "PE", "CL", "CO"][Math.floor(Math.random() * 5)],
-      likes: Math.floor(Math.random() * 100) + 20,
-      difficulty: ["Principiante", "Intermedio", "Avanzado"][
-        Math.floor(Math.random() * 3)
-      ],
-      category: ["Electronica", "Mecanica", "Estetica"][
-        Math.floor(Math.random() * 3)
-      ],
-      createdAt: new Date(
-        2024,
-        Math.floor(Math.random() * 12),
-        Math.floor(Math.random() * 28)
-      ),
-      image:
-        "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
-      tags: ["3D Print", "Open Source", "Sustentable"],
-      author: `Maker ${index + 1}`,
-    }));
-
-  const appData = Array(9)
-    .fill()
-    .map((_, index) => ({
-      id: index + 1,
-      nombre: `Aplicación ${index + 1}`,
-      descripcion:
-        "Software especializado para optimizar el proceso de conversión de plástico, con algoritmos avanzados de control",
-      pais: ["BO", "AR", "PE", "CL", "CO"][Math.floor(Math.random() * 5)],
-      likes: Math.floor(Math.random() * 100) + 15,
-      difficulty: ["Principiante", "Intermedio", "Avanzado"][
-        Math.floor(Math.random() * 3)
-      ],
-      category: ["Electronica", "Mecanica", "Estetica"][
-        Math.floor(Math.random() * 3)
-      ],
-      createdAt: new Date(
-        2024,
-        Math.floor(Math.random() * 12),
-        Math.floor(Math.random() * 28)
-      ),
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
-      tags: ["Software", "Control", "Automation"],
-      author: `Developer ${index + 1}`,
-    }));
-
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     // Reset cards ref for new animation
@@ -93,8 +41,8 @@ const Construye = () => {
     }));
   };
 
-  // Filter and sort data
-  const getCurrentData = () => {
+  // Filter and sort data with memoization for performance
+  const getCurrentData = useMemo(() => {
     const data = activeTab === "maquinas" ? cardData : appData;
 
     return data
@@ -127,7 +75,7 @@ const Construye = () => {
             return 0;
         }
       });
-  };
+  }, [activeTab, filters, searchTerm]);
 
   // Animation effects
   useEffect(() => {
@@ -338,7 +286,7 @@ const Construye = () => {
 
       {/* Cards Grid */}
       <div className="cards-grid">
-        {getCurrentData().map((item, index) => (
+        {getCurrentData.map((item, index) => (
           <div key={item.id} ref={addToCardsRef} className="card-wrapper">
             {activeTab === "maquinas" ? (
               <Card_Machine {...item} />
@@ -349,7 +297,7 @@ const Construye = () => {
         ))}
       </div>
 
-      {getCurrentData().length === 0 && (
+      {getCurrentData.length === 0 && (
         <div className="no-results">
           <div className="no-results-content">
             <span className="no-results-icon">🔍</span>
