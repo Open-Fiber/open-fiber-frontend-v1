@@ -42,7 +42,7 @@ const CategoryGrid = () => {
       description:
         "Explora proyectos de la comunidad y contribuye con tus propias innovaciones",
       imageUrl:
-        "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+        "public/machine/machine7.jpg",
       icon: FaTools,
       route: "/construye",
       color: "from-green-500 to-emerald-600",
@@ -55,7 +55,7 @@ const CategoryGrid = () => {
       description:
         "Accede a cursos, tutoriales y recursos para dominar las tecnologías sostenibles",
       imageUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+        "public/people/people2.JPG",
       icon: FaGraduationCap,
       route: "/aprende",
       color: "from-orange-500 to-red-600",
@@ -68,7 +68,7 @@ const CategoryGrid = () => {
       description:
         "Únete a la comunidad de desarrolladores creando el futuro de la sostenibilidad",
       imageUrl:
-        "https://eldeber.com.bo/sites/default/efsfiles/2024-09/unifranz_171079980_1140x520.jpg",
+        "public/machine/machine4.jpg",
       icon: FaCode,
       route: "/comunidad",
       color: "from-purple-500 to-pink-600",
