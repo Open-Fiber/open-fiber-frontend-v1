@@ -29,7 +29,7 @@ const CategoryGrid = () => {
       description:
         "Descubre cómo nació Open Fiber y la historia detrás de nuestra misión sostenible",
       imageUrl:
-        "https://www.portalverde.com.bo/wp-content/uploads/2024/08/unifranz-fablab-1024x597.jpg",
+        "public/people/people5.JPG",
       icon: FaHistory,
       route: "/nosotros",
       color: "from-blue-500 to-purple-600",

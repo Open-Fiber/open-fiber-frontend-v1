@@ -10,7 +10,7 @@ export const cardData = [
     category: "Mecanica",
     createdAt: new Date(2024, 10, 15),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine1.jpg",
     tags: ["PET", "Reciclaje", "Automatización", "Arduino"],
     author: "Carlos Mendoza",
   },
@@ -25,7 +25,7 @@ export const cardData = [
     category: "Electronica",
     createdAt: new Date(2024, 9, 3),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine2.jpg",
     tags: ["3D Print", "Extrusión", "PID", "Sensores"],
     author: "María González",
   },
@@ -40,7 +40,7 @@ export const cardData = [
     category: "Mecanica",
     createdAt: new Date(2024, 8, 22),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine3.jpg",
     tags: ["Construcción", "Ecológico", "Hidráulica", "DIY"],
     author: "Jorge Ramirez",
   },
@@ -55,7 +55,7 @@ export const cardData = [
     category: "Electronica",
     createdAt: new Date(2024, 7, 8),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine4.jpg",
     tags: ["Pirólisis", "Combustible", "Sensores", "Química"],
     author: "Ana Morales",
   },
@@ -70,7 +70,7 @@ export const cardData = [
     category: "Mecanica",
     createdAt: new Date(2024, 6, 17),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine5.jpg",
     tags: ["Inyección", "Moldes", "Calentador", "Objetos"],
     author: "Luis Herrera",
   },
@@ -85,7 +85,7 @@ export const cardData = [
     category: "Electronica",
     createdAt: new Date(2024, 5, 29),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine6.jpg",
     tags: ["Magnetismo", "Separación", "Arduino", "Automatización"],
     author: "Patricia Silva",
   },
@@ -100,7 +100,7 @@ export const cardData = [
     category: "Estetica",
     createdAt: new Date(2024, 4, 11),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine7.jpg",
     tags: ["Solar", "Limpieza", "Filtros", "Sostenible"],
     author: "Roberto Vega",
   },
@@ -115,7 +115,7 @@ export const cardData = [
     category: "Electronica",
     createdAt: new Date(2024, 3, 25),
     image:
-      "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      "public/machine/machine8.jpg",
     tags: ["Láser", "CNC", "G-code", "Precisión"],
     author: "Diana Torres",
   },
@@ -133,7 +133,7 @@ export const appData = [
     category: "Electronica",
     createdAt: new Date(2024, 10, 20),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine1.jpg",
     tags: ["Control", "IA", "Monitoreo", "Alertas"],
     author: "Miguel Santos",
   },
@@ -148,7 +148,7 @@ export const appData = [
     category: "Electronica",
     createdAt: new Date(2024, 9, 8),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine2.jpg",
     tags: ["Visión Artificial", "Clasificación", "Cámara", "50k Imágenes"],
     author: "Sofía Moreno",
   },
@@ -163,7 +163,7 @@ export const appData = [
     category: "Electronica",
     createdAt: new Date(2024, 8, 15),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine3.jpg",
     tags: ["Gestión", "Inventario", "Reportes", "Análisis"],
     author: "David Herrera",
   },
@@ -178,7 +178,7 @@ export const appData = [
     category: "Electronica",
     createdAt: new Date(2024, 7, 3),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine4.jpg",
     tags: ["Temperatura", "PID", "Históricos", "Fundición"],
     author: "Carmen Vásquez",
   },
@@ -193,7 +193,7 @@ export const appData = [
     category: "Electronica",
     createdAt: new Date(2024, 6, 19),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine5.jpg",
     tags: ["Móvil", "QR", "Blockchain", "Trazabilidad"],
     author: "Javier Medina",
   },
@@ -208,7 +208,7 @@ export const appData = [
     category: "Electronica",
     createdAt: new Date(2024, 5, 7),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine6.jpg",
     tags: ["Mantenimiento", "Predictivo", "Vibraciones", "Preventivo"],
     author: "Elena Torres",
   },
@@ -223,7 +223,7 @@ export const appData = [
     category: "Estetica",
     createdAt: new Date(2024, 4, 24),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine7.jpg",
     tags: ["Colores", "Pigmentos", "3D", "Simulador"],
     author: "Tomás Rivera",
   },
@@ -238,7 +238,7 @@ export const appData = [
     category: "Electronica",
     createdAt: new Date(2024, 3, 11),
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      "public/machine/machine8.jpg",
     tags: ["Energía", "ML", "Demanda", "Programación"],
     author: "Natalia Cruz",
   },
