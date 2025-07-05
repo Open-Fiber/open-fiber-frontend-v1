@@ -1,7 +1,7 @@
-import machine1 from "../../assets/machine/machine1.jpg";
-import machine2 from "../../assets/machine/machine2.jpg";
-import machine3 from "../../assets/machine/machine3.jpg";
-import machine4 from "../../assets/machine/machine4.jpg";
+import machine1 from "../../assets/machine/machine1.jpeg";
+import machine2 from "../../assets/machine/machine2.jpeg";
+import machine3 from "../../assets/machine/machine3.jpeg";
+import machine4 from "../../assets/machine/machine4.jpeg";
 
 export const cardData = [
   {
@@ -70,7 +70,7 @@ export const cardData = [
     difficulty: "Intermedio",
     category: "Mecanica",
     createdAt: new Date(2024, 6, 17),
-    image: "src/assets/machine/machine5.JPG",
+    image: "src/assets/machine/machine5.jpeg",
     tags: ["Inyección", "Moldes", "Calentador", "Objetos"],
     author: "Luis Herrera",
   },
@@ -84,7 +84,7 @@ export const cardData = [
     difficulty: "Intermedio",
     category: "Electronica",
     createdAt: new Date(2024, 5, 29),
-    image: "src/assets/machine/machine6.JPG",
+    image: "src/assets/machine/machine6.jpeg",
     tags: ["Magnetismo", "Separación", "Arduino", "Automatización"],
     author: "Patricia Silva",
   },
@@ -98,7 +98,7 @@ export const cardData = [
     difficulty: "Principiante",
     category: "Estetica",
     createdAt: new Date(2024, 4, 11),
-    image: "src/assets/machine/machine7.jpg",
+    image: "src/assets/machine/machine7.jpeg",
     tags: ["Solar", "Limpieza", "Filtros", "Sostenible"],
     author: "Roberto Vega",
   },
@@ -112,7 +112,7 @@ export const cardData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 3, 25),
-    image: "src/assets/machine/machine8.JPG",
+    image: "src/assets/machine/machine8.jpeg",
     tags: ["Láser", "CNC", "G-code", "Precisión"],
     author: "Diana Torres",
   },
@@ -129,7 +129,7 @@ export const appData = [
     difficulty: "Intermedio",
     category: "Electronica",
     createdAt: new Date(2024, 10, 20),
-    image: "src/assets/machine/machine1.jpg",
+    image: "src/assets/machine/machine1.jpeg",
     tags: ["Control", "IA", "Monitoreo", "Alertas"],
     author: "Miguel Santos",
   },
@@ -143,7 +143,7 @@ export const appData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 9, 8),
-    image: "src/assets/machine/machine2.jpg",
+    image: "src/assets/machine/machine2.jpeg",
     tags: ["Visión Artificial", "Clasificación", "Cámara", "50k Imágenes"],
     author: "Sofía Moreno",
   },
@@ -157,7 +157,7 @@ export const appData = [
     difficulty: "Intermedio",
     category: "Electronica",
     createdAt: new Date(2024, 8, 15),
-    image: "src/assets/machine/machine3.jpg",
+    image: "src/assets/machine/machine3.jpeg",
     tags: ["Gestión", "Inventario", "Reportes", "Análisis"],
     author: "David Herrera",
   },
@@ -171,7 +171,7 @@ export const appData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 7, 3),
-    image: "src/assets/machine/machine4.JPG",
+    image: "src/assets/machine/machine4.jpeg",
     tags: ["Temperatura", "PID", "Históricos", "Fundición"],
     author: "Carmen Vásquez",
   },
@@ -185,7 +185,7 @@ export const appData = [
     difficulty: "Principiante",
     category: "Electronica",
     createdAt: new Date(2024, 6, 19),
-    image: "src/assets/machine/machine5.JPG",
+    image: "src/assets/machine/machine5.jpeg",
     tags: ["Móvil", "QR", "Blockchain", "Trazabilidad"],
     author: "Javier Medina",
   },
@@ -199,7 +199,7 @@ export const appData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 5, 7),
-    image: "src/assets/machine/machine6.JPG",
+    image: "src/assets/machine/machine6.jpeg",
     tags: ["Mantenimiento", "Predictivo", "Vibraciones", "Preventivo"],
     author: "Elena Torres",
   },
@@ -213,7 +213,7 @@ export const appData = [
     difficulty: "Principiante",
     category: "Estetica",
     createdAt: new Date(2024, 4, 24),
-    image: "src/assets/machine/machine7.jpg",
+    image: "src/assets/machine/machine7.jpeg",
     tags: ["Colores", "Pigmentos", "3D", "Simulador"],
     author: "Tomás Rivera",
   },
@@ -227,7 +227,7 @@ export const appData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 3, 11),
-    image: "src/assets/machine/machine8.jpg",
+    image: "src/assets/machine/machine8.jpeg",
     tags: ["Energía", "ML", "Demanda", "Programación"],
     author: "Natalia Cruz",
   },

@@ -20,7 +20,6 @@ const CategoryGrid = () => {
 
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  //  categories with more detailed information
   const categories = [
     {
       id: 1,
@@ -28,8 +27,7 @@ const CategoryGrid = () => {
       subtitle: "Nuestros Orígenes",
       description:
         "Descubre cómo nació Open Fiber y la historia detrás de nuestra misión sostenible",
-      imageUrl:
-        "src/assets/people/people5.jpg",
+      imageUrl: "src/assets/people/people5.jpeg",
       icon: FaHistory,
       route: "/nosotros",
       color: "from-blue-500 to-purple-600",
@@ -41,8 +39,7 @@ const CategoryGrid = () => {
       subtitle: "Crea Soluciones",
       description:
         "Explora proyectos de la comunidad y contribuye con tus propias innovaciones",
-      imageUrl:
-        "src/assets/machine/machine7.jpg",
+      imageUrl: "src/assets/machine/machine7.jpeg",
       icon: FaTools,
       route: "/construye",
       color: "from-green-500 to-emerald-600",
@@ -54,8 +51,7 @@ const CategoryGrid = () => {
       subtitle: "Conocimiento Abierto",
       description:
         "Accede a cursos, tutoriales y recursos para dominar las tecnologías sostenibles",
-      imageUrl:
-        "src/assets/people/people2.jpg",
+      imageUrl: "src/assets/people/people2.jpeg",
       icon: FaGraduationCap,
       route: "/aprende",
       color: "from-orange-500 to-red-600",
@@ -67,8 +63,7 @@ const CategoryGrid = () => {
       subtitle: "Innovación Digital",
       description:
         "Únete a la comunidad de desarrolladores creando el futuro de la sostenibilidad",
-      imageUrl:
-        "src/assets/machine/machine4.jpg",
+      imageUrl: "src/assets/machine/machine4.jpeg",
       icon: FaCode,
       route: "/comunidad",
       color: "from-purple-500 to-pink-600",
