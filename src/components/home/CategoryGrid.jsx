@@ -29,7 +29,7 @@ const CategoryGrid = () => {
       description:
         "Descubre cómo nació Open Fiber y la historia detrás de nuestra misión sostenible",
       imageUrl:
-        "public/people/people5.JPG",
+        "src/assets/people/people5.jpg",
       icon: FaHistory,
       route: "/nosotros",
       color: "from-blue-500 to-purple-600",
@@ -42,7 +42,7 @@ const CategoryGrid = () => {
       description:
         "Explora proyectos de la comunidad y contribuye con tus propias innovaciones",
       imageUrl:
-        "public/machine/machine7.jpg",
+        "src/assets/machine/machine7.jpg",
       icon: FaTools,
       route: "/construye",
       color: "from-green-500 to-emerald-600",
@@ -55,7 +55,7 @@ const CategoryGrid = () => {
       description:
         "Accede a cursos, tutoriales y recursos para dominar las tecnologías sostenibles",
       imageUrl:
-        "public/people/people2.JPG",
+        "src/assets/people/people2.jpg",
       icon: FaGraduationCap,
       route: "/aprende",
       color: "from-orange-500 to-red-600",
@@ -68,7 +68,7 @@ const CategoryGrid = () => {
       description:
         "Únete a la comunidad de desarrolladores creando el futuro de la sostenibilidad",
       imageUrl:
-        "public/machine/machine4.jpg",
+        "src/assets/machine/machine4.jpg",
       icon: FaCode,
       route: "/comunidad",
       color: "from-purple-500 to-pink-600",
