@@ -16,6 +16,7 @@ import { initSmoothScrolling } from "./utils/scroll";
 import cursorImage from "./assets/Group.png";
 import "./app.css";
 import Settings from "./pages/Settings/Settings";
+import Comunidad from "./pages/comunidad/Comunidad";
 
 const rootStyle = {
   cursor: `url(${cursorImage}), auto`,
@@ -65,6 +66,7 @@ const AppLayout = () => {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/comunidad" element={<Comunidad />} />
       </Routes>
 
       {showFooter && <Footer />}
