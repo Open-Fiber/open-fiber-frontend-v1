@@ -11,6 +11,14 @@ import {
 } from "react-icons/fa";
 import "./styles/categorygrid.css";
 
+import people1 from "../../assets/people/people1.jpeg";
+import people2 from "../../assets/people/people2.jpeg";
+import people3 from "../../assets/people/people3.jpeg";
+import people4 from "../../assets/people/people4.jpeg";
+import people5 from "../../assets/people/people5.jpeg";
+import people6 from "../../assets/people/people6.jpeg";
+import people7 from "../../assets/people/people7.jpeg";
+
 const CategoryGrid = () => {
   const navigate = useNavigate();
   const gridRef = useRef(null);
@@ -27,7 +35,7 @@ const CategoryGrid = () => {
       subtitle: "Nuestros Orígenes",
       description:
         "Descubre cómo nació Open Fiber y la historia detrás de nuestra misión sostenible",
-      imageUrl: "src/assets/people/people5.jpeg",
+      imageUrl: people5,
       icon: FaHistory,
       route: "/nosotros",
       color: "from-blue-500 to-purple-600",
@@ -39,7 +47,7 @@ const CategoryGrid = () => {
       subtitle: "Crea Soluciones",
       description:
         "Explora proyectos de la comunidad y contribuye con tus propias innovaciones",
-      imageUrl: "src/assets/machine/machine7.jpeg",
+      imageUrl: people7,
       icon: FaTools,
       route: "/construye",
       color: "from-green-500 to-emerald-600",
@@ -51,7 +59,7 @@ const CategoryGrid = () => {
       subtitle: "Conocimiento Abierto",
       description:
         "Accede a cursos, tutoriales y recursos para dominar las tecnologías sostenibles",
-      imageUrl: "src/assets/people/people2.jpeg",
+      imageUrl: people2,
       icon: FaGraduationCap,
       route: "/aprende",
       color: "from-orange-500 to-red-600",
@@ -63,7 +71,7 @@ const CategoryGrid = () => {
       subtitle: "Innovación Digital",
       description:
         "Únete a la comunidad de desarrolladores creando el futuro de la sostenibilidad",
-      imageUrl: "src/assets/machine/machine4.jpeg",
+      imageUrl: people4,
       icon: FaCode,
       route: "/comunidad",
       color: "from-purple-500 to-pink-600",

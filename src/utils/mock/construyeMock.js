@@ -2,6 +2,10 @@ import machine1 from "../../assets/machine/machine1.jpeg";
 import machine2 from "../../assets/machine/machine2.jpeg";
 import machine3 from "../../assets/machine/machine3.jpeg";
 import machine4 from "../../assets/machine/machine4.jpeg";
+import machine5 from "../../assets/machine/machine5.jpeg";
+import machine6 from "../../assets/machine/machine6.jpeg";
+import machine7 from "../../assets/machine/machine7.jpeg";
+import machine8 from "../../assets/machine/machine8.jpeg";
 
 export const cardData = [
   {
@@ -70,7 +74,7 @@ export const cardData = [
     difficulty: "Intermedio",
     category: "Mecanica",
     createdAt: new Date(2024, 6, 17),
-    image: "src/assets/machine/machine5.jpeg",
+    image: machine5,
     tags: ["Inyección", "Moldes", "Calentador", "Objetos"],
     author: "Luis Herrera",
   },
@@ -84,7 +88,7 @@ export const cardData = [
     difficulty: "Intermedio",
     category: "Electronica",
     createdAt: new Date(2024, 5, 29),
-    image: "src/assets/machine/machine6.jpeg",
+    image: machine6,
     tags: ["Magnetismo", "Separación", "Arduino", "Automatización"],
     author: "Patricia Silva",
   },
@@ -98,7 +102,7 @@ export const cardData = [
     difficulty: "Principiante",
     category: "Estetica",
     createdAt: new Date(2024, 4, 11),
-    image: "src/assets/machine/machine7.jpeg",
+    image: machine7,
     tags: ["Solar", "Limpieza", "Filtros", "Sostenible"],
     author: "Roberto Vega",
   },
@@ -112,7 +116,7 @@ export const cardData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 3, 25),
-    image: "src/assets/machine/machine8.jpeg",
+    image: machine8,
     tags: ["Láser", "CNC", "G-code", "Precisión"],
     author: "Diana Torres",
   },
@@ -129,7 +133,7 @@ export const appData = [
     difficulty: "Intermedio",
     category: "Electronica",
     createdAt: new Date(2024, 10, 20),
-    image: "src/assets/machine/machine1.jpeg",
+    image: machine1,
     tags: ["Control", "IA", "Monitoreo", "Alertas"],
     author: "Miguel Santos",
   },
@@ -143,7 +147,7 @@ export const appData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 9, 8),
-    image: "src/assets/machine/machine2.jpeg",
+    image: machine2,
     tags: ["Visión Artificial", "Clasificación", "Cámara", "50k Imágenes"],
     author: "Sofía Moreno",
   },
