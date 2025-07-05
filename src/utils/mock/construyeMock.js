@@ -1,4 +1,11 @@
 import machine1 from "../../assets/machine/machine1.jpg";
+import machine2 from "../../assets/machine/machine2.jpg";
+import machine3 from "../../assets/machine/machine3.jpg";
+import machine4 from "../../assets/machine/machine4.JPG";
+import machine5 from "../../assets/machine/machine5.JPG";
+import machine6 from "../../assets/machine/machine6.JPG";
+import machine7 from "../../assets/machine/machine7.jpg";
+import machine8 from "../../assets/machine/machine8.JPG";
 
 export const cardData = [
   {
@@ -11,7 +18,7 @@ export const cardData = [
     difficulty: "Intermedio",
     category: "Mecanica",
     createdAt: new Date(2024, 10, 15),
-    image: { machine1 },
+    image: machine1,
     tags: ["PET", "Reciclaje", "Automatización", "Arduino"],
     author: "Carlos Mendoza",
   },
@@ -25,7 +32,7 @@ export const cardData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 9, 3),
-    image: "src/assets/machine/machine2.jpg",
+    image: machine2,
     tags: ["3D Print", "Extrusión", "PID", "Sensores"],
     author: "María González",
   },
@@ -39,7 +46,7 @@ export const cardData = [
     difficulty: "Principiante",
     category: "Mecanica",
     createdAt: new Date(2024, 8, 22),
-    image: "src/assets/machine/machine3.jpg",
+    image: machine3,
     tags: ["Construcción", "Ecológico", "Hidráulica", "DIY"],
     author: "Jorge Ramirez",
   },
@@ -53,7 +60,7 @@ export const cardData = [
     difficulty: "Avanzado",
     category: "Electronica",
     createdAt: new Date(2024, 7, 8),
-    image: "src/assets/machine/machine4.JPG",
+    image: machine4,
     tags: ["Pirólisis", "Combustible", "Sensores", "Química"],
     author: "Ana Morales",
   },
