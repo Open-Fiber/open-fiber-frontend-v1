@@ -8,6 +8,12 @@ import {
   CHECK_TOKEN_FAILURE,
   LOGOUT,
 } from "./types";
+import {
+  storeToken,
+  clearToken,
+  getStoredToken,
+  addTokenToData,
+} from "../utils/authUtils";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -21,22 +27,23 @@ export const login = (email, password) => async (dispatch) => {
       password,
     });
 
-    const { accessToken, dataCuenta } = response.data;
+    const { accessToken, data } = response.data.data;
 
-    // Store token in localStorage
-    localStorage.setItem("token", accessToken);
+    // Store token only
+    storeToken(accessToken);
 
     dispatch({
       type: LOGIN_SUCCESS,
       payload: {
         token: accessToken,
-        user: dataCuenta,
+        user: data,
       },
     });
 
     return { success: true };
   } catch (error) {
     const errorMessage = error.response?.data?.message || "Login failed";
+    clearToken();
 
     dispatch({
       type: LOGIN_FAILURE,
@@ -51,9 +58,12 @@ export const login = (email, password) => async (dispatch) => {
 export const checkToken = () => async (dispatch) => {
   dispatch({ type: CHECK_TOKEN_REQUEST });
 
-  const token = localStorage.getItem("token");
+  const token = getStoredToken();
+
+  console.log("checking token:", token);
 
   if (!token) {
+    console.log("no token!!!!");
     dispatch({
       type: CHECK_TOKEN_FAILURE,
       payload: "No token found",
@@ -66,16 +76,18 @@ export const checkToken = () => async (dispatch) => {
       `${API_URL}/api/auth/checkToken`,
       {},
       {
-        headers: {
-          Authorization: `Bearer ${token}`,
+        params: {
+          token: token,
         },
       }
     );
 
-    const { rol, sub, tipo, time, isExpired } = response.data;
+    console.log(response.data);
+
+    const { rol, sub, tipo, time, isExpired } = response.data.data;
 
     if (isExpired === "true") {
-      localStorage.removeItem("token");
+      clearToken();
       dispatch({
         type: CHECK_TOKEN_FAILURE,
         payload: "Token expired",
@@ -99,8 +111,7 @@ export const checkToken = () => async (dispatch) => {
     const errorMessage =
       error.response?.data?.message || "Token validation failed";
 
-    // Remove invalid token
-    localStorage.removeItem("token");
+    clearToken();
 
     dispatch({
       type: CHECK_TOKEN_FAILURE,
@@ -113,14 +124,21 @@ export const checkToken = () => async (dispatch) => {
 
 // Logout action
 export const logout = () => (dispatch) => {
-  localStorage.removeItem("token");
+  clearToken();
   dispatch({ type: LOGOUT });
 };
 
 // Auto-check token on app initialization
 export const initializeAuth = () => async (dispatch) => {
-  const token = localStorage.getItem("token");
+  const token = getStoredToken();
+  console.log("verifying token:", token);
+
   if (token) {
-    await dispatch(checkToken());
+    console.log("Token found, checking validity...");
+    const result = await dispatch(checkToken());
+
+    if (!result.success) {
+      console.log("Token validation failed during initialization");
+    }
   }
 };

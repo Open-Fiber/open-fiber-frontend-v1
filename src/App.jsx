@@ -1,6 +1,8 @@
 // src/App.jsx
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { initializeAuth } from "./actions/auth";
 import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -25,6 +27,12 @@ const rootStyle = {
 
 // Component for conditional layout rendering
 const AppLayout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initializeAuth());
+  }, [dispatch]);
+
   const location = useLocation();
   const path = location.pathname;
 
