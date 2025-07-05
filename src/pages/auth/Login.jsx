@@ -56,19 +56,13 @@ const Login = () => {
             />
           </div>
           <div className="links">
-            <a href="#">
-              <Link to="/forgot-password">Cambiar Contraseña</Link>
-            </a>
-            
+            <Link to="/Settings">Cambiar Contraseña</Link>
           </div>
           <div className="links">
-            <a href="#">
-              <Link to="/register">Registrate</Link>
-            </a>
-            <a href="#">
-              <Link to="/">Inicio</Link>
-            </a>
+            <Link to="/register">Registrate</Link>
+            <Link to="/">Inicio</Link>
           </div>
+
         </div>
       </div>
     </div>

@@ -77,14 +77,14 @@ const Card_Machine = ({
 
   return (
     <div
-      className={`machine-card ${hoveredCard ? "hovered" : ""}`}
+      className={`app-card ${hoveredCard ? "hovered" : ""}`}
       onMouseEnter={handleCardHover}
       onMouseLeave={handleCardLeave}
     >
       {/* Background Image */}
-      <div className="machine-background">
+      <div className="app-background">
         <img src={image || "/placeholder-image.jpg"} alt={nombre} />
-        <div className="machine-overlay"></div>
+        <div className="app-overlay"></div>
       </div>
 
       {/* Category Badge */}
@@ -104,19 +104,19 @@ const Card_Machine = ({
       </div>
 
       {/* Card Content */}
-      <div className="machine-content">
+      <div className="app-content">
         {/* Always visible header */}
-        <div className="machine-header">
+        <div className="app-header">
           <div className="header-main">
-            <h3 className="machine-title">{nombre}</h3>
+            <h3 className="app-title">{nombre}</h3>
             <div className="header-meta">
               <FlagIcon country={pais} />
-              <span className="machine-author">
+              <span className="app-author">
                 <FaUser className="meta-icon" />
                 {author}
               </span>
               <span
-                className="machine-difficulty"
+                className="app-difficulty"
                 style={{
                   backgroundColor: difficultyStyle.bg,
                   color: difficultyStyle.text,
@@ -129,11 +129,11 @@ const Card_Machine = ({
         </div>
 
         {/* Hidden content that slides up on hover */}
-        <div className="machine-details">
-          <p className="machine-description">{descripcion}</p>
+        <div className="app-details">
+          <p className="app-description">{descripcion}</p>
 
           {/* Tags */}
-          <div className="machine-tags">
+          <div className="app-tags">
             {tags.map((tag, index) => (
               <span key={index} className="tag">
                 {tag}
@@ -141,24 +141,24 @@ const Card_Machine = ({
             ))}
           </div>
 
-          {/* Machine Stats */}
-          <div className="machine-stats">
+          {/* app Stats */}
+          <div className="app-stats">
             <div className="stat">
-              <FaCalendarAlt className="stat-icon" />
+              <FaCalendarAlt className="stat-icon-machine" />
               <span>{formatDate(createdAt)}</span>
             </div>
             <div className="stat">
-              <FaPrint className="stat-icon" />
+              <FaPrint className="stat-icon-machine" />
               <span>Imprimible 3D</span>
             </div>
             <div className="stat">
-              <FaEye className="stat-icon" />
+              <FaEye className="stat-icon-machine" />
               <span>Open Source</span>
             </div>
           </div>
 
           {/* Action Bar */}
-          <div className="machine-actions">
+          <div className="app-actions">
             <div className="likes-section">
               <button
                 className={`like-button ${isLiked ? "liked" : ""}`}
@@ -184,7 +184,7 @@ const Card_Machine = ({
       </div>
 
       {/* Hover Effects */}
-      <div className="machine-effects">
+      <div className="app-effects">
         <div className="glow-effect"></div>
         <div className="shimmer-effect"></div>
       </div>

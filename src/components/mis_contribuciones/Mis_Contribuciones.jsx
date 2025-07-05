@@ -1,4 +1,3 @@
-// src/components/mis_contribuciones/MisContribuciones.jsx
 import React from "react";
 import Second_Header from "../second_header/Second_Header";
 import "./styles/mis_contribuciones.css";

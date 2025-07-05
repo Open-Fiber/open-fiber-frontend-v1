@@ -144,15 +144,15 @@ const Card_App = ({
           {/* App Stats */}
           <div className="app-stats">
             <div className="stat">
-              <FaCalendarAlt className="stat-icon" />
+              <FaCalendarAlt className="stat-icon-machine" />
               <span>{formatDate(createdAt)}</span>
             </div>
             <div className="stat">
-              <FaCog className="stat-icon" />
+              <FaCog className="stat-icon-machine" />
               <span>Machine App</span>
             </div>
             <div className="stat">
-              <FaPlay className="stat-icon" />
+              <FaPlay className="stat-icon-machine" />
               <span>Ejecutable</span>
             </div>
           </div>

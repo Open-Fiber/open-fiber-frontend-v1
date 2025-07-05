@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { animate, stagger } from "animejs";
 import {
@@ -11,6 +11,14 @@ import {
 } from "react-icons/fa";
 import "./styles/categorygrid.css";
 
+import people1 from "../../assets/people/people1.jpeg";
+import people2 from "../../assets/people/people2.jpeg";
+import people3 from "../../assets/people/people3.jpeg";
+import people4 from "../../assets/people/people4.jpeg";
+import people5 from "../../assets/people/people5.jpeg";
+import people6 from "../../assets/people/people6.jpeg";
+import people7 from "../../assets/people/people7.jpeg";
+
 const CategoryGrid = () => {
   const navigate = useNavigate();
   const gridRef = useRef(null);
@@ -20,7 +28,6 @@ const CategoryGrid = () => {
 
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  //  categories with more detailed information
   const categories = [
     {
       id: 1,
@@ -28,8 +35,7 @@ const CategoryGrid = () => {
       subtitle: "Nuestros Orígenes",
       description:
         "Descubre cómo nació Open Fiber y la historia detrás de nuestra misión sostenible",
-      imageUrl:
-        "https://www.portalverde.com.bo/wp-content/uploads/2024/08/unifranz-fablab-1024x597.jpg",
+      imageUrl: people5,
       icon: FaHistory,
       route: "/nosotros",
       color: "from-blue-500 to-purple-600",
@@ -41,8 +47,7 @@ const CategoryGrid = () => {
       subtitle: "Crea Soluciones",
       description:
         "Explora proyectos de la comunidad y contribuye con tus propias innovaciones",
-      imageUrl:
-        "https://unifranz.edu.bo/wp-content/uploads/2024/08/FAB-LAB-ANIVERSARIO-blog.jpg",
+      imageUrl: people7,
       icon: FaTools,
       route: "/construye",
       color: "from-green-500 to-emerald-600",
@@ -54,8 +59,7 @@ const CategoryGrid = () => {
       subtitle: "Conocimiento Abierto",
       description:
         "Accede a cursos, tutoriales y recursos para dominar las tecnologías sostenibles",
-      imageUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1nheCKo35qmSr2RauaVXAX5Nrfh2mjb5Cg&s",
+      imageUrl: people2,
       icon: FaGraduationCap,
       route: "/aprende",
       color: "from-orange-500 to-red-600",
@@ -67,8 +71,7 @@ const CategoryGrid = () => {
       subtitle: "Innovación Digital",
       description:
         "Únete a la comunidad de desarrolladores creando el futuro de la sostenibilidad",
-      imageUrl:
-        "https://eldeber.com.bo/sites/default/efsfiles/2024-09/unifranz_171079980_1140x520.jpg",
+      imageUrl: people4,
       icon: FaCode,
       route: "/comunidad",
       color: "from-purple-500 to-pink-600",
