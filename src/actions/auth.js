@@ -8,6 +8,12 @@ import {
   CHECK_TOKEN_FAILURE,
   LOGOUT,
 } from "./types";
+import {
+  storeAndSetToken,
+  clearToken,
+  getStoredToken,
+  setAuthToken,
+} from "../utils/authUtils";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -21,22 +27,25 @@ export const login = (email, password) => async (dispatch) => {
       password,
     });
 
-    const { accessToken, dataCuenta } = response.data;
+    const { accessToken, data } = response.data.data;
 
-    // Store token in localStorage
-    localStorage.setItem("token", accessToken);
+    // Store token and set in axios headers
+    storeAndSetToken(accessToken);
 
     dispatch({
       type: LOGIN_SUCCESS,
       payload: {
         token: accessToken,
-        user: dataCuenta,
+        user: data,
       },
     });
 
     return { success: true };
   } catch (error) {
     const errorMessage = error.response?.data?.message || "Login failed";
+
+    // Clear any existing token on login failure
+    clearToken();
 
     dispatch({
       type: LOGIN_FAILURE,
@@ -51,9 +60,11 @@ export const login = (email, password) => async (dispatch) => {
 export const checkToken = () => async (dispatch) => {
   dispatch({ type: CHECK_TOKEN_REQUEST });
 
-  const token = localStorage.getItem("token");
+  const token = getStoredToken();
 
   if (!token) {
+    console.log("no token!!!!");
+    clearToken(); // Ensure headers are clean
     dispatch({
       type: CHECK_TOKEN_FAILURE,
       payload: "No token found",
@@ -62,26 +73,23 @@ export const checkToken = () => async (dispatch) => {
   }
 
   try {
-    const response = await axios.post(
-      `${API_URL}/api/auth/checkToken`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await axios.post(`${API_URL}/api/auth/checkToken`, token);
+
+    console.log(response.data);
 
     const { rol, sub, tipo, time, isExpired } = response.data;
 
     if (isExpired === "true") {
-      localStorage.removeItem("token");
+      clearToken(); // Remove token and headers
       dispatch({
         type: CHECK_TOKEN_FAILURE,
         payload: "Token expired",
       });
       return { success: false, error: "Token expired" };
     }
+
+    // Token is valid, ensure it's set in headers
+    setAuthToken(token);
 
     dispatch({
       type: CHECK_TOKEN_SUCCESS,
@@ -99,8 +107,8 @@ export const checkToken = () => async (dispatch) => {
     const errorMessage =
       error.response?.data?.message || "Token validation failed";
 
-    // Remove invalid token
-    localStorage.removeItem("token");
+    // Remove invalid token and headers
+    clearToken();
 
     dispatch({
       type: CHECK_TOKEN_FAILURE,
@@ -113,14 +121,29 @@ export const checkToken = () => async (dispatch) => {
 
 // Logout action
 export const logout = () => (dispatch) => {
-  localStorage.removeItem("token");
+  // Clear token and headers
+  clearToken();
   dispatch({ type: LOGOUT });
 };
 
 // Auto-check token on app initialization
 export const initializeAuth = () => async (dispatch) => {
-  const token = localStorage.getItem("token");
+  const token = getStoredToken();
+  console.log("verifying token:", token);
+
   if (token) {
-    await dispatch(checkToken());
+    console.log("Token found, setting in headers and checking validity...");
+    // Set token in headers immediately (for better UX)
+    setAuthToken(token);
+    // Then check if it's still valid
+    const result = await dispatch(checkToken());
+
+    // If token check failed, headers will be cleared by checkToken action
+    if (!result.success) {
+      console.log("Token validation failed during initialization");
+    }
+  } else {
+    // No token found, ensure headers are clean
+    clearToken();
   }
 };
