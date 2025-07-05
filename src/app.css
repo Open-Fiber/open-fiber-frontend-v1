@@ -8,6 +8,16 @@
 html {
   scroll-behavior: smooth;
 }
+:root {
+  --primary-blue: #4949E9;
+  --light-blue: #ABC3FF;
+  --accent-yellow-green: #dcf342;
+  --neutral-base-light: #F8FAFC;
+  --neutral-base-medium: #E2E8F0;
+  --text-primary: #1A1A1A;
+  --text-secondary: #64748b;
+  --text-tertiary: #CBD5E1;
+}
 
 body {
   margin: 0;

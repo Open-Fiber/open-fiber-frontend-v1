@@ -30,11 +30,11 @@ const Comunidad = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const pageRef = useRef(null);
 
-  // Efecto para el carrusel de la sección Hero
+  // Efecto del carrusel de la sección Hero
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % heroImages.length);
-    }, 5000); // Cambia de imagen cada 5 segundos
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 

@@ -17,6 +17,7 @@ import cursorImage from "./assets/Group.png";
 import "./app.css";
 import Settings from "./pages/Settings/Settings";
 import Comunidad from "./pages/comunidad/Comunidad";
+import Contac from "./pages/contact/Contac";
 
 const rootStyle = {
   cursor: `url(${cursorImage}), auto`,
@@ -67,6 +68,7 @@ const AppLayout = () => {
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/comunidad" element={<Comunidad />} />
+        <Route path="/contacto" element={<Contac />} />
       </Routes>
 
       {showFooter && <Footer />}
