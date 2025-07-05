@@ -5,6 +5,7 @@
     color: #1a1a1a;
     font-family: 'Inter', 'Arial', sans-serif;
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    max-width: 1400;
 }
 
 .titulo-seccion {
@@ -16,7 +17,7 @@
 }
 
 /* --- 1. Sección Hero (Carrusel) --- */
-.seccion-hero {
+.seccion-hero-comunidad {
     position: relative;
     height: 90vh;
     display: flex;
@@ -26,7 +27,7 @@
     padding: 50px;
 }
 
-.hero-slider {
+.hero-slider-comunidad   {
     position: absolute;
     top: 0;
     left: 0;
@@ -35,7 +36,7 @@
     z-index: 1;
 }
 
-.hero-fondo {
+.hero-fondo-comunidad {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -45,11 +46,11 @@
     transition: opacity 1.5s ease-in-out;
 }
 
-.hero-fondo.active {
+.hero-fondo-comunidad.active {
     opacity: 1;
 }
 
-.hero-overlay {
+.hero-overlay-comunidad {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,7 +60,7 @@
     z-index: 2;
 }
 
-.hero-contenido {
+.hero-contenido-comunidad {
     position: relative;
     z-index: 3;
     background-color: rgba(26, 26, 26, 0.5);
@@ -70,102 +71,26 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.hero-contenido h1 {
+.hero-contenido-comunidad h1 {
     font-size: 3.8rem;
     margin: 0 0 15px 0;
     font-weight: bold;
     line-height: 1.1;
 }
 
-.hero-contenido p {
+.hero-contenido-comunidad p {
     font-size: 1.3rem;
     margin: 0;
     color: #e2e8f0;
 }
 
-/* --- 2. Sección de Features --- */
-.seccion-features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 80px 50px;
-}
-
-.feature-card {
-    position: relative;
-    height: 70vh;
-    border-radius: 24px;
-    overflow: hidden;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    transition: transform 0.4s ease;
-}
-
-.feature-card:hover {
-    transform: scale(1.03);
-}
-
-.feature-card-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-.feature-card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    z-index: 2;
-}
-
-.feature-card-content {
-    position: relative;
-    z-index: 3;
-}
-
-.feature-card h3 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 0 0 10px 0;
-}
-
-.feature-card p {
-    font-size: 1.1rem;
-    color: #e2e8f0;
-}
-
-
-/* --- 3. Sección de Máquinas --- */
-.seccion-maquinas {
-    padding: 80px 20px;
-    background-color: #f8fafc;
-}
-
-.contenedor-maquinas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
 /* --- 4. Sección Directorio de Comunidades --- */
-.seccion-directorio {
-    padding: 80px 20px;
+.seccion-directorio-comunidad {
+    padding: 80px;
     background: linear-gradient(180deg, #e2e8f0, #f8fafc);
 }
 
-.contenedor-organizaciones {
+.contenedor-organizaciones-comunidad {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
@@ -173,7 +98,7 @@
     margin: 0 auto;
 }
 
-.organizacion-card {
+.organizacion-card-comunidad {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -188,13 +113,18 @@
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
+.titulo-seccion-comunidad{
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    text-align: center;
+    font-weight: 300;
+}
 
-.organizacion-card:hover {
+.organizacion-card-comunidad:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
 }
 
-.organizacion-logo {
+.organizacion-logo-comunidad {
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -202,26 +132,26 @@
     border: 3px solid #4949e9;
 }
 
-.organizacion-info h4 {
+.organizacion-info-comunidad h4 {
     margin: 0 0 8px 0;
     font-size: 1.5rem;
     color: #1a1a1a;
     font-weight: 600;
 }
 
-.organizacion-info p {
+.organizacion-info-comunidad p {
     margin: 0;
     font-size: 1rem;
     color: #64748b;
 }
 
 /* --- 5. Sección de Eventos --- */
-.seccion-eventos {
-    padding: 80px 20px;
+.seccion-eventos-comunidad {
+    padding: 80px;
     background-color: #f8fafc;
 }
 
-.contenedor-eventos {
+.contenedor-eventos-comunidad {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
@@ -229,7 +159,7 @@
     gap: 25px;
 }
 
-.evento-card {
+.evento-card-comunidad {
     display: flex;
     align-items: center;
     background-color: #fff;
@@ -240,12 +170,12 @@
     border: 1px solid #e2e8f0;
 }
 
-.evento-card:hover {
+.evento-card-comunidad:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
 
-.evento-fecha {
+.evento-fecha-comunidad {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -258,24 +188,24 @@
     min-width: 100px;
 }
 
-.evento-fecha svg {
+.evento-fecha-comunidad svg {
     font-size: 2.2rem;
     margin-bottom: 8px;
 }
 
-.evento-info h4 {
+.evento-info-comunidad h4 {
     margin: 0 0 10px 0;
     font-size: 1.6rem;
     color: #1a1a1a;
 }
 
-.evento-info p {
+.evento-info-comunidad p {
     margin: 0;
     color: #64748b;
     line-height: 1.6;
 }
 
-.evento-desc {
+.evento-desc-comunidad {
     font-size: 0.9rem;
     color: #64748b;
 }
@@ -307,30 +237,32 @@
 
 /* --- Media Queries para Responsividad --- */
 @media (max-width: 1200px) {
-    .seccion-features, .contenedor-organizaciones {
+    .seccion-features-comunidad, .contenedor-organizaciones-comunidad {
         grid-template-columns: 1fr 1fr;
+    }
+    .seccion-hero-comunidad{
+        height: auto;
     }
 }
 
 @media (max-width: 768px) {
-    .titulo-seccion { font-size: 2.2rem; }
-    .hero-contenido h1 { font-size: 2.8rem; }
-    .hero-contenido p { font-size: 1.1rem; }
-    .seccion-hero { padding: 30px; }
+    .hero-contenido-comunidad h1 { font-size: 2rem; }
+    .hero-contenido-comunidad p { font-size: 1rem; }
+    .seccion-hero-comunidad { padding: 30px; }
 
-    .seccion-features, .contenedor-organizaciones {
+    .seccion-features-comunidad, .contenedor-organizaciones-comunidad {
         grid-template-columns: 1fr;
         padding: 60px 20px;
     }
 
-    .feature-card { height: 50vh; }
+    .feature-card-comunidad { height: 50vh; }
 
-    .evento-card {
+    .evento-card-comunidad {
         flex-direction: column;
         text-align: center;
     }
 
-    .evento-fecha {
+    .evento-fecha-comunidad {
         margin-right: 0;
         margin-bottom: 20px;
     }
