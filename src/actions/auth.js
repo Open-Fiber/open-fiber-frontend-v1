@@ -9,10 +9,10 @@ import {
   LOGOUT,
 } from "./types";
 import {
-  storeAndSetToken,
+  storeToken,
   clearToken,
   getStoredToken,
-  setAuthToken,
+  addTokenToData,
 } from "../utils/authUtils";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -29,8 +29,8 @@ export const login = (email, password) => async (dispatch) => {
 
     const { accessToken, data } = response.data.data;
 
-    // Store token and set in axios headers
-    storeAndSetToken(accessToken);
+    // Store token only
+    storeToken(accessToken);
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -43,8 +43,6 @@ export const login = (email, password) => async (dispatch) => {
     return { success: true };
   } catch (error) {
     const errorMessage = error.response?.data?.message || "Login failed";
-
-    // Clear any existing token on login failure
     clearToken();
 
     dispatch({
@@ -62,9 +60,10 @@ export const checkToken = () => async (dispatch) => {
 
   const token = getStoredToken();
 
+  console.log("checking token:", token);
+
   if (!token) {
     console.log("no token!!!!");
-    clearToken(); // Ensure headers are clean
     dispatch({
       type: CHECK_TOKEN_FAILURE,
       payload: "No token found",
@@ -73,23 +72,28 @@ export const checkToken = () => async (dispatch) => {
   }
 
   try {
-    const response = await axios.post(`${API_URL}/api/auth/checkToken`, token);
+    const response = await axios.post(
+      `${API_URL}/api/auth/checkToken`,
+      {},
+      {
+        params: {
+          token: token,
+        },
+      }
+    );
 
     console.log(response.data);
 
-    const { rol, sub, tipo, time, isExpired } = response.data;
+    const { rol, sub, tipo, time, isExpired } = response.data.data;
 
     if (isExpired === "true") {
-      clearToken(); // Remove token and headers
+      clearToken();
       dispatch({
         type: CHECK_TOKEN_FAILURE,
         payload: "Token expired",
       });
       return { success: false, error: "Token expired" };
     }
-
-    // Token is valid, ensure it's set in headers
-    setAuthToken(token);
 
     dispatch({
       type: CHECK_TOKEN_SUCCESS,
@@ -107,7 +111,6 @@ export const checkToken = () => async (dispatch) => {
     const errorMessage =
       error.response?.data?.message || "Token validation failed";
 
-    // Remove invalid token and headers
     clearToken();
 
     dispatch({
@@ -121,7 +124,6 @@ export const checkToken = () => async (dispatch) => {
 
 // Logout action
 export const logout = () => (dispatch) => {
-  // Clear token and headers
   clearToken();
   dispatch({ type: LOGOUT });
 };
@@ -132,18 +134,11 @@ export const initializeAuth = () => async (dispatch) => {
   console.log("verifying token:", token);
 
   if (token) {
-    console.log("Token found, setting in headers and checking validity...");
-    // Set token in headers immediately (for better UX)
-    setAuthToken(token);
-    // Then check if it's still valid
+    console.log("Token found, checking validity...");
     const result = await dispatch(checkToken());
 
-    // If token check failed, headers will be cleared by checkToken action
     if (!result.success) {
       console.log("Token validation failed during initialization");
     }
-  } else {
-    // No token found, ensure headers are clean
-    clearToken();
   }
 };
