@@ -1,11 +1,7 @@
 import machine1 from "../../assets/machine/machine1.jpg";
 import machine2 from "../../assets/machine/machine2.jpg";
 import machine3 from "../../assets/machine/machine3.jpg";
-import machine4 from "../../assets/machine/machine4.JPG";
-import machine5 from "../../assets/machine/machine5.JPG";
-import machine6 from "../../assets/machine/machine6.JPG";
-import machine7 from "../../assets/machine/machine7.jpg";
-import machine8 from "../../assets/machine/machine8.JPG";
+import machine4 from "../../assets/machine/machine4.jpg";
 
 export const cardData = [
   {
