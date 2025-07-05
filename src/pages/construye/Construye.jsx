@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import  { useState, useEffect, useRef, useMemo } from "react";
 import { animate, stagger } from "animejs";
 import { FaFilter, FaSearch, FaSortAmountDown } from "react-icons/fa";
 import Card_Machine from "../../components/cards/card_machine/Card_Machine";
@@ -158,8 +158,8 @@ const Construye = () => {
         </div>
       </div>
 
-      {/* Header Section */}
-      <div className="construye-header">
+      {/* Header Section 
+       <div className="construye-header">
         <h1 ref={titleRef} className="construye-title">
           Colabora, <span className="highlight">Crea</span>, Transforma
         </h1>
@@ -167,13 +167,14 @@ const Construye = () => {
           Descubre máquinas y aplicaciones creadas por la comunidad global de
           makers
         </p>
-      </div>
+      </div>*/}
+     
 
-      {/* Hero Image */}
+      {/* Hero Image 
       <div ref={heroRef} className="hero-image-section">
         <div className="hero-image-container">
           <img
-            src="https://res.cloudinary.com/dwzjheic7/image/upload/v1746227945/6_700_Simple_Cat_Line_Art_Stock_Illustrations_Royalty-Free_Vector_Graphics_Clip_Art_nwjz77.jpg"
+            src="public/page/cover/construye/construye1.png"
             alt="Colaboración creativa"
             className="hero-image"
           />
@@ -183,7 +184,8 @@ const Construye = () => {
             <p>Máquinas de código abierto para un futuro sostenible</p>
           </div>
         </div>
-      </div>
+      </div>*/}
+      
 
       {/* Tabs and Filters */}
       <div ref={tabsRef} className="construye-controls">
@@ -286,7 +288,7 @@ const Construye = () => {
 
       {/* Cards Grid */}
       <div className="cards-grid">
-        {getCurrentData.map((item, index) => (
+        {getCurrentData.map((item) => (
           <div key={item.id} ref={addToCardsRef} className="card-wrapper">
             {activeTab === "maquinas" ? (
               <Card_Machine {...item} />
