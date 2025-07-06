@@ -1,0 +1,95 @@
+.modal-overlay-machine {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content-machine {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  position: relative;
+  padding-top: 60px; /* Espacio para el título y el botón */
+  max-height: 85vh; /* Limita la altura máxima de la modal */
+  overflow-y: auto; /* Añade scroll si el contenido se desborda */
+}
+
+.close-button-machine {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+}
+
+.close-button-machine:hover {
+  color: #000;
+}
+
+.modal-content-machine h2 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0;
+  color: #007bff; /* Color del título principal */
+}
+
+.modal-content-machine p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.modal-content-machine input,
+.modal-content-machine textarea,
+.modal-content-machine select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px; /* Reducción de margen */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.modal-content-machine textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal-content-machine label {
+  display: block;
+  margin-top: 12px; /* Ajuste de margen */
+  margin-bottom: 4px; /* Ajuste de margen */
+  font-weight: 600;
+  color: #444;
+}
+
+.btn-create-machine-modal {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.btn-create-machine-modal:hover {
+  background-color: #0056b3;
+}
