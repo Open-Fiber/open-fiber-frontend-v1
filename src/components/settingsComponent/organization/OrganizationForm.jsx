@@ -24,6 +24,7 @@ const OrganizationForm = ({ organization, isOpen, onClose, onSave, isEditing = f
           nombre: organization.nombre || '',
           descripcion: organization.descripcion || '',
           direccion: organization.direccion || '',
+          // eslint-disable-next-line react/prop-types
           pais: organization.pais || '',
           telefono: organization.telefono || '',
           pagina_url: organization.pagina_url || '',
@@ -117,6 +118,7 @@ const OrganizationForm = ({ organization, isOpen, onClose, onSave, isEditing = f
     try {
       const organizationData = {
         ...formData,
+        // eslint-disable-next-line react/prop-types
         ...(isEditing && organization ? { id: organization.id, cuentaId: organization.cuentaId } : {})
       };
       
