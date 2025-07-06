@@ -1,202 +1,97 @@
 import  { useState, useMemo } from 'react';
-import { IoArrowBack, IoSearch, IoAdd, IoTrash, IoPencil, IoBusiness, IoCheckmarkCircle, IoLocation, IoPeople, IoMail } from 'react-icons/io5';
+import { IoArrowBack, IoSearch, IoAdd, IoTrash, IoPencil, IoBusiness, IoCheckmarkCircle, IoLocation, IoMail } from 'react-icons/io5';
 import './organizationSettings.css';
 
 // Datos simulados de organizaciones
 const mockOrganizations = [
   {
     id: 1,
-    name: 'TechCorp Solutions',
-    displayName: 'TechCorp Solutions S.A.',
-    description: 'Empresa líder en soluciones tecnológicas y desarrollo de software',
-    type: 'Empresa',
-    industry: 'Tecnología',
-    logo: null,
-    website: 'https://techcorp.com',
-    email: 'info@techcorp.com',
-    phone: '+1-555-0123',
-    address: {
-      street: 'Av. Tecnológica 123',
-      city: 'Ciudad Tech',
-      state: 'Estado Digital',
-      country: 'País Virtual',
-      zipCode: '12345'
-    },
-    employees: 250,
-    departments: ['TI', 'Desarrollo', 'Marketing', 'Ventas'],
-    status: 'activa',
-    createdAt: '2024-01-15T10:00:00Z',
-    subscription: 'Enterprise'
+    nombre: 'Fab Lab Santa Cruz',
+    descripcion: 'Fab Lab oficial de la unifranz en Santa Cruz',
+    direccion: 'Unifranz - Santa Cruz',
+    pais: 'Bolivia',
+    telefono: '3843789723',
+    pagina_url: 'https://fablabscz.org',
+    logo_url: 'https://img1.wsimg.com/isteam/ip/3bd70cf6-3119-4a2e-bc7d-fceec99209a1/LogoTest.png/:/rs=w:311,h:150,cg:true,m/cr=w:311,h:150/qt=q:95',
+    cuentaId: '1ba354dd-3eef-46a5-8d31-d90bb5f8a3ae'
   },
   {
     id: 2,
-    name: 'Global Marketing Inc',
-    displayName: 'Global Marketing Inc.',
-    description: 'Agencia de marketing digital y publicidad internacional',
-    type: 'Agencia',
-    industry: 'Marketing',
-    logo: null,
-    website: 'https://globalmarketing.com',
-    email: 'contact@globalmarketing.com',
-    phone: '+1-555-0456',
-    address: {
-      street: 'Plaza Comercial 456',
-      city: 'Metro City',
-      state: 'Estado Central',
-      country: 'País Global',
-      zipCode: '67890'
-    },
-    employees: 125,
-    departments: ['Creatividad', 'Estrategia', 'Cuentas', 'Producción'],
-    status: 'activa',
-    createdAt: '2024-02-01T14:30:00Z',
-    subscription: 'Professional'
+    nombre: 'TechCorp Solutions',
+    descripcion: 'Empresa líder en soluciones tecnológicas y desarrollo de software',
+    direccion: 'Av. Tecnológica 123, Ciudad Tech',
+    pais: 'México',
+    telefono: '+52-555-0123',
+    pagina_url: 'https://techcorp.com',
+    logo_url: null,
+    cuentaId: '2ba354dd-3eef-46a5-8d31-d90bb5f8a3ae'
   },
   {
     id: 3,
-    name: 'EduLearn Academy',
-    displayName: 'Academia EduLearn',
-    description: 'Institución educativa especializada en cursos online y capacitación profesional',
-    type: 'Educativa',
-    industry: 'Educación',
-    logo: null,
-    website: 'https://edulearn.edu',
-    email: 'admisiones@edulearn.edu',
-    phone: '+1-555-0789',
-    address: {
-      street: 'Campus Universitario 789',
-      city: 'Ciudad Académica',
-      state: 'Estado Educativo',
-      country: 'País Académico',
-      zipCode: '11111'
-    },
-    employees: 85,
-    departments: ['Académico', 'Administración', 'TI', 'Estudiantes'],
-    status: 'activa',
-    createdAt: '2024-01-20T09:15:00Z',
-    subscription: 'Standard'
+    nombre: 'Global Marketing Inc',
+    descripcion: 'Agencia de marketing digital y publicidad internacional',
+    direccion: 'Plaza Comercial 456, Metro City',
+    pais: 'Colombia',
+    telefono: '+57-555-0456',
+    pagina_url: 'https://globalmarketing.com',
+    logo_url: null,
+    cuentaId: '3ba354dd-3eef-46a5-8d31-d90bb5f8a3ae'
   },
   {
     id: 4,
-    name: 'HealthCare Plus',
-    displayName: 'HealthCare Plus Clinic',
-    description: 'Clínica médica integral con servicios de salud especializados',
-    type: 'Clínica',
-    industry: 'Salud',
-    logo: null,
-    website: 'https://healthcareplus.med',
-    email: 'info@healthcareplus.med',
-    phone: '+1-555-1010',
-    address: {
-      street: 'Centro Médico 101',
-      city: 'Ciudad Salud',
-      state: 'Estado Médico',
-      country: 'País Saludable',
-      zipCode: '22222'
-    },
-    employees: 150,
-    departments: ['Medicina General', 'Especialidades', 'Enfermería', 'Administración'],
-    status: 'activa',
-    createdAt: '2024-02-10T11:45:00Z',
-    subscription: 'Professional'
+    nombre: 'EduLearn Academy',
+    descripcion: 'Institución educativa especializada en cursos online y capacitación profesional',
+    direccion: 'Campus Universitario 789, Ciudad Académica',
+    pais: 'Perú',
+    telefono: '+51-555-0789',
+    pagina_url: 'https://edulearn.edu',
+    logo_url: null,
+    cuentaId: '4ba354dd-3eef-46a5-8d31-d90bb5f8a3ae'
   },
   {
     id: 5,
-    name: 'StartupHub',
-    displayName: 'StartupHub Incubadora',
-    description: 'Incubadora de startups y espacio de coworking para emprendedores',
-    type: 'Incubadora',
-    industry: 'Emprendimiento',
-    logo: null,
-    website: 'https://startuphub.co',
-    email: 'hello@startuphub.co',
-    phone: '+1-555-1234',
-    address: {
-      street: 'Innovation District 200',
-      city: 'Startup City',
-      state: 'Estado Innovador',
-      country: 'País Emprendedor',
-      zipCode: '33333'
-    },
-    employees: 45,
-    departments: ['Incubación', 'Mentoría', 'Eventos', 'Comunidad'],
-    status: 'activa',
-    createdAt: '2024-03-01T16:20:00Z',
-    subscription: 'Standard'
+    nombre: 'HealthCare Plus',
+    descripcion: 'Clínica médica integral con servicios de salud especializados',
+    direccion: 'Centro Médico 101, Ciudad Salud',
+    pais: 'Chile',
+    telefono: '+56-555-1010',
+    pagina_url: 'https://healthcareplus.med',
+    logo_url: null,
+    cuentaId: '5ba354dd-3eef-46a5-8d31-d90bb5f8a3ae'
   },
   {
     id: 6,
-    name: 'Legacy Corp',
-    displayName: 'Legacy Corporation',
-    description: 'Corporación tradicional en proceso de transformación digital',
-    type: 'Corporación',
-    industry: 'Manufactura',
-    logo: null,
-    website: 'https://legacycorp.com',
-    email: 'contact@legacycorp.com',
-    phone: '+1-555-5678',
-    address: {
-      street: 'Industrial Park 500',
-      city: 'Manufacturing City',
-      state: 'Estado Industrial',
-      country: 'País Manufacturero',
-      zipCode: '44444'
-    },
-    employees: 500,
-    departments: ['Producción', 'Calidad', 'Logística', 'TI'],
-    status: 'inactiva',
-    createdAt: '2023-12-15T08:30:00Z',
-    subscription: 'Basic'
+    nombre: 'StartupHub',
+    descripcion: 'Incubadora de startups y espacio de coworking para emprendedores',
+    direccion: 'Innovation District 200, Startup City',
+    pais: 'Argentina',
+    telefono: '+54-555-1234',
+    pagina_url: 'https://startuphub.co',
+    logo_url: null,
+    cuentaId: '6ba354dd-3eef-46a5-8d31-d90bb5f8a3ae'
   }
 ];
 
-const types = ['Todos', 'Empresa', 'Agencia', 'Educativa', 'Clínica', 'Incubadora', 'Corporación'];
-const industries = ['Todos', 'Tecnología', 'Marketing', 'Educación', 'Salud', 'Emprendimiento', 'Manufactura'];
-const statuses = ['Todos', 'activa', 'inactiva', 'suspendida'];
-const subscriptions = ['Todos', 'Basic', 'Standard', 'Professional', 'Enterprise'];
-
+// eslint-disable-next-line react/prop-types
 const OrganizationSettings = ({ onBack, showConfirmation }) => {
   const [organizations, setOrganizations] = useState(mockOrganizations);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedType, setSelectedType] = useState('Todos');
-  const [selectedIndustry, setSelectedIndustry] = useState('Todos');
-  const [selectedStatus, setSelectedStatus] = useState('Todos');
-  const [selectedSubscription, setSelectedSubscription] = useState('Todos');
   const [success, setSuccess] = useState('');
 
-  const getInitials = (name) => {
-    if (!name) return '';
-    const words = name.split(' ');
+  const getInitials = (nombre) => {
+    if (!nombre) return '';
+    const words = nombre.split(' ');
     return words.map(word => word[0]).join('').toUpperCase().slice(0, 3);
   };
 
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('es-ES', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
-
-  const handleDelete = (orgId, orgName) => {
-    const org = organizations.find(o => o.id === orgId);
-    if (org.employees > 0) {
-      showConfirmation(
-        `La organización "${orgName}" tiene ${org.employees} empleado(s). ¿Estás seguro de que quieres eliminarla? Esta acción no se puede deshacer.`,
-        () => {
-          setOrganizations(organizations.filter(organization => organization.id !== orgId));
-          showSuccess(`Organización "${orgName}" eliminada exitosamente`);
-        }
-      );
-    } else {
-      showConfirmation(
-        `¿Estás seguro de que quieres eliminar la organización "${orgName}"? Esta acción no se puede deshacer.`,
-        () => {
-          setOrganizations(organizations.filter(organization => organization.id !== orgId));
-          showSuccess(`Organización "${orgName}" eliminada exitosamente`);
-        }
-      );
-    }
+  const handleDelete = (orgId, orgNombre) => {
+    showConfirmation(
+      `¿Estás seguro de que quieres eliminar la organización "${orgNombre}"? Esta acción no se puede deshacer.`,
+      () => {
+        setOrganizations(organizations.filter(organization => organization.id !== orgId));
+        showSuccess(`Organización "${orgNombre}" eliminada exitosamente`);
+      }
+    );
   };
 
   const handleEdit = (orgId) => {
@@ -217,62 +112,15 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
 
     if (searchTerm) {
       filtered = filtered.filter(org =>
-        org.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        org.displayName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        org.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        org.industry.toLowerCase().includes(searchTerm.toLowerCase())
+        org.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        org.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        org.direccion.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        org.pais.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
-    if (selectedType !== 'Todos') {
-      filtered = filtered.filter(org => org.type === selectedType);
-    }
-
-    if (selectedIndustry !== 'Todos') {
-      filtered = filtered.filter(org => org.industry === selectedIndustry);
-    }
-
-    if (selectedStatus !== 'Todos') {
-      filtered = filtered.filter(org => org.status === selectedStatus);
-    }
-
-    if (selectedSubscription !== 'Todos') {
-      filtered = filtered.filter(org => org.subscription === selectedSubscription);
-    }
-
     return filtered;
-  }, [searchTerm, selectedType, selectedIndustry, selectedStatus, selectedSubscription, organizations]);
-
-  const getStatusBadge = (status) => {
-    const statusClasses = {
-      'activa': 'status-active',
-      'inactiva': 'status-inactive',
-      'suspendida': 'status-suspended'
-    };
-    return statusClasses[status] || 'status-default';
-  };
-
-  const getSubscriptionColor = (subscription) => {
-    const subscriptionColors = {
-      'Basic': 'subscription-basic',
-      'Standard': 'subscription-standard',
-      'Professional': 'subscription-professional',
-      'Enterprise': 'subscription-enterprise'
-    };
-    return subscriptionColors[subscription] || 'subscription-default';
-  };
-
-  const getTypeColor = (type) => {
-    const typeColors = {
-      'Empresa': 'type-empresa',
-      'Agencia': 'type-agencia',
-      'Educativa': 'type-educativa',
-      'Clínica': 'type-clinica',
-      'Incubadora': 'type-incubadora',
-      'Corporación': 'type-corporacion'
-    };
-    return typeColors[type] || 'type-default';
-  };
+  }, [searchTerm, organizations]);
 
   return (
     <div className="organization-settings">
@@ -305,50 +153,6 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          
-          <div className="filters-container">
-            <select
-              value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
-              className="filter-select"
-            >
-              {types.map(type => (
-                <option key={type} value={type}>{type}</option>
-              ))}
-            </select>
-            
-            <select
-              value={selectedIndustry}
-              onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="filter-select"
-            >
-              {industries.map(industry => (
-                <option key={industry} value={industry}>{industry}</option>
-              ))}
-            </select>
-            
-            <select
-              value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value)}
-              className="filter-select"
-            >
-              {statuses.map(status => (
-                <option key={status} value={status}>
-                  {status === 'Todos' ? status : status.charAt(0).toUpperCase() + status.slice(1)}
-                </option>
-              ))}
-            </select>
-            
-            <select
-              value={selectedSubscription}
-              onChange={(e) => setSelectedSubscription(e.target.value)}
-              className="filter-select"
-            >
-              {subscriptions.map(sub => (
-                <option key={sub} value={sub}>{sub}</option>
-              ))}
-            </select>
-          </div>
         </div>
         
         <button onClick={handleCreate} className="create-button">
@@ -364,89 +168,53 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
               <div key={org.id} className="organization-card">
                 <div className="organization-card-header">
                   <div className="organization-logo-container">
-                    {org.logo ? (
-                      <img src={org.logo} alt={org.name} className="organization-logo" />
+                    {org.logo_url ? (
+                      <img src={org.logo_url} alt={org.nombre} className="organization-logo" />
                     ) : (
                       <div className="organization-logo-placeholder">
-                        <span className="logo-initials">{getInitials(org.name)}</span>
+                        <span className="logo-initials">{getInitials(org.nombre)}</span>
                       </div>
                     )}
                   </div>
                   <div className="organization-info">
-                    <h3 className="organization-name">{org.displayName}</h3>
-                    <p className="organization-description">{org.description}</p>
+                    <h3 className="organization-name">{org.nombre}</h3>
+                    <p className="organization-description">{org.descripcion}</p>
                     <div className="organization-contact">
                       <span className="contact-item">
                         <IoMail className="contact-icon" />
-                        {org.email}
+                        {org.telefono}
                       </span>
                       <span className="contact-item">
                         <IoLocation className="contact-icon" />
-                        {org.address.city}, {org.address.country}
+                        {org.direccion}, {org.pais}
                       </span>
                     </div>
-                  </div>
-                  <div className={`organization-status ${getStatusBadge(org.status)}`}>
-                    {org.status}
                   </div>
                 </div>
                 
                 <div className="organization-details">
                   <div className="organization-meta">
-                    <span className="meta-label">Tipo:</span>
-                    <span className={`type-badge ${getTypeColor(org.type)}`}>
-                      {org.type}
-                    </span>
+                    <span className="meta-label">País:</span>
+                    <span className="meta-value">{org.pais}</span>
                   </div>
                   <div className="organization-meta">
-                    <span className="meta-label">Industria:</span>
-                    <span className="meta-value">{org.industry}</span>
+                    <span className="meta-label">Teléfono:</span>
+                    <span className="meta-value">{org.telefono}</span>
                   </div>
-                  <div className="organization-meta">
-                    <span className="meta-label">Suscripción:</span>
-                    <span className={`subscription-badge ${getSubscriptionColor(org.subscription)}`}>
-                      {org.subscription}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="organization-stats">
-                  <div className="stat-item">
-                    <IoPeople className="stat-icon" />
-                    <div className="stat-text">
-                      <span className="stat-value">{org.employees}</span>
-                      <span className="stat-label">Empleados</span>
+                  {org.pagina_url && (
+                    <div className="organization-meta">
+                      <span className="meta-label">Sitio web:</span>
+                      <a href={org.pagina_url} target="_blank" rel="noopener noreferrer" className="meta-link">
+                        {org.pagina_url}
+                      </a>
                     </div>
-                  </div>
-                  <div className="stat-item">
-                    <IoBusiness className="stat-icon" />
-                    <div className="stat-text">
-                      <span className="stat-value">{org.departments.length}</span>
-                      <span className="stat-label">Departamentos</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="organization-departments">
-                  <h4>Departamentos:</h4>
-                  <div className="departments-list">
-                    {org.departments.slice(0, 3).map((dept, index) => (
-                      <span key={index} className="department-tag">
-                        {dept}
-                      </span>
-                    ))}
-                    {org.departments.length > 3 && (
-                      <span className="department-more">
-                        +{org.departments.length - 3} más
-                      </span>
-                    )}
-                  </div>
+                  )}
                 </div>
 
                 <div className="organization-footer">
-                  <div className="creation-date">
-                    <span className="date-label">Registrada:</span>
-                    <span className="date-value">{formatDate(org.createdAt)}</span>
+                  <div className="account-id">
+                    <span className="date-label">ID de cuenta:</span>
+                    <span className="date-value">{org.cuentaId}</span>
                   </div>
                   
                   <div className="organization-actions">
@@ -458,7 +226,7 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
                       <IoPencil />
                     </button>
                     <button
-                      onClick={() => handleDelete(org.id, org.displayName)}
+                      onClick={() => handleDelete(org.id, org.nombre)}
                       className="action-button delete-button"
                       title="Eliminar organización"
                     >
@@ -473,20 +241,14 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
           <div className="no-results">
             <IoBusiness className="no-results-icon" />
             <p>No se encontraron organizaciones</p>
-            {(searchTerm || selectedType !== 'Todos' || selectedIndustry !== 'Todos' || selectedStatus !== 'Todos' || selectedSubscription !== 'Todos') && (
+            {searchTerm && (
               <p className="no-results-suggestion">
-                Intenta ajustar los filtros o{' '}
+                Intenta ajustar la búsqueda o{' '}
                 <button 
-                  onClick={() => {
-                    setSearchTerm('');
-                    setSelectedType('Todos');
-                    setSelectedIndustry('Todos');
-                    setSelectedStatus('Todos');
-                    setSelectedSubscription('Todos');
-                  }} 
+                  onClick={() => setSearchTerm('')} 
                   className="clear-filters"
                 >
-                  limpiar filtros
+                  limpiar búsqueda
                 </button>
               </p>
             )}

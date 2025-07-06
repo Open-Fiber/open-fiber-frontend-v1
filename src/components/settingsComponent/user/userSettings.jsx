@@ -41,6 +41,70 @@ const mockUsers = [
     sexo: "Masculino",
     cuentaId: "CUENTA789",
     rol: "Moderador"
+  },{
+    id: "4",
+    nombre: "Carlos",
+    apellido: "Rodríguez",
+    pais: "Argentina",
+    celular: "+54 11 456 7890",
+    fechaNacimiento: "1992-08-20",
+    fotoUrl: "",
+    birthdate: "1992-08-20",
+    sexo: "Masculino",
+    cuentaId: "CUENTA789",
+    rol: "Moderador"
+  },
+  {
+    id: "5",
+    nombre: "Carlos",
+    apellido: "Rodríguez",
+    pais: "Argentina",
+    celular: "+54 11 456 7890",
+    fechaNacimiento: "1992-08-20",
+    fotoUrl: "",
+    birthdate: "1992-08-20",
+    sexo: "Masculino",
+    cuentaId: "CUENTA789",
+    rol: "Moderador"
+  },
+  {
+    id: "6",
+    nombre: "Carlos",
+    apellido: "Rodríguez",
+    pais: "Argentina",
+    celular: "+54 11 456 7890",
+    fechaNacimiento: "1992-08-20",
+    fotoUrl: "",
+    birthdate: "1992-08-20",
+    sexo: "Masculino",
+    cuentaId: "CUENTA789",
+    rol: "Moderador"
+  },
+  {
+    id: "7",
+    nombre: "Carlos",
+    apellido: "Rodríguez",
+    pais: "Argentina",
+    celular: "+54 11 456 7890",
+    fechaNacimiento: "1992-08-20",
+    fotoUrl: "",
+    birthdate: "1992-08-20",
+    sexo: "Masculino",
+    cuentaId: "CUENTA789",
+    rol: "Moderador"
+  },
+  {
+    id: "8",
+    nombre: "Carlos",
+    apellido: "Rodríguez",
+    pais: "Argentina",
+    celular: "+54 11 456 7890",
+    fechaNacimiento: "1992-08-20",
+    fotoUrl: "",
+    birthdate: "1992-08-20",
+    sexo: "Masculino",
+    cuentaId: "CUENTA789",
+    rol: "Moderador"
   }
 ];
 
