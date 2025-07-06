@@ -21,6 +21,7 @@ import Settings from "./pages/Settings/Settings";
 import Comunidad from "./pages/comunidad/Comunidad";
 import Contac from "./pages/contact/Contac";
 import MaquinaDetails from "./pages/construye/MaquinaDetails";
+import Aprende from "./pages/aprende/Aprende";
 
 const rootStyle = {
   cursor: `url(${cursorImage}), auto`,
@@ -79,6 +80,7 @@ const AppLayout = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/comunidad" element={<Comunidad />} />
         <Route path="/contacto" element={<Contac />} />
+        <Route path="/page-aprende" element={<Aprende />} />
       </Routes>
 
       {showFooter && <Footer />}

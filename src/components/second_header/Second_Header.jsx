@@ -62,7 +62,7 @@ const Second_Header = ({ isFixed = false, className = "" }) => {
         <Link to="/nosotros" className="nav-link" onMouseEnter={handleHover}>
           NOSOTROS
         </Link>
-        <Link to="/aprende" className="nav-link" onMouseEnter={handleHover}>
+        <Link to="/page-aprende" className="nav-link" onMouseEnter={handleHover}>
           APRENDE +
         </Link>
         <Link to="/construye" className="nav-link" onMouseEnter={handleHover}>
