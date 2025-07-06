@@ -48,21 +48,29 @@ export const checkToken = createAsyncThunk(
         }
       );
 
-      console.log(response);
+      const { cuenta } = response.data.data;
 
-      const { rol, sub, tipo, time, isExpired } = response.data.data;
-
-      if (isExpired === "true") {
-        clearToken();
-        return rejectWithValue("Token expired");
-      }
+      const {
+        rol,
+        apellido,
+        celular,
+        fechaNacimiento,
+        fotoUrl,
+        pais,
+        nombre,
+        sexo,
+      } = response.data.data.dataUser;
 
       return {
         rol,
-        sub,
-        tipo,
-        time,
-        isExpired: isExpired === "false",
+        apellido,
+        celular,
+        fechaNacimiento,
+        fotoUrl,
+        pais,
+        nombre,
+        sexo,
+        cuenta,
       };
     } catch (error) {
       const errorMessage =
