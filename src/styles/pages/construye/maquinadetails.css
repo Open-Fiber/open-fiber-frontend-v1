@@ -1,0 +1,2516 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Aukim:300,400,500,600,700");
+
+.machine-details-maquina-details {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 20px 80px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(59, 130, 246, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(139, 92, 246, 0.05) 0%,
+      transparent 50%
+    );
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* Background Elements */
+.machine-details-details-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.machine-details-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.machine-details-floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(171, 195, 255, 0.1),
+    rgba(73, 73, 233, 0.1)
+  );
+  animation: machine-details-floatUpDown 20s infinite ease-in-out;
+}
+
+.machine-details-element-0 {
+  width: 80px;
+  height: 80px;
+  top: 15%;
+  left: 8%;
+  animation-delay: 0s;
+}
+.machine-details-element-1 {
+  width: 60px;
+  height: 60px;
+  top: 25%;
+  right: 12%;
+  animation-delay: -3s;
+}
+.machine-details-element-2 {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  left: 5%;
+  animation-delay: -6s;
+}
+.machine-details-element-3 {
+  width: 45px;
+  height: 45px;
+  top: 75%;
+  right: 20%;
+  animation-delay: -9s;
+}
+.machine-details-element-4 {
+  width: 70px;
+  height: 70px;
+  top: 40%;
+  left: 50%;
+  animation-delay: -12s;
+}
+.machine-details-element-5 {
+  width: 55px;
+  height: 55px;
+  top: 85%;
+  left: 35%;
+  animation-delay: -15s;
+}
+.machine-details-element-6 {
+  width: 65px;
+  height: 65px;
+  top: 10%;
+  left: 70%;
+  animation-delay: -18s;
+}
+.machine-details-element-7 {
+  width: 40px;
+  height: 40px;
+  top: 90%;
+  right: 40%;
+  animation-delay: -21s;
+}
+
+@keyframes machine-details-floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-25px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-50px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-25px) rotate(270deg);
+  }
+}
+
+/* Header Section */
+.machine-details-details-header {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  opacity: 0;
+}
+
+.machine-details-back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.machine-details-back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  color: #4949e9;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.machine-details-machine-header-info {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.machine-details-machine-title-section h1 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.machine-details-creator-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.machine-details-creator-info img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(73, 73, 233, 0.2);
+}
+
+.machine-details-creator-name {
+  display: block;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 1rem;
+}
+
+.machine-details-creator-country {
+  display: block;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.machine-details-machine-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.machine-details-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.machine-details-like-btn {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.machine-details-like-btn.machine-details-liked {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: white;
+  transform: scale(1.05);
+}
+
+.machine-details-share-btn {
+  background: rgba(73, 73, 233, 0.1);
+  color: #4949e9;
+  border: 1px solid rgba(73, 73, 233, 0.2);
+}
+
+.machine-details-download-btn {
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(73, 73, 233, 0.3);
+}
+
+.machine-details-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Carousel */
+.machine-details-image-carousel {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  opacity: 0;
+}
+
+.machine-details-carousel-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.machine-details-carousel-main {
+  position: relative;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.machine-details-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.machine-details-carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4949e9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.machine-details-carousel-nav.machine-details-prev {
+  left: 2rem;
+}
+
+.machine-details-carousel-nav.machine-details-next {
+  right: 2rem;
+}
+
+.machine-details-carousel-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.machine-details-carousel-thumbnails {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.machine-details-thumbnail {
+  width: 80px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: none;
+  padding: 0;
+}
+
+.machine-details-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.machine-details-thumbnail.machine-details-active {
+  border-color: #4949e9;
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(73, 73, 233, 0.3);
+}
+
+.machine-details-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Section Navigation - Professional */
+.machine-details-section-navigation {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.machine-details-nav-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.machine-details-nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 16px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  text-align: left;
+  border: 1px solid rgba(226, 232, 240, 0.3);
+}
+
+.machine-details-nav-tab:hover {
+  background: rgba(73, 73, 233, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.machine-details-nav-tab.machine-details-active {
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+  box-shadow: 0 8px 30px rgba(73, 73, 233, 0.3);
+  border-color: transparent;
+}
+
+.machine-details-tab-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(73, 73, 233, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4949e9;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.machine-details-nav-tab.machine-details-active .machine-details-tab-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.machine-details-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.machine-details-tab-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.machine-details-nav-tab.machine-details-active .machine-details-tab-label {
+  color: white;
+}
+
+.machine-details-tab-description {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.machine-details-nav-tab.machine-details-active
+  .machine-details-tab-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Content Sections - Professional */
+.machine-details-content-sections {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.machine-details-section-header {
+  padding: 2rem 2rem 1rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+  background: rgba(248, 250, 252, 0.5);
+}
+
+.machine-details-section-header h2 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.75rem;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+/* Professional Details Section */
+.machine-details-details-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Professional Stats Bar */
+.machine-details-professional-stats {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.machine-details-stats-container {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.machine-details-stat-professional {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.machine-details-stat-professional:hover {
+  background: rgba(73, 73, 233, 0.03);
+}
+
+.machine-details-stat-professional.machine-details-featured-stat {
+  background: linear-gradient(
+    135deg,
+    rgba(73, 73, 233, 0.05),
+    rgba(171, 195, 255, 0.08)
+  );
+  position: relative;
+}
+
+.machine-details-stat-professional.machine-details-featured-stat::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #4949e9, #dcf342);
+  border-radius: 1px;
+}
+
+.machine-details-stat-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.machine-details-stat-meta svg {
+  font-size: 0.875rem;
+}
+
+.machine-details-stat-data {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-family: "Aukim", "Inter", sans-serif;
+}
+
+.machine-details-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(226, 232, 240, 0.6),
+    transparent
+  );
+}
+
+/* Specifications Table */
+.machine-details-specifications-table {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.machine-details-table-header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+  background: rgba(248, 250, 252, 0.5);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+}
+
+.machine-details-table-header h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-table-subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.machine-details-specs-table-container {
+  padding: 2rem;
+}
+
+.machine-details-specs-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.machine-details-table-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.machine-details-section-header {
+  padding: 0.75rem 1rem;
+  background: rgba(73, 73, 233, 0.05);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.machine-details-section-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4949e9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.machine-details-table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.machine-details-table-row:last-child {
+  border-bottom: none;
+}
+
+.machine-details-table-row:hover {
+  background: rgba(248, 250, 252, 0.6);
+}
+
+.machine-details-table-cell-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.machine-details-table-cell-label svg {
+  color: #4949e9;
+  font-size: 1rem;
+}
+
+.machine-details-table-icon {
+  font-size: 1rem;
+  width: 16px;
+  text-align: center;
+}
+
+.machine-details-table-cell-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: right;
+}
+
+/* Project Overview */
+.machine-details-project-overview {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.machine-details-overview-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.machine-details-overview-text h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-overview-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin: 0;
+}
+
+.machine-details-overview-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.machine-details-metric-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.machine-details-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(73, 73, 233, 0.08);
+}
+
+.machine-details-metric-header {
+  margin-bottom: 0.75rem;
+}
+
+.machine-details-metric-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.machine-details-metric-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #4949e9;
+  font-family: "Aukim", "Inter", sans-serif;
+  margin: 0.25rem 0;
+}
+
+.machine-details-metric-description {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Professional Features */
+.machine-details-features-professional {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.machine-details-features-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.machine-details-features-header h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.machine-details-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.machine-details-feature-professional {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.machine-details-feature-professional:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(73, 73, 233, 0.08);
+  border-color: rgba(73, 73, 233, 0.15);
+}
+
+.machine-details-feature-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.machine-details-feature-icon-pro {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(73, 73, 233, 0.1),
+    rgba(171, 195, 255, 0.15)
+  );
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.machine-details-feature-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.machine-details-feature-professional p {
+  margin: 0 0 1rem 0;
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.machine-details-feature-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.machine-details-feature-tag {
+  padding: 4px 8px;
+  background: rgba(73, 73, 233, 0.08);
+  color: #4949e9;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Technical Details */
+.machine-details-technical-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.machine-details-technical-grid-pro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.machine-details-tech-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.machine-details-tech-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(73, 73, 233, 0.06);
+}
+
+.machine-details-tech-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: rgba(248, 250, 252, 0.6);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+}
+
+.machine-details-tech-panel-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.machine-details-panel-badge {
+  padding: 4px 8px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.machine-details-tech-panel-content {
+  padding: 1.5rem;
+}
+
+/* Material List */
+.machine-details-material-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.machine-details-material-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.machine-details-material-item:hover {
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.machine-details-material-item.machine-details-primary-material {
+  background: linear-gradient(
+    135deg,
+    rgba(73, 73, 233, 0.05),
+    rgba(171, 195, 255, 0.08)
+  );
+  border: 1px solid rgba(73, 73, 233, 0.1);
+}
+
+.machine-details-material-code {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #4949e9;
+  font-family: "Aukim", "Inter", sans-serif;
+  min-width: 50px;
+}
+
+.machine-details-material-name {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.machine-details-material-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.machine-details-primary-material .machine-details-material-status {
+  background: rgba(34, 197, 94, 0.1);
+  color: #059669;
+}
+
+.machine-details-material-item:not(.machine-details-primary-material)
+  .machine-details-material-status {
+  background: rgba(251, 191, 36, 0.1);
+  color: #d97706;
+}
+
+/* Control List */
+.machine-details-control-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.machine-details-control-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.machine-details-control-feature:hover {
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.machine-details-control-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.machine-details-control-indicator.machine-details-active {
+  background: #dcf342;
+  box-shadow: 0 0 0 2px rgba(220, 243, 66, 0.2);
+}
+
+.machine-details-control-name {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Enhanced Construction Section */
+.machine-details-construction-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Construction Hero */
+.machine-details-construction-hero {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(248, 250, 252, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.machine-details-construction-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 100% 0%,
+    rgba(220, 243, 66, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.machine-details-construction-hero-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.machine-details-construction-hero-text h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #4949e9, #1a1a1a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.machine-details-construction-hero-text p {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.machine-details-construction-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.machine-details-construction-stat {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.machine-details-construction-stat.machine-details-featured {
+  border: 1px solid rgba(73, 73, 233, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(73, 73, 233, 0.1) 0%,
+    rgba(171, 195, 255, 0.15) 100%
+  );
+}
+
+.machine-details-construction-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(73, 73, 233, 0.15);
+}
+
+.machine-details-construction-stat-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.machine-details-construction-stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.machine-details-construction-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-family: "Aukim", "Inter", sans-serif;
+}
+
+.machine-details-construction-stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.machine-details-difficulty-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #dcf342, #4949e9);
+  border-radius: 0 0 20px 20px;
+}
+
+.machine-details-progress-overview {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.machine-details-progress-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.machine-details-progress-header span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.machine-details-progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.machine-details-progress-steps::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4949e9, #abc3ff);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.machine-details-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.machine-details-progress-step-dot {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+}
+
+.machine-details-progress-step-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Timeline Enhanced */
+.machine-details-timeline-enhanced {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.machine-details-timeline-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.machine-details-timeline-header h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-timeline-subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.machine-details-timeline-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.machine-details-timeline-step-enhanced {
+  display: flex;
+  gap: 2.5rem;
+  position: relative;
+}
+
+.machine-details-timeline-step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.machine-details-step-number-enhanced {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 8px 24px rgba(73, 73, 233, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.machine-details-step-number-glow {
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.machine-details-timeline-connector-enhanced {
+  width: 3px;
+  height: 120px;
+  background: linear-gradient(180deg, #4949e9, #abc3ff);
+  margin-top: 1.5rem;
+  border-radius: 2px;
+  position: relative;
+}
+
+.machine-details-timeline-connector-enhanced::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(180deg, #4949e9, #abc3ff);
+  border-radius: 4px;
+  opacity: 0.3;
+  filter: blur(4px);
+}
+
+.machine-details-timeline-step-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.machine-details-timeline-step-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(220, 243, 66, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.machine-details-timeline-step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(73, 73, 233, 0.15);
+}
+
+.machine-details-step-card-header {
+  margin-bottom: 2rem;
+}
+
+.machine-details-step-title-section h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.machine-details-step-meta {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.machine-details-step-duration-enhanced {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4949e9;
+  font-weight: 500;
+}
+
+.machine-details-step-complexity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.machine-details-complexity-dot {
+  width: 8px;
+  height: 8px;
+  background: #dcf342;
+  border-radius: 50%;
+}
+
+.machine-details-step-card-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+}
+
+.machine-details-step-image-enhanced {
+  width: 200px;
+  height: 150px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.machine-details-step-image-enhanced img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.machine-details-step-image-enhanced:hover img {
+  transform: scale(1.05);
+}
+
+.machine-details-step-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.machine-details-step-image-enhanced:hover .machine-details-step-image-overlay {
+  opacity: 1;
+}
+
+.machine-details-step-image-overlay svg {
+  font-size: 2rem;
+}
+
+.machine-details-step-image-overlay span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.machine-details-step-description-enhanced p {
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+}
+
+.machine-details-step-tools-enhanced {
+  margin-bottom: 1.5rem;
+}
+
+.machine-details-step-tools-enhanced h5 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.machine-details-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.machine-details-tool-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(73, 73, 233, 0.05);
+  border: 1px solid rgba(73, 73, 233, 0.1);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.machine-details-tool-icon {
+  font-size: 1rem;
+}
+
+.machine-details-step-tips {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 243, 66, 0.1),
+    rgba(220, 243, 66, 0.05)
+  );
+  border: 1px solid rgba(220, 243, 66, 0.2);
+  border-radius: 12px;
+}
+
+.machine-details-tip-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.machine-details-tip-content {
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Resources Enhanced */
+.machine-details-resources-enhanced {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.machine-details-resources-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.machine-details-resources-header h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-resources-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.machine-details-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.machine-details-resource-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.machine-details-resource-card.machine-details-primary-resource {
+  border: 1px solid rgba(73, 73, 233, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(73, 73, 233, 0.08) 0%,
+    rgba(171, 195, 255, 0.12) 100%
+  );
+}
+
+.machine-details-resource-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(73, 73, 233, 0.15);
+}
+
+.machine-details-resource-icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    rgba(73, 73, 233, 0.1),
+    rgba(171, 195, 255, 0.1)
+  );
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.machine-details-resource-icon-inner {
+  font-size: 2rem;
+}
+
+.machine-details-resource-icon-glow {
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  border-radius: 23px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.machine-details-resource-card:hover .machine-details-resource-icon-glow {
+  opacity: 0.3;
+}
+
+.machine-details-resource-content {
+  text-align: center;
+}
+
+.machine-details-resource-content h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.machine-details-resource-content p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.machine-details-resource-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.machine-details-resource-format,
+.machine-details-resource-size {
+  padding: 4px 8px;
+  background: rgba(73, 73, 233, 0.1);
+  color: #4949e9;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.machine-details-resource-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+  min-width: 140px;
+}
+
+.machine-details-resource-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(73, 73, 233, 0.3);
+}
+
+/* Applications Section - Professional */
+.machine-details-applications-content {
+  padding: 2rem;
+}
+
+.machine-details-applications-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+}
+
+.machine-details-applications-header h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-applications-header p {
+  color: #64748b;
+  margin: 0;
+}
+
+.machine-details-applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.machine-details-application-card-pro {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.machine-details-application-card-pro:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.machine-details-application-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.machine-details-app-number {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.machine-details-app-type {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.machine-details-app-type.machine-details-principal {
+  background: rgba(34, 197, 94, 0.1);
+  color: #059669;
+}
+
+.machine-details-app-type.machine-details-alternativa {
+  background: rgba(251, 191, 36, 0.1);
+  color: #d97706;
+}
+
+.machine-details-app-type.machine-details-experimental {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+}
+
+.machine-details-application-content h4 {
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+}
+
+.machine-details-application-content p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.machine-details-application-creator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.machine-details-creator-avatar {
+  width: 36px;
+  height: 36px;
+  background: rgba(73, 73, 233, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4949e9;
+}
+
+.machine-details-creator-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.machine-details-creator-name {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 0.875rem;
+}
+
+.machine-details-creator-role {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.machine-details-application-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.machine-details-app-action-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.machine-details-app-action-btn:first-child {
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+}
+
+.machine-details-app-action-btn.machine-details-secondary {
+  background: rgba(73, 73, 233, 0.1);
+  color: #4949e9;
+  border: 1px solid rgba(73, 73, 233, 0.2);
+}
+
+.machine-details-app-action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.machine-details-suggest-application {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(73, 73, 233, 0.05),
+    rgba(171, 195, 255, 0.05)
+  );
+  border: 1px solid rgba(73, 73, 233, 0.1);
+  border-radius: 20px;
+}
+
+.machine-details-suggest-application h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-suggest-application p {
+  color: #64748b;
+  margin: 0 0 1.5rem 0;
+}
+
+.machine-details-suggest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.machine-details-suggest-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(73, 73, 233, 0.3);
+}
+
+/* Comments Section - Professional */
+.machine-details-comments-content {
+  padding: 2rem;
+}
+
+.machine-details-comments-stats {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 16px;
+}
+
+.machine-details-stats-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.machine-details-stat-item {
+  text-align: center;
+}
+
+.machine-details-stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4949e9;
+  line-height: 1;
+}
+
+.machine-details-stat-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.machine-details-comment-form-pro {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 20px;
+}
+
+.machine-details-comment-form-pro h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.machine-details-comment-textarea-pro {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(226, 232, 240, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+}
+
+.machine-details-comment-textarea-pro:focus {
+  outline: none;
+  border-color: #4949e9;
+  box-shadow: 0 0 0 3px rgba(73, 73, 233, 0.1);
+}
+
+.machine-details-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.machine-details-rating-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.machine-details-rating-section span {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.machine-details-star-rating {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.machine-details-star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.machine-details-star:hover {
+  transform: scale(1.2);
+}
+
+.machine-details-comment-submit-pro {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.machine-details-comment-submit-pro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(73, 73, 233, 0.3);
+}
+
+.machine-details-comments-list-pro h3 {
+  font-family: "Aukim", "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  color: #1a1a1a;
+}
+
+.machine-details-comment-card-pro {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.machine-details-comment-card-pro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.machine-details-comment-header-pro {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.machine-details-comment-avatar-pro {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(73, 73, 233, 0.2);
+}
+
+.machine-details-comment-user-info {
+  flex: 1;
+}
+
+.machine-details-comment-user-info h5 {
+  margin: 0;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.machine-details-comment-date-pro {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.machine-details-comment-rating {
+  display: flex;
+  align-items: center;
+}
+
+.machine-details-stars {
+  color: #fbbf24;
+  font-size: 0.875rem;
+}
+
+.machine-details-comment-body-pro p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.machine-details-comment-actions-pro {
+  display: flex;
+  gap: 1rem;
+}
+
+.machine-details-comment-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.machine-details-comment-action:hover {
+  background: rgba(73, 73, 233, 0.1);
+  color: #4949e9;
+}
+
+/* Responsive Design - Professional */
+@media (max-width: 1200px) {
+  .machine-details-maquina-details {
+    padding: 100px 20px 60px;
+  }
+
+  .machine-details-machine-header-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .machine-details-carousel-main {
+    height: 400px;
+  }
+
+  .machine-details-specs-table {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .machine-details-overview-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .machine-details-construction-hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .machine-details-construction-stats {
+    justify-content: center;
+  }
+
+  .machine-details-step-card-body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .machine-details-step-image-enhanced {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .machine-details-maquina-details {
+    padding: 90px 15px 50px;
+  }
+
+  .machine-details-nav-tabs {
+    flex-wrap: wrap;
+  }
+
+  .machine-details-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .machine-details-technical-grid-pro {
+    grid-template-columns: 1fr;
+  }
+
+  .machine-details-timeline-step-enhanced {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .machine-details-timeline-connector-enhanced {
+    width: 2px;
+    height: 80px;
+    margin: 1rem 0;
+  }
+
+  .machine-details-step-meta {
+    justify-content: center;
+  }
+
+  .machine-details-overview-metrics {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .machine-details-maquina-details {
+    padding: 80px 10px 40px;
+  }
+
+  .machine-details-carousel-main {
+    height: 300px;
+  }
+
+  .machine-details-carousel-nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .machine-details-carousel-nav.machine-details-prev {
+    left: 1rem;
+  }
+
+  .machine-details-carousel-nav.machine-details-next {
+    right: 1rem;
+  }
+
+  .machine-details-machine-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .machine-details-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .machine-details-applications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Professional stats responsive */
+  .machine-details-stats-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .machine-details-stat-professional {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+  }
+
+  .machine-details-stat-professional:last-child {
+    border-bottom: none;
+  }
+
+  .machine-details-stat-divider {
+    display: none;
+  }
+
+  .machine-details-stat-professional.machine-details-featured-stat::after {
+    display: none;
+  }
+
+  .machine-details-construction-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .machine-details-progress-steps {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .machine-details-progress-steps::before {
+    display: none;
+  }
+
+  .machine-details-resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .machine-details-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .machine-details-overview-metrics {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .machine-details-content-sections {
+    padding: 1.5rem;
+  }
+
+  .machine-details-details-content,
+  .machine-details-construction-content {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .machine-details-nav-tabs {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .machine-details-nav-tab {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .machine-details-thumbnail {
+    width: 60px;
+    height: 45px;
+  }
+
+  /* Professional components mobile */
+  .machine-details-professional-stats,
+  .machine-details-specifications-table,
+  .machine-details-project-overview,
+  .machine-details-features-professional {
+    margin: 0 -0.5rem;
+    border-radius: 16px;
+  }
+
+  .machine-details-table-header,
+  .machine-details-specs-table-container {
+    padding: 1.5rem;
+  }
+
+  .machine-details-table-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .machine-details-feature-professional {
+    padding: 1.25rem;
+  }
+
+  .machine-details-feature-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .machine-details-feature-icon-pro {
+    align-self: center;
+  }
+
+  .machine-details-tech-panel-header,
+  .machine-details-tech-panel-content {
+    padding: 1.25rem;
+  }
+
+  .machine-details-material-item {
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+  }
+
+  .machine-details-material-status {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 0.5rem;
+  }
+
+  .machine-details-construction-hero-text h3 {
+    font-size: 2rem;
+  }
+
+  .machine-details-timeline-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .machine-details-step-number-enhanced {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
+
+  .machine-details-timeline-step-card {
+    padding: 1.5rem;
+  }
+
+  .machine-details-step-title-section h4 {
+    font-size: 1.25rem;
+  }
+
+  .machine-details-step-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .machine-details-construction-hero,
+  .machine-details-timeline-enhanced,
+  .machine-details-resources-enhanced {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .machine-details-stat-professional {
+    padding: 0.75rem 1rem;
+  }
+
+  .machine-details-stat-meta {
+    font-size: 0.7rem;
+  }
+
+  .machine-details-stat-data {
+    font-size: 1rem;
+  }
+
+  .machine-details-table-row {
+    padding: 0.75rem;
+  }
+
+  .machine-details-table-cell-label {
+    font-size: 0.8rem;
+  }
+
+  .machine-details-table-cell-value {
+    font-size: 0.8rem;
+  }
+
+  .machine-details-metric-value {
+    font-size: 1.5rem;
+  }
+
+  .machine-details-feature-tags {
+    justify-content: center;
+  }
+
+  .machine-details-material-list {
+    gap: 0.5rem;
+  }
+
+  .machine-details-material-item {
+    padding: 0.5rem;
+  }
+
+  .machine-details-control-feature {
+    padding: 0.5rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .machine-details-machine-title-section h1 {
+    background: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .machine-details-stat-professional.machine-details-featured-stat::after,
+  .machine-details-control-indicator.machine-details-active {
+    background: #000;
+  }
+
+  .machine-details-nav-tab.machine-details-active,
+  .machine-details-comment-submit-pro {
+    background: #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .machine-details-floating-element {
+    animation: none;
+  }
+
+  .machine-details-main-image {
+    transition: none;
+  }
+
+  .machine-details-stat-professional:hover,
+  .machine-details-table-row:hover,
+  .machine-details-metric-card:hover,
+  .machine-details-feature-professional:hover,
+  .machine-details-tech-panel:hover,
+  .machine-details-material-item:hover,
+  .machine-details-control-feature:hover,
+  .machine-details-timeline-step-card:hover,
+  .machine-details-resource-card:hover {
+    transform: none;
+  }
+
+  .machine-details-action-btn:hover,
+  .machine-details-back-button:hover,
+  .machine-details-carousel-nav:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .machine-details-maquina-details {
+    background: white;
+    padding: 1cm;
+  }
+
+  .machine-details-details-background {
+    display: none;
+  }
+
+  .machine-details-carousel-nav {
+    display: none;
+  }
+
+  .machine-details-machine-title-section h1 {
+    background: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .machine-details-stat-professional.machine-details-featured-stat::after {
+    display: none;
+  }
+
+  .machine-details-control-indicator.machine-details-active {
+    background: #000;
+  }
+
+  .machine-details-feature-tags,
+  .machine-details-panel-badge {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}

@@ -19,6 +19,7 @@ import cursorImage from "./assets/Group.png";
 import "./app.css";
 import Settings from "./pages/Settings/Settings";
 import Comunidad from "./pages/comunidad/Comunidad";
+import MaquinaDetails from "./pages/construye/MaquinaDetails";
 
 const rootStyle = {
   cursor: `url(${cursorImage}), auto`,
@@ -71,6 +72,7 @@ const AppLayout = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/aprende" element={<Course />} />
         <Route path="/construye" element={<Construye />} />
+        <Route path="/maquina-details" element={<MaquinaDetails />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
         <Route path="/settings" element={<Settings />} />
