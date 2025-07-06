@@ -1,13 +1,11 @@
-import  { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { animate, stagger } from "animejs";
 import { FaFilter, FaSearch, FaSortAmountDown } from "react-icons/fa";
 import Card_Machine from "../../components/cards/card_machine/Card_Machine";
-import Card_App from "../../components/cards/card_app/Card_App";
-import { cardData, appData } from "../../utils/mock/construyeMock";
+import { cardData } from "../../utils/mock/construyeMock";
 import "../../styles/pages/construye/construye.css";
 
 const Construye = () => {
-  const [activeTab, setActiveTab] = useState("maquinas");
   const [filters, setFilters] = useState({
     difficulty: "all",
     category: "all",
@@ -19,19 +17,13 @@ const Construye = () => {
   const containerRef = useRef(null);
   const titleRef = useRef(null);
   const heroRef = useRef(null);
-  const tabsRef = useRef(null);
+  const controlsRef = useRef(null);
   const cardsRef = useRef([]);
 
   const addToCardsRef = (el) => {
     if (el && !cardsRef.current.includes(el)) {
       cardsRef.current.push(el);
     }
-  };
-
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-    // Reset cards ref for new animation
-    cardsRef.current = [];
   };
 
   const handleFilterChange = (filterType, value) => {
@@ -42,10 +34,8 @@ const Construye = () => {
   };
 
   // Filter and sort data with memoization for performance
-  const getCurrentData = useMemo(() => {
-    const data = activeTab === "maquinas" ? cardData : appData;
-
-    return data
+  const filteredData = useMemo(() => {
+    return cardData
       .filter((item) => {
         if (
           filters.difficulty !== "all" &&
@@ -75,17 +65,17 @@ const Construye = () => {
             return 0;
         }
       });
-  }, [activeTab, filters, searchTerm]);
+  }, [filters, searchTerm]);
 
   // Animation effects
   useEffect(() => {
     const container = containerRef.current;
     const title = titleRef.current;
     const hero = heroRef.current;
-    const tabs = tabsRef.current;
+    const controls = controlsRef.current;
 
     // Set initial states
-    animate([title, hero, tabs], {
+    animate([title, hero, controls], {
       opacity: 0,
       translateY: 20,
       duration: 0,
@@ -111,7 +101,7 @@ const Construye = () => {
               ease: "outBack",
             });
 
-            animate(tabs, {
+            animate(controls, {
               opacity: 1,
               translateY: 0,
               duration: 600,
@@ -145,7 +135,7 @@ const Construye = () => {
         ease: "outBack",
       });
     }
-  }, [activeTab, filters, searchTerm]);
+  }, [filters, searchTerm]);
 
   return (
     <div ref={containerRef} className="construye-container">
@@ -168,7 +158,6 @@ const Construye = () => {
           makers
         </p>
       </div>*/}
-     
 
       {/* Hero Image 
       <div ref={heroRef} className="hero-image-section">
@@ -185,31 +174,11 @@ const Construye = () => {
           </div>
         </div>
       </div>*/}
-      
 
-      {/* Tabs and Filters */}
-      <div ref={tabsRef} className="construye-controls">
-        <div className="tabs-section">
-          <div className="tab-buttons">
-            <button
-              className={`tab-button ${
-                activeTab === "maquinas" ? "active" : ""
-              }`}
-              onClick={() => handleTabChange("maquinas")}
-            >
-              <span className="tab-icon"></span>
-              Máquinas Hackeadas
-            </button>
-            <button
-              className={`tab-button ${
-                activeTab === "aplicaciones" ? "active" : ""
-              }`}
-              onClick={() => handleTabChange("aplicaciones")}
-            >
-              <span className="tab-icon"></span>
-              Aplicaciones
-            </button>
-          </div>
+      {/* Title and Filters */}
+      <div ref={controlsRef} className="construye-controls">
+        <div className="section-title">
+          <h2>Máquinas Hackeadas</h2>
         </div>
 
         {/* Search and Filters */}
@@ -288,18 +257,14 @@ const Construye = () => {
 
       {/* Cards Grid */}
       <div className="cards-grid">
-        {getCurrentData.map((item) => (
+        {filteredData.map((item) => (
           <div key={item.id} ref={addToCardsRef} className="card-wrapper">
-            {activeTab === "maquinas" ? (
-              <Card_Machine {...item} />
-            ) : (
-              <Card_App {...item} />
-            )}
+            <Card_Machine {...item} />
           </div>
         ))}
       </div>
 
-      {getCurrentData.length === 0 && (
+      {filteredData.length === 0 && (
         <div className="no-results">
           <div className="no-results-content">
             <span className="no-results-icon">🔍</span>
