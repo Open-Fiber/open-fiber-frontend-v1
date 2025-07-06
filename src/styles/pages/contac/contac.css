@@ -6,11 +6,11 @@
 .discover-us-section {
     display: flex;
     gap: 2rem;
-    padding: 2rem ;
     max-width: 1400px;
     margin: 0 auto;
     align-items: center;
     height: calc(100vh - 71px);
+    padding: 80px;
 }
 
 .discover-us-content {
@@ -163,9 +163,13 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--text-secondary);
-    padding: 0.8rem 0;
+    padding: 0.8rem 0.5rem;
     color: var(--neutral-base-light);
     font-size: 1rem;
+    box-sizing: border-box;
+}
+.contact-form select{
+    color: var(--text-secondary);
 }
 
 .contact-form input::placeholder, .contact-form textarea::placeholder {
@@ -237,6 +241,9 @@
     .discover-us-section{
         gap: 0;
         height: auto;
+    }
+    .discover-us-section{
+        padding:  0 2rem;
     }
 }
 

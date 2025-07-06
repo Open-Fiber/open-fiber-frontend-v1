@@ -33,23 +33,22 @@
 }
 
 .carousel-column.carousel-1 {
-    transform: translateY(-5%); /* Mover el primer carrusel hacia arriba */
+    transform: translateY(-5%); 
 }
 
 .carousel-column.carousel-2 {
-    transform: translateY(15%); /* Mover el segundo carrusel hacia abajo */
+    transform: translateY(15%); 
 }
 
 .carousel-scroll {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    /* La animación se define aquí */
     animation: scroll-up 25s linear infinite;
 }
 
 .carousel-column:hover .carousel-scroll {
-    animation-play-state: paused; /* Pausar en hover */
+    animation-play-state: paused;
 }
 
 .carousel-scroll img {
@@ -64,7 +63,7 @@
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-50%); /* Se mueve la mitad de la altura total */
+        transform: translateY(-20%); 
     }
 }
 
@@ -74,7 +73,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* Se mueve la mitad del ancho total */
+        transform: translateX(-50%); 
     }
 }
 @keyframes scroll-left2 {
@@ -95,7 +94,7 @@
 }
 
 .hero-right h1 {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 800;
     background: linear-gradient(135deg, #4949e9 0%, #abc3ff 100%);
     -webkit-background-clip: text;
@@ -115,38 +114,39 @@
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
     .hero-content { gap: 2rem; }
-    .hero-right h1 { font-size: 4.5rem; }
+    .hero-right h1 { font-size: 3.8rem; }
     .hero-right p { font-size: 1.1rem; }
+
 }
 
 @media (max-width: 768px) {
     .hero-content {
         flex-direction: column;
-        justify-content: space-evenly; /* Distribuir el espacio para que todo quepa */
+        justify-content: space-evenly; 
         text-align: center;
         align-items: flex-start;
-        padding: 10vh 5% 5vh 5%; /* Ajustar padding para mejor distribución */
+        padding: 10vh 5% 5vh 5%; 
         height: 100%;
-        gap: 1rem; /* Reducir el espacio entre elementos */
+        gap: 1rem; 
     }
 
     .hero-left {
-        order: 2; /* Mover carruseles abajo */
-        flex-direction: column; /* Apilar carruseles verticalmente */
+        order: 2; 
+        flex-direction: column; 
         width: 100%;
         height: auto;
-        margin-top: 0; /* Quitar margen y usar gap */
-        gap: 1rem; /* Espacio entre carruseles */
+        margin-top: 0; 
+        gap: 1rem; 
     }
     
     .carousel-column {
-        height: auto; /* Altura automática para contenido horizontal */
+        height: auto; 
         width: 100%;
-        overflow: hidden; /* Asegurar que no haya desbordamiento */
+        overflow: hidden; 
     }
 
     .carousel-column.carousel-2 {
-        transform: translateY(0); /* Resetear posición vertical */
+        transform: translateY(0); 
     }
 
     .carousel-scroll {
@@ -168,28 +168,24 @@
     */
 
     .carousel-scroll img {
-        height: 110px; /* Hacer las imágenes más pequeñas */
-        width: auto; /* Ancho automático */
+        height: 110px; 
+        width: auto; 
     }
     
     .hero-right {
-        order: 1; /* Mover texto arriba */
+        order: 1; 
         width: 100%;
         max-width: 600px;
         text-align: center;
-        flex-shrink: 0; /* Evitar que el bloque de texto se encoja */
+        flex-shrink: 0; 
     }
     
     .hero-right h1 {
-        font-size: 2.5rem; /* Reducir tamaño para que quepa */
-        color: #1a1a2e; /* Color oscuro para que se vea */
-        background: none; 
-        -webkit-text-fill-color: initial;
-        text-shadow: none;
+        font-size: 4rem;
     }
 
     .hero-right p {
-        color: #555; /* Color oscuro para el párrafo */
+        color: #555; 
         font-size: 1rem;
         max-width: 90%;
     }
@@ -201,6 +197,9 @@
     }
 }
 @media (max-width: 480px) {
+    .hero-right h1 {
+        font-size: 3rem;
+    }
     .hero-right{
         max-width: 300px;
         text-align: left;
