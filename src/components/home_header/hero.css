@@ -1,0 +1,208 @@
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    gap: 4rem;
+}
+
+.hero-left {
+    display: flex;
+    gap: 2rem;
+    width: 40%;
+    height: 75vh;
+    align-items: center;
+}
+
+.carousel-column {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+    border-radius: 16px;
+}
+
+.carousel-column.carousel-1 {
+    transform: translateY(-5%); /* Mover el primer carrusel hacia arriba */
+}
+
+.carousel-column.carousel-2 {
+    transform: translateY(15%); /* Mover el segundo carrusel hacia abajo */
+}
+
+.carousel-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* La animación se define aquí */
+    animation: scroll-up 25s linear infinite;
+}
+
+.carousel-column:hover .carousel-scroll {
+    animation-play-state: paused; /* Pausar en hover */
+}
+
+.carousel-scroll img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%); /* Se mueve la mitad de la altura total */
+    }
+}
+
+/* Nueva animación para scroll horizontal */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Se mueve la mitad del ancho total */
+    }
+}
+@keyframes scroll-left2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(50%); /* Se mueve la mitad del ancho total */
+    }
+}
+
+.hero-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.hero-right h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4949e9 0%, #abc3ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.hero-right p {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.85);
+    max-width: 450px;
+    line-height: 1.6;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .hero-content { gap: 2rem; }
+    .hero-right h1 { font-size: 4.5rem; }
+    .hero-right p { font-size: 1.1rem; }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        justify-content: space-evenly; /* Distribuir el espacio para que todo quepa */
+        text-align: center;
+        align-items: flex-start;
+        padding: 10vh 5% 5vh 5%; /* Ajustar padding para mejor distribución */
+        height: 100%;
+        gap: 1rem; /* Reducir el espacio entre elementos */
+    }
+
+    .hero-left {
+        order: 2; /* Mover carruseles abajo */
+        flex-direction: column; /* Apilar carruseles verticalmente */
+        width: 100%;
+        height: auto;
+        margin-top: 0; /* Quitar margen y usar gap */
+        gap: 1rem; /* Espacio entre carruseles */
+    }
+    
+    .carousel-column {
+        height: auto; /* Altura automática para contenido horizontal */
+        width: 100%;
+        overflow: hidden; /* Asegurar que no haya desbordamiento */
+    }
+
+    .carousel-column.carousel-2 {
+        transform: translateY(0); /* Resetear posición vertical */
+    }
+
+    .carousel-scroll {
+        flex-direction: row;
+        width: max-content;
+        animation: scroll-left 25s linear infinite;
+    }
+   /* 
+    .carousel-scroll.dos {
+        flex-direction: row; 
+        width: max-content; 
+        animation: scroll-left2 25s linear infinite; 
+    }
+    .carousel-scroll.uno {
+        flex-direction: row; 
+        width: max-content; 
+        animation: scroll-left 25s linear infinite; 
+    } 
+    */
+
+    .carousel-scroll img {
+        height: 110px; /* Hacer las imágenes más pequeñas */
+        width: auto; /* Ancho automático */
+    }
+    
+    .hero-right {
+        order: 1; /* Mover texto arriba */
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        flex-shrink: 0; /* Evitar que el bloque de texto se encoja */
+    }
+    
+    .hero-right h1 {
+        font-size: 2.5rem; /* Reducir tamaño para que quepa */
+        color: #1a1a2e; /* Color oscuro para que se vea */
+        background: none; 
+        -webkit-text-fill-color: initial;
+        text-shadow: none;
+    }
+
+    .hero-right p {
+        color: #555; /* Color oscuro para el párrafo */
+        font-size: 1rem;
+        max-width: 90%;
+    }
+}
+@media (max-width: 600px) {
+    .hero-right{
+        max-width:450px;
+        text-align: left;
+    }
+}
+@media (max-width: 480px) {
+    .hero-right{
+        max-width: 300px;
+        text-align: left;
+    }
+}

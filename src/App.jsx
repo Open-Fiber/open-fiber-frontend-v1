@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Footer from "./components/footer/Footer";
-import Home_Header from "./components/home_header/Home_Header";
+import Hero from "./components/home_header/Hero";
 import Mis_Contribuciones from "./components/mis_contribuciones/Mis_Contribuciones";
 import Nosotros from "./components/nosotros/Nosotros";
 import Second_Header from "./components/second_header/Second_Header";
@@ -19,6 +19,7 @@ import cursorImage from "./assets/Group.png";
 import "./app.css";
 import Settings from "./pages/Settings/Settings";
 import Comunidad from "./pages/comunidad/Comunidad";
+import Contac from "./pages/contact/Contac";
 import MaquinaDetails from "./pages/construye/MaquinaDetails";
 
 const rootStyle = {
@@ -63,7 +64,7 @@ const AppLayout = () => {
       {/* Add the custom cursor component */}
       <CustomCursor />
 
-      {showHomeHeader && <Home_Header />}
+      {showHomeHeader && <Hero />}
       {showSecondHeader && <Second_Header />}
 
       <Routes>
@@ -77,6 +78,7 @@ const AppLayout = () => {
         <Route path="/my-machines" element={<Mis_Contribuciones />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/comunidad" element={<Comunidad />} />
+        <Route path="/contacto" element={<Contac />} />
       </Routes>
 
       {showFooter && <Footer />}
