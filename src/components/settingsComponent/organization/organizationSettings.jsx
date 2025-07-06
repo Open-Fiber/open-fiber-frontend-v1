@@ -1,5 +1,7 @@
 import  { useState, useMemo } from 'react';
-import { IoArrowBack, IoSearch, IoAdd, IoTrash, IoPencil, IoBusiness, IoCheckmarkCircle, IoLocation, IoMail } from 'react-icons/io5';
+import { IoArrowBack, IoSearch, IoAdd, IoTrash, IoPencil, IoBusiness, IoCheckmarkCircle, IoEye } from 'react-icons/io5';
+import OrganizationModal from './OrganizationModal';
+import OrganizationForm from './OrganizationForm';
 import './organizationSettings.css';
 
 // Datos simulados de organizaciones
@@ -77,6 +79,15 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
   const [organizations, setOrganizations] = useState(mockOrganizations);
   const [searchTerm, setSearchTerm] = useState('');
   const [success, setSuccess] = useState('');
+  
+  // Modal states
+  const [selectedOrganization, setSelectedOrganization] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Form states
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [organizationToEdit, setOrganizationToEdit] = useState(null);
 
   const getInitials = (nombre) => {
     if (!nombre) return '';
@@ -94,12 +105,55 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
     );
   };
 
-  const handleEdit = (orgId) => {
-    showSuccess(`Editando organización con ID: ${orgId}`);
+  const handleEdit = (organization) => {
+    setOrganizationToEdit(organization);
+    setIsEditing(true);
+    setIsFormOpen(true);
   };
 
   const handleCreate = () => {
-    showSuccess('Abriendo formulario de creación de organización');
+    setOrganizationToEdit(null);
+    setIsEditing(false);
+    setIsFormOpen(true);
+  };
+
+  const handleViewDetails = (organization) => {
+    setSelectedOrganization(organization);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedOrganization(null);
+  };
+
+  const closeForm = () => {
+    setIsFormOpen(false);
+    setIsEditing(false);
+    setOrganizationToEdit(null);
+  };
+
+  const handleSaveOrganization = (organizationData) => {
+    if (isEditing) {
+      // Update existing organization
+      setOrganizations(prev => 
+        prev.map(org => 
+          org.id === organizationData.id 
+            ? { ...organizationData }
+            : org
+        )
+      );
+      showSuccess(`Organización "${organizationData.nombre}" actualizada exitosamente`);
+    } else {
+      // Create new organization
+      const newOrganization = {
+        ...organizationData,
+        id: Math.max(...organizations.map(o => o.id)) + 1,
+        cuentaId: `${Math.random().toString(36).substr(2, 8)}-${Math.random().toString(36).substr(2, 4)}-${Math.random().toString(36).substr(2, 4)}-${Math.random().toString(36).substr(2, 4)}-${Math.random().toString(36).substr(2, 12)}`
+      };
+      setOrganizations(prev => [...prev, newOrganization]);
+      showSuccess(`Organización "${organizationData.nombre}" creada exitosamente`);
+    }
   };
 
   const showSuccess = (message) => {
@@ -166,7 +220,12 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
           <div className="organizations-grid">
             {filteredOrganizations.map((org) => (
               <div key={org.id} className="organization-card">
-                <div className="organization-card-header">
+                <div 
+                  className="organization-card-content"
+                  onClick={() => handleViewDetails(org)}
+                  style={{ cursor: 'pointer' }}
+                  title="Click para ver detalles"
+                >
                   <div className="organization-logo-container">
                     {org.logo_url ? (
                       <img src={org.logo_url} alt={org.nombre} className="organization-logo" />
@@ -176,63 +235,31 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
                       </div>
                     )}
                   </div>
-                  <div className="organization-info">
-                    <h3 className="organization-name">{org.nombre}</h3>
-                    <p className="organization-description">{org.descripcion}</p>
-                    <div className="organization-contact">
-                      <span className="contact-item">
-                        <IoMail className="contact-icon" />
-                        {org.telefono}
-                      </span>
-                      <span className="contact-item">
-                        <IoLocation className="contact-icon" />
-                        {org.direccion}, {org.pais}
-                      </span>
-                    </div>
-                  </div>
+                  <h3 className="organization-name">{org.nombre}</h3>
                 </div>
                 
-                <div className="organization-details">
-                  <div className="organization-meta">
-                    <span className="meta-label">País:</span>
-                    <span className="meta-value">{org.pais}</span>
-                  </div>
-                  <div className="organization-meta">
-                    <span className="meta-label">Teléfono:</span>
-                    <span className="meta-value">{org.telefono}</span>
-                  </div>
-                  {org.pagina_url && (
-                    <div className="organization-meta">
-                      <span className="meta-label">Sitio web:</span>
-                      <a href={org.pagina_url} target="_blank" rel="noopener noreferrer" className="meta-link">
-                        {org.pagina_url}
-                      </a>
-                    </div>
-                  )}
-                </div>
-
-                <div className="organization-footer">
-                  <div className="account-id">
-                    <span className="date-label">ID de cuenta:</span>
-                    <span className="date-value">{org.cuentaId}</span>
-                  </div>
-                  
-                  <div className="organization-actions">
-                    <button
-                      onClick={() => handleEdit(org.id)}
-                      className="action-button edit-button"
-                      title="Editar organización"
-                    >
-                      <IoPencil />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(org.id, org.nombre)}
-                      className="action-button delete-button"
-                      title="Eliminar organización"
-                    >
-                      <IoTrash />
-                    </button>
-                  </div>
+                <div className="organization-actions">
+                  <button
+                    onClick={() => handleViewDetails(org)}
+                    className="action-button view-button"
+                    title="Ver detalles"
+                  >
+                    <IoEye />
+                  </button>
+                  <button
+                    onClick={() => handleEdit(org)}
+                    className="action-button edit-button"
+                    title="Editar organización"
+                  >
+                    <IoPencil />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(org.id, org.nombre)}
+                    className="action-button delete-button"
+                    title="Eliminar organización"
+                  >
+                    <IoTrash />
+                  </button>
                 </div>
               </div>
             ))}
@@ -255,6 +282,22 @@ const OrganizationSettings = ({ onBack, showConfirmation }) => {
           </div>
         )}
       </div>
+
+      {/* Modal para ver detalles */}
+      <OrganizationModal
+        organization={selectedOrganization}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
+
+      {/* Formulario para crear/editar */}
+      <OrganizationForm
+        organization={organizationToEdit}
+        isOpen={isFormOpen}
+        onClose={closeForm}
+        onSave={handleSaveOrganization}
+        isEditing={isEditing}
+      />
     </div>
   );
 };
