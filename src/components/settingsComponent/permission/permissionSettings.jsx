@@ -1,5 +1,5 @@
 import  { useState, useMemo } from 'react';
-import { IoArrowBack, IoSearch, IoKey } from 'react-icons/io5';
+import { IoArrowBack, IoKey } from 'react-icons/io5';
 import './permissionSettings.css';
 
 // Datos simulados de permisos
