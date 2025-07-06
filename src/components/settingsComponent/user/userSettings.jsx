@@ -1,112 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { 
+  selectUsuarios, 
+  selectUsuarioLoading,
+  selectUsuarioError,
+  fetchAllUsuarios,
+  createUsuario,
+  updateUsuario,
+  updateUsuarioRol
+} from '../../../slices/usuarioSlice';
+import { 
+  selectRoles,
+  fetchAllRoles
+} from '../../../slices/rolSlice';
 import './userSettings.css';
-
-// Mock data matching the exact JSON structure
-const mockUsers = [
-  {
-    id: "1",
-    nombre: "Juan",
-    apellido: "Pérez",
-    pais: "Colombia",
-    celular: "+57 300 123 4567",
-    fechaNacimiento: "1990-05-15",
-    fotoUrl: "",
-    birthdate: "1990-05-15",
-    sexo: "Masculino",
-    cuentaId: "CUENTA123",
-    rol: "Admin"
-  },
-  {
-    id: "2",
-    nombre: "María",
-    apellido: "García",
-    pais: "México",
-    celular: "+52 55 987 6543",
-    fechaNacimiento: "1985-12-03",
-    fotoUrl: "",
-    birthdate: "1985-12-03",
-    sexo: "Femenino",
-    cuentaId: "CUENTA456",
-    rol: "Usuario"
-  },
-  {
-    id: "3",
-    nombre: "Carlos",
-    apellido: "Rodríguez",
-    pais: "Argentina",
-    celular: "+54 11 456 7890",
-    fechaNacimiento: "1992-08-20",
-    fotoUrl: "",
-    birthdate: "1992-08-20",
-    sexo: "Masculino",
-    cuentaId: "CUENTA789",
-    rol: "Moderador"
-  },{
-    id: "4",
-    nombre: "Carlos",
-    apellido: "Rodríguez",
-    pais: "Argentina",
-    celular: "+54 11 456 7890",
-    fechaNacimiento: "1992-08-20",
-    fotoUrl: "",
-    birthdate: "1992-08-20",
-    sexo: "Masculino",
-    cuentaId: "CUENTA789",
-    rol: "Moderador"
-  },
-  {
-    id: "5",
-    nombre: "Carlos",
-    apellido: "Rodríguez",
-    pais: "Argentina",
-    celular: "+54 11 456 7890",
-    fechaNacimiento: "1992-08-20",
-    fotoUrl: "",
-    birthdate: "1992-08-20",
-    sexo: "Masculino",
-    cuentaId: "CUENTA789",
-    rol: "Moderador"
-  },
-  {
-    id: "6",
-    nombre: "Carlos",
-    apellido: "Rodríguez",
-    pais: "Argentina",
-    celular: "+54 11 456 7890",
-    fechaNacimiento: "1992-08-20",
-    fotoUrl: "",
-    birthdate: "1992-08-20",
-    sexo: "Masculino",
-    cuentaId: "CUENTA789",
-    rol: "Moderador"
-  },
-  {
-    id: "7",
-    nombre: "Carlos",
-    apellido: "Rodríguez",
-    pais: "Argentina",
-    celular: "+54 11 456 7890",
-    fechaNacimiento: "1992-08-20",
-    fotoUrl: "",
-    birthdate: "1992-08-20",
-    sexo: "Masculino",
-    cuentaId: "CUENTA789",
-    rol: "Moderador"
-  },
-  {
-    id: "8",
-    nombre: "Carlos",
-    apellido: "Rodríguez",
-    pais: "Argentina",
-    celular: "+54 11 456 7890",
-    fechaNacimiento: "1992-08-20",
-    fotoUrl: "",
-    birthdate: "1992-08-20",
-    sexo: "Masculino",
-    cuentaId: "CUENTA789",
-    rol: "Moderador"
-  }
-];
 
 // Country flag mapping
 const countryFlags = {
@@ -119,13 +26,19 @@ const countryFlags = {
 };
 
 // Options
-const roleOptions = ['Admin', 'Usuario', 'Moderador'];
 const sexOptions = ['Masculino', 'Femenino', 'Otro'];
 const countryOptions = Object.keys(countryFlags);
 
 // eslint-disable-next-line react/prop-types
 const UserSettings = ({ onBack }) => {
-  const [users, setUsers] = useState(mockUsers);
+  const dispatch = useDispatch();
+  const usuarios = useSelector(selectUsuarios);
+  const roles = useSelector(selectRoles);
+  const loading = useSelector(selectUsuarioLoading);
+  const error = useSelector(selectUsuarioError);
+  const roleOptions = roles.map(rol => rol.nombre || rol);
+
+  // UI state using useState
   const [searchTerm, setSearchTerm] = useState('');
   const [roleFilter, setRoleFilter] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
@@ -133,9 +46,17 @@ const UserSettings = ({ onBack }) => {
   const [modalType, setModalType] = useState(''); // 'view', 'create', 'edit'
   const [formData, setFormData] = useState({});
 
-  const filteredUsers = users.filter(user => {
-    const matchesSearch = `${user.nombre} ${user.apellido}`.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesRole = !roleFilter || user.rol === roleFilter;
+  useEffect(() => {
+    dispatch(fetchAllUsuarios());
+    dispatch(fetchAllRoles());
+  }, [dispatch]);
+
+  // Filter users based on search and role
+  const filteredUsers = usuarios.filter(user => {
+    const matchesSearch = user?.nombre && user?.apellido 
+      ? `${user.nombre} ${user.apellido}`.toLowerCase().includes(searchTerm.toLowerCase())
+      : false;
+    const matchesRole = !roleFilter || user?.rol === roleFilter;
     return matchesSearch && matchesRole;
   });
 
@@ -167,23 +88,16 @@ const UserSettings = ({ onBack }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (modalType === 'create') {
-      const newUser = {
-        ...formData,
-        id: Date.now().toString(),
-        fotoUrl: '',
-        birthdate: formData.fechaNacimiento,
-        cuentaId: `CUENTA${Date.now()}`
-      };
-      setUsers(prev => [...prev, newUser]);
+      dispatch(createUsuario(formData));
     } else if (modalType === 'edit') {
-      setUsers(prev => prev.map(u => u.id === selectedUser.id ? { ...u, ...formData } : u));
+      dispatch(updateUsuario({ id: selectedUser.id, userData: formData }));
     }
     closeModal();
   };
 
   const handleDelete = (userId) => {
     if (window.confirm('¿Estás seguro de que quieres eliminar este usuario?')) {
-      setUsers(prev => prev.filter(u => u.id !== userId));
+      dispatch(deleteUsuario(userId));
       closeModal();
     }
   };
@@ -364,90 +278,102 @@ const UserSettings = ({ onBack }) => {
 
   return (
     <div className="user-settings">
-      <div className="user-header">
-        <button className="back-button" onClick={onBack}>
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <div className="header-text">
-          <h2>Gestión de Usuarios</h2>
-          <p>Administra los usuarios del sistema</p>
+      {loading ? (
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Cargando usuarios...</p>
         </div>
-      </div>
-
-      <div className="user-controls">
-          <div className="search-container">
-            <svg className="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Buscar usuarios..."
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
-          </div>
-          
-          <select
-            value={roleFilter}
-            onChange={e => setRoleFilter(e.target.value)}
-            className="filter-select"
-          >
-            <option value="">Roles</option>
-            {roleOptions.map(role => (
-              <option key={role} value={role}>{role}</option>
-            ))}
-          </select>
-          
-          {(searchTerm || roleFilter) && (
-            <button className="clear-filters" onClick={clearFilters}>
-              Limpiar
+      ) : error ? (
+        <div className="error-container">
+          <p>Error al cargar usuarios: {error}</p>
+        </div>
+      ) : (
+        <>
+          <div className="user-header">
+            <button className="back-button" onClick={onBack}>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
             </button>
-          )}
-
-        <button className="add-user-button" onClick={() => openModal('create')}>
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-          Añadir
-        </button>
-      </div>
-
-      <div className="users-table">
-        <div className="table-header">
-          <div className="header-cell">Usuario</div>
-          <div className="header-cell">País</div>
-          <div className="header-cell">Rol</div>
-        </div>
-        <div className="table-body">
-          {filteredUsers.map(user => (
-            <div key={user.id} className="table-row" onClick={() => openModal('view', user)}>
-              <div className="cell user-cell">
-                <div className="user-info">
-                  <span className="user-name">{user.nombre} {user.apellido}</span>
-                </div>
-              </div>
-              <div className="cell">
-                <span className="country-flag">{countryFlags[user.pais]} {user.pais}</span>
-              </div>
-              <div className="cell">
-                <span className={`status-badge ${user.rol.toLowerCase()}`}>
-                  {user.rol}
-                </span>
-              </div>
+            <div className="header-text">
+              <h2>Gestión de Usuarios</h2>
+              <p>Administra los usuarios del sistema</p>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      {filteredUsers.length === 0 && (
-        <div className="empty-state">
-          <p>No se encontraron usuarios</p>
-        </div>
+          <div className="user-controls">
+            <div className="search-container">
+              <svg className="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Buscar usuarios..."
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+            </div>
+            
+            <select
+              value={roleFilter}
+              onChange={e => setRoleFilter(e.target.value)}
+              className="filter-select"
+            >
+              <option value="">Roles</option>
+              {roleOptions.map(role => (
+                <option key={role} value={role}>{role}</option>
+              ))}
+            </select>
+            
+            {(searchTerm || roleFilter) && (
+              <button className="clear-filters" onClick={clearFilters}>
+                Limpiar
+              </button>
+            )}
+
+            <button className="add-user-button" onClick={() => openModal('create')}>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              Añadir
+            </button>
+          </div>
+
+          <div className="users-table">
+            <div className="table-header">
+              <div className="header-cell">Usuario</div>
+              <div className="header-cell">País</div>
+              <div className="header-cell">Rol</div>
+            </div>
+            <div className="table-body">
+              {filteredUsers.map(user => (
+                <div key={user.id} className="table-row" onClick={() => openModal('view', user)}>
+                  <div className="cell user-cell">
+                    <div className="user-info">
+                      <span className="user-name">{user.nombre} {user.apellido}</span>
+                    </div>
+                  </div>
+                  <div className="cell">
+                    <span className="country-flag">{countryFlags[user?.pais] || ''} {user?.pais || 'Sin especificar'}</span>
+                  </div>
+                  <div className="cell">
+                    <span className={`status-badge ${user?.rol?.toLowerCase() || 'default'}`}>
+                      {user?.rol || 'Sin rol'}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {filteredUsers.length === 0 && (
+            <div className="empty-state">
+              <p>No se encontraron usuarios</p>
+            </div>
+          )}
+        </>
       )}
-
       {showModal && modalType === 'view' && <UserDetailModal />}
       {showModal && (modalType === 'create' || modalType === 'edit') && <UserFormModal />}
     </div>
