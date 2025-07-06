@@ -58,6 +58,7 @@ const mockPermissions = [
 
 
 
+// eslint-disable-next-line react/prop-types
 const PermissionSettings = ({ onBack }) => {
   const [permissions] = useState(mockPermissions);
   const [searchTerm, setSearchTerm] = useState('');

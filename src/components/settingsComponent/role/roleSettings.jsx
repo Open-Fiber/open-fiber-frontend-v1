@@ -1,99 +1,136 @@
 import { useState, useMemo } from 'react';
-import { IoArrowBack, IoSearch, IoAdd, IoTrash, IoPencil, IoShield, IoCheckmarkCircle } from 'react-icons/io5';
+import { IoArrowBack, IoSearch, IoAdd, IoTrash, IoPencil, IoShield, IoCheckmarkCircle, IoClose } from 'react-icons/io5';
 import './roleSettings.css';
 
-// Datos simulados de roles
+// Datos simulados de roles adaptados al nuevo formato JSON
 const mockRoles = [
   {
     id: 1,
-    name: 'Super Administrador',
-    description: 'Acceso completo al sistema',
-    permissions: ['crear', 'leer', 'actualizar', 'eliminar'],
-    users: 2,
-    createdAt: '2024-01-15',
-    status: 'activo'
+    nombre: 'Super Administrador',
+    permisos: [
+      '3b7a0100-ce04-41b0-84e6-36c237430188',
+      '8b5a0501-fe04-41b0-84e6-36c237430188',
+      '9c6b0612-df05-42c1-95f7-47d348541299',
+      '1d2e0723-ef06-43d2-a6g8-58e459652300'
+    ]
   },
   {
     id: 2,
-    name: 'Administrador',
-    description: 'Gestión de usuarios y configuraciones',
-    permissions: ['crear', 'leer', 'actualizar'],
-    users: 5,
-    createdAt: '2024-02-10',
-    status: 'activo'
+    nombre: 'Administrador',
+    permisos: [
+      '3b7a0100-ce04-41b0-84e6-36c237430188',
+      '8b5a0501-fe04-41b0-84e6-36c237430188'
+    ]
   },
   {
     id: 3,
-    name: 'Editor',
-    description: 'Puede crear y editar contenido',
-    permissions: ['crear', 'leer', 'actualizar'],
-    users: 12,
-    createdAt: '2024-02-20',
-    status: 'activo'
+    nombre: 'Editor',
+    permisos: [
+      '8b5a0501-fe04-41b0-84e6-36c237430188',
+      '9c6b0612-df05-42c1-95f7-47d348541299'
+    ]
   },
   {
     id: 4,
-    name: 'Moderador',
-    description: 'Supervisión y moderación de contenido',
-    permissions: ['leer', 'actualizar'],
-    users: 8,
-    createdAt: '2024-03-01',
-    status: 'activo'
+    nombre: 'Moderador',
+    permisos: [
+      '9c6b0612-df05-42c1-95f7-47d348541299'
+    ]
   },
   {
     id: 5,
-    name: 'Usuario',
-    description: 'Acceso básico del sistema',
-    permissions: ['leer'],
-    users: 156,
-    createdAt: '2024-01-01',
-    status: 'activo'
-  },
-  {
-    id: 6,
-    name: 'Invitado',
-    description: 'Acceso limitado temporal',
-    permissions: ['leer'],
-    users: 23,
-    createdAt: '2024-03-15',
-    status: 'inactivo'
+    nombre: 'Usuario',
+    permisos: [
+      '1d2e0723-ef06-43d2-a6g8-58e459652300'
+    ]
   }
 ];
 
+// Datos simulados de permisos disponibles (para mostrar nombres legibles)
+const mockPermisos = {
+  '3b7a0100-ce04-41b0-84e6-36c237430188': 'Gestión de Usuarios',
+  '8b5a0501-fe04-41b0-84e6-36c237430188': 'Gestión de Contenido',
+  '9c6b0612-df05-42c1-95f7-47d348541299': 'Moderación',
+  '1d2e0723-ef06-43d2-a6g8-58e459652300': 'Lectura',
+  '2e3f0834-fg07-44e3-b7h9-69f560763411': 'Administración',
+  '3f4g0945-gh08-45f4-c8i0-70g671874522': 'Reportes'
+};
+
+// eslint-disable-next-line react/prop-types
 const RoleSettings = ({ onBack, showConfirmation }) => {
   const [roles, setRoles] = useState(mockRoles);
   const [searchTerm, setSearchTerm] = useState('');
   const [success, setSuccess] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState(''); // 'create', 'edit'
+  const [selectedRole, setSelectedRole] = useState(null);
+  const [formData, setFormData] = useState({
+    nombre: '',
+    permisos: []
+  });
+
+  const openModal = (type, role = null) => {
+    setModalType(type);
+    setSelectedRole(role);
+    setFormData(role || {
+      nombre: '',
+      permisos: []
+    });
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedRole(null);
+    setFormData({
+      nombre: '',
+      permisos: []
+    });
+  };
+
+  const handleFormChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handlePermissionToggle = (permisoId) => {
+    setFormData(prev => ({
+      ...prev,
+      permisos: prev.permisos.includes(permisoId)
+        ? prev.permisos.filter(p => p !== permisoId)
+        : [...prev.permisos, permisoId]
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (!formData.nombre.trim()) {
+      showSuccess('El nombre del rol es requerido');
+      return;
+    }
+
+    if (modalType === 'create') {
+      const newRole = {
+        ...formData,
+        id: Date.now()
+      };
+      setRoles(prev => [...prev, newRole]);
+      showSuccess(`Rol "${formData.nombre}" creado exitosamente`);
+    } else if (modalType === 'edit') {
+      setRoles(prev => prev.map(r => r.id === selectedRole.id ? { ...r, ...formData } : r));
+      showSuccess(`Rol "${formData.nombre}" actualizado exitosamente`);
+    }
+    closeModal();
+  };
 
   const handleDelete = (roleId, roleName) => {
-    const role = roles.find(r => r.id === roleId);
-    if (role.users > 0) {
-      showConfirmation(
-        `No se puede eliminar el rol "${roleName}" porque tiene ${role.users} usuario(s) asignado(s). ¿Desea continuar?`,
-        () => {
-          setRoles(roles.filter(role => role.id !== roleId));
-          showSuccess(`Rol "${roleName}" eliminado exitosamente`);
-        }
-      );
-    } else {
-      showConfirmation(
-        `¿Estás seguro de que quieres eliminar el rol "${roleName}"?`,
-        () => {
-          setRoles(roles.filter(role => role.id !== roleId));
-          showSuccess(`Rol "${roleName}" eliminado exitosamente`);
-        }
-      );
-    }
-  };
-
-  const handleEdit = (roleId) => {
-    // Simular edición
-    showSuccess(`Editando rol con ID: ${roleId}`);
-  };
-
-  const handleCreate = () => {
-    // Simular creación
-    showSuccess('Abriendo formulario de creación de rol');
+    showConfirmation(
+      `¿Estás seguro de que quieres eliminar el rol "${roleName}"?`,
+      () => {
+        setRoles(roles.filter(role => role.id !== roleId));
+        showSuccess(`Rol "${roleName}" eliminado exitosamente`);
+      }
+    );
   };
 
   const showSuccess = (message) => {
@@ -106,14 +143,66 @@ const RoleSettings = ({ onBack, showConfirmation }) => {
       return roles;
     }
     return roles.filter(role =>
-      role.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      role.description.toLowerCase().includes(searchTerm.toLowerCase())
+      role.nombre.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [searchTerm, roles]);
 
-  const getStatusBadge = (status) => {
-    return status === 'activo' ? 'status-active' : 'status-inactive';
+  const getPermissionName = (permisoId) => {
+    return mockPermisos[permisoId] || `Permiso ${permisoId.slice(0, 8)}...`;
   };
+
+  const RoleFormModal = () => (
+    <div className="modal-overlay" onClick={closeModal}>
+      <div className="modal-content role-form-modal" onClick={e => e.stopPropagation()}>
+        <div className="modal-header">
+          <h3>{modalType === 'create' ? 'Crear Nuevo Rol' : 'Editar Rol'}</h3>
+          <button onClick={closeModal} className="close-button">
+            <IoClose />
+          </button>
+        </div>
+        
+        <form onSubmit={handleSubmit} className="role-form">
+          <div className="form-group">
+            <label htmlFor="nombre">Nombre del Rol *</label>
+            <input
+              type="text"
+              id="nombre"
+              value={formData.nombre}
+              onChange={(e) => handleFormChange('nombre', e.target.value)}
+              placeholder="Ingrese el nombre del rol"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Permisos</label>
+            <div className="permissions-grid">
+              {Object.entries(mockPermisos).map(([id, name]) => (
+                <label key={id} className="permission-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={formData.permisos.includes(id)}
+                    onChange={() => handlePermissionToggle(id)}
+                  />
+                  <span className="checkbox-custom"></span>
+                  <span className="permission-name">{name}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="form-actions">
+            <button type="button" onClick={closeModal} className="cancel-button">
+              Cancelar
+            </button>
+            <button type="submit" className="submit-button">
+              {modalType === 'create' ? 'Crear Rol' : 'Actualizar Rol'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 
   return (
     <div className="role-settings">
@@ -145,7 +234,7 @@ const RoleSettings = ({ onBack, showConfirmation }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <button onClick={handleCreate} className="create-button">
+        <button onClick={() => openModal('create')} className="create-button">
           <IoAdd className="create-icon" />
           <span>Crear Rol</span>
         </button>
@@ -161,50 +250,38 @@ const RoleSettings = ({ onBack, showConfirmation }) => {
                     <IoShield className="role-icon" />
                   </div>
                   <div className="role-info">
-                    <h3 className="role-name">{role.name}</h3>
-                    <p className="role-description">{role.description}</p>
-                  </div>
-                  <div className={`role-status ${getStatusBadge(role.status)}`}>
-                    {role.status}
-                  </div>
-                </div>
-                
-                <div className="role-details">
-                  <div className="role-stat">
-                    <span className="stat-label">Usuarios:</span>
-                    <span className="stat-value">{role.users}</span>
-                  </div>
-                  <div className="role-stat">
-                    <span className="stat-label">Permisos:</span>
-                    <span className="stat-value">{role.permissions.length}</span>
-                  </div>
-                  <div className="role-stat">
-                    <span className="stat-label">Creado:</span>
-                    <span className="stat-value">{new Date(role.createdAt).toLocaleDateString()}</span>
+                    <h3 className="role-name">{role.nombre}</h3>
+                    <p className="role-description">
+                      {role.permisos.length} permiso{role.permisos.length !== 1 ? 's' : ''} asignado{role.permisos.length !== 1 ? 's' : ''}
+                    </p>
                   </div>
                 </div>
 
                 <div className="role-permissions">
                   <h4>Permisos:</h4>
                   <div className="permissions-list">
-                    {role.permissions.map((permission, index) => (
-                      <span key={index} className="permission-tag">
-                        {permission}
-                      </span>
-                    ))}
+                    {role.permisos.length > 0 ? (
+                      role.permisos.map((permisoId, index) => (
+                        <span key={index} className="permission-tag">
+                          {getPermissionName(permisoId)}
+                        </span>
+                      ))
+                    ) : (
+                      <span className="no-permissions">Sin permisos asignados</span>
+                    )}
                   </div>
                 </div>
 
                 <div className="role-actions">
                   <button
-                    onClick={() => handleEdit(role.id)}
+                    onClick={() => openModal('edit', role)}
                     className="action-button edit-button"
                     title="Editar rol"
                   >
                     <IoPencil />
                   </button>
                   <button
-                    onClick={() => handleDelete(role.id, role.name)}
+                    onClick={() => handleDelete(role.id, role.nombre)}
                     className="action-button delete-button"
                     title="Eliminar rol"
                   >
@@ -229,6 +306,8 @@ const RoleSettings = ({ onBack, showConfirmation }) => {
           </div>
         )}
       </div>
+
+      {showModal && <RoleFormModal />}
     </div>
   );
 };
