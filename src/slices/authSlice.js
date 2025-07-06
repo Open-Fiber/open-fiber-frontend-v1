@@ -50,26 +50,10 @@ export const checkToken = createAsyncThunk(
 
       const { cuenta } = response.data.data;
 
-      const {
-        rol,
-        apellido,
-        celular,
-        fechaNacimiento,
-        fotoUrl,
-        pais,
-        nombre,
-        sexo,
-      } = response.data.data.dataUser;
+      const { dataUser } = response.data.data;
 
       return {
-        rol,
-        apellido,
-        celular,
-        fechaNacimiento,
-        fotoUrl,
-        pais,
-        nombre,
-        sexo,
+        dataUser,
         cuenta,
       };
     } catch (error) {
@@ -102,6 +86,7 @@ const authSlice = createSlice({
     isAuthenticated: false,
     token: null,
     user: null,
+    cuenta: null,
     rol: null,
     tipo: null,
     loading: false,
@@ -112,13 +97,13 @@ const authSlice = createSlice({
     // Synchronous actions
     logout: (state) => {
       clearToken();
-      // RTK uses Immer under the hood, so we can "mutate" state directly
       state.isAuthenticated = false;
       state.token = null;
       state.user = null;
       state.rol = null;
       state.tipo = null;
       state.loading = false;
+      state.cuenta = false;
       state.error = null;
       state.tokenChecking = false;
     },
@@ -129,7 +114,6 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     // Handle async thunk states
     builder
-      // Login cases
       .addCase(login.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -154,8 +138,11 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(checkToken.fulfilled, (state, action) => {
+        console.log(action);
         state.tokenChecking = false;
         state.isAuthenticated = true;
+        state.user = action.payload.dataUser;
+        state.cuenta = action.payload.cuenta;
         state.rol = action.payload.rol;
         state.tipo = action.payload.tipo;
         state.error = null;
