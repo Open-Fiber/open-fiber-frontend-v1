@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { logout } from "../../actions/auth";
+import {
+  logout,
+  selectIsAuthenticated,
+  selectUser,
+} from "../../slices/authSlice";
 import "./second_header.css";
 
 const Second_Header = ({ isFixed = false, className = "" }) => {
@@ -11,7 +15,9 @@ const Second_Header = ({ isFixed = false, className = "" }) => {
   const navRef = useRef(null);
 
   const dispatch = useDispatch();
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
+
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const user = useSelector(selectUser);
 
   const handleHover = (e) => {
     const navRect = navRef.current.getBoundingClientRect();
@@ -29,6 +35,7 @@ const Second_Header = ({ isFixed = false, className = "" }) => {
   const handleLogout = () => {
     dispatch(logout());
     setShowDropdown(false);
+    console.log("User logged out successfully");
   };
 
   // Close dropdown when clicking outside
@@ -62,7 +69,11 @@ const Second_Header = ({ isFixed = false, className = "" }) => {
         <Link to="/nosotros" className="nav-link" onMouseEnter={handleHover}>
           NOSOTROS
         </Link>
-        <Link to="/page-aprende" className="nav-link" onMouseEnter={handleHover}>
+        <Link
+          to="/page-aprende"
+          className="nav-link"
+          onMouseEnter={handleHover}
+        >
           APRENDE +
         </Link>
         <Link to="/construye" className="nav-link" onMouseEnter={handleHover}>
