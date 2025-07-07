@@ -2098,6 +2098,34 @@
   color: #4949e9;
 }
 
+.container-telails-header-machine{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-create-machine-construye-machine{
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.btn-create-machine-construye-machine:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
 /* Responsive Design - Professional */
 @media (max-width: 1200px) {
   .machine-details-maquina-details {
