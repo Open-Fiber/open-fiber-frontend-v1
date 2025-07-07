@@ -18,7 +18,12 @@ import {
   FaThumbsUp,
   FaComment,
 } from "react-icons/fa";
+import Card_Machine from "../../components/cards/card_machine/Card_Machine";
+import machine1 from "../../assets/machine/machine1.jpeg";
+import machine2 from "../../assets/machine/machine2.jpeg";
+import machine3 from "../../assets/machine/machine3.jpeg";
 import { IoCheckmarkCircle, IoSend } from "react-icons/io5";
+import CreateHackedMachineModal from '../../components/modals/CreateHackedMachineModal';
 import "../../styles/pages/construye/maquinadetails.css";
 
 const MaquinaDetails = () => {
@@ -29,6 +34,8 @@ const MaquinaDetails = () => {
   const [newComment, setNewComment] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(247);
+
+  const [showModal, setShowModal] = useState(false);
 
   // Refs for animations
   const containerRef = useRef(null);
@@ -125,36 +132,91 @@ const MaquinaDetails = () => {
       "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1585435557343-3b092031d4c1?w=800&h=600&fit=crop",
     ],
-    comentarios: [
+    /* Hackeados */
+    hackeados : [
       {
         id: 1,
-        usuario: "Diego Mamani",
-        avatar:
-          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face",
-        fecha: "2024-03-01",
-        contenido:
-          "Excelente proyecto! Conseguí construirla en mi FabLab y funciona perfectamente. Los planos están muy claros.",
-        likes: 12,
+        nombre: "PET Bottle Shredder v2.1",
+        descripcion:
+          "Máquina trituradora de botellas PET para reciclaje automatizado con control por Arduino",
+        pais: "BO",
+        likes: 127,
+        difficulty: "Intermedio",
+        category: "Mecanica",
+        createdAt: new Date(2024, 10, 15),
+        image: machine1,
+        tags: ["PET", "Reciclaje", "Automatización", "Arduino"],
+        author: "Carlos Mendoza",
       },
       {
         id: 2,
-        usuario: "Sofia Chen",
-        avatar:
-          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face",
-        fecha: "2024-02-28",
-        contenido:
-          "¿Alguien ha probado usar otro tipo de plástico además del PET? Me interesa experimentar con HDPE.",
-        likes: 8,
+        nombre: "Extrusora de Filamento 3D",
+        descripcion:
+          "Sistema de extrusión para fabricar filamento 3D reciclado con sensores y control PID",
+        pais: "AR",
+        likes: 89,
+        difficulty: "Avanzado",
+        category: "Electronica",
+        createdAt: new Date(2024, 9, 3),
+        image: machine2,
+        tags: ["3D Print", "Extrusión", "PID", "Sensores"],
+        author: "María González",
       },
       {
         id: 3,
-        usuario: "Roberto Silva",
-        avatar:
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face",
-        fecha: "2024-02-25",
-        contenido:
-          "Implementamos algunas mejoras en el sistema de temperatura. ¡Los resultados son increíbles!",
-        likes: 15,
+        nombre: "Prensa Hidráulica para Ladrillos Ecológicos",
+        descripcion:
+          "Prensa hidráulica manual para fabricar ladrillos ecológicos usando materiales sostenibles",
+        pais: "PE",
+        likes: 156,
+        difficulty: "Principiante",
+        category: "Mecanica",
+        createdAt: new Date(2024, 8, 22),
+        image: machine3,
+        tags: ["Construcción", "Ecológico", "Hidráulica", "DIY"],
+        author: "Jorge Ramirez",
+      },
+      {
+        id: 4,
+        nombre: "PET Bottle Shredder v2.1",
+        descripcion:
+          "Máquina trituradora de botellas PET para reciclaje automatizado con control por Arduino",
+        pais: "BO",
+        likes: 127,
+        difficulty: "Intermedio",
+        category: "Mecanica",
+        createdAt: new Date(2024, 10, 15),
+        image: machine1,
+        tags: ["PET", "Reciclaje", "Automatización", "Arduino"],
+        author: "Carlos Mendoza",
+      },
+      {
+        id: 5,
+        nombre: "Extrusora de Filamento 3D",
+        descripcion:
+          "Sistema de extrusión para fabricar filamento 3D reciclado con sensores y control PID",
+        pais: "AR",
+        likes: 89,
+        difficulty: "Avanzado",
+        category: "Electronica",
+        createdAt: new Date(2024, 9, 3),
+        image: machine2,
+        tags: ["3D Print", "Extrusión", "PID", "Sensores"],
+        author: "María González",
+      },
+      {
+        id: 6,
+        nombre: "Prensa Hidráulica para Ladrillos Ecológicos",
+        descripcion:
+          "Prensa hidráulica manual para fabricar ladrillos ecológicos usando materiales sostenibles",
+        pais: "PE",
+        likes: 156,
+        difficulty: "Principiante",
+        category: "Mecanica",
+        createdAt: new Date(2024, 8, 22),
+        image: machine3,
+        tags: ["Construcción", "Ecológico", "Hidráulica", "DIY"],
+        author: "Jorge Ramirez",
       },
     ],
   };
@@ -162,6 +224,13 @@ const MaquinaDetails = () => {
   const addToSectionsRef = (el) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
+    }
+  };
+  const cardsRef = useRef([]);
+
+  const addToCardsRef = (el) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el);
     }
   };
 
@@ -228,13 +297,6 @@ const MaquinaDetails = () => {
     setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
   };
 
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (newComment.trim()) {
-      // Add comment logic here
-      setNewComment("");
-    }
-  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -913,128 +975,26 @@ const MaquinaDetails = () => {
           </div>
         );
 
-      case "comentarios":
+      case "hackeados":
         return (
           <div className="machine-details-comments-content">
-            {/* Comments Statistics */}
-            <div className="machine-details-comments-stats">
-              <div className="machine-details-stats-row">
-                <div className="machine-details-stat-item">
-                  <span className="machine-details-stat-number">
-                    {machineData.comentarios.length}
-                  </span>
-                  <span className="machine-details-stat-label">
-                    Comentarios
-                  </span>
-                </div>
-                <div className="machine-details-stat-item">
-                  <span className="machine-details-stat-number">4.8</span>
-                  <span className="machine-details-stat-label">Valoración</span>
-                </div>
-                <div className="machine-details-stat-item">
-                  <span className="machine-details-stat-number">92%</span>
-                  <span className="machine-details-stat-label">
-                    Recomendación
-                  </span>
-                </div>
-              </div>
+            <div className="machine-details-hacker-header">
+              <h2>Maquinas hackeadas</h2>
+              <p>Todas las maquinas hackeadas creada por la comunidad de open fiber, crea más maquinas hackeadas para compartir con la comunidad</p>
             </div>
-
-            {/* Comment Form */}
-            <div className="machine-details-comment-form-pro">
-              <h3>Comparte tu Experiencia</h3>
-              <form onSubmit={handleCommentSubmit}>
-                <div className="machine-details-form-group">
-                  <textarea
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Describe tu experiencia construyendo o usando esta máquina..."
-                    className="machine-details-comment-textarea-pro"
-                  />
-                </div>
-
-                <div className="machine-details-form-actions">
-                  <div className="machine-details-rating-section">
-                    <span>Califica este proyecto:</span>
-                    <div className="machine-details-star-rating">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          key={star}
-                          type="button"
-                          className="machine-details-star"
-                        >
-                          ⭐
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="machine-details-comment-submit-pro"
-                  >
-                    <IoSend />
-                    Publicar Comentario
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            {/* Comments List */}
-            <div className="machine-details-comments-list-pro">
-              <h3>Comentarios de la Comunidad</h3>
-              {machineData.comentarios.map((comentario) => (
-                <div
-                  key={comentario.id}
-                  className="machine-details-comment-card-pro"
-                >
-                  <div className="machine-details-comment-header-pro">
-                    <img
-                      src={comentario.avatar}
-                      alt={comentario.usuario}
-                      className="machine-details-comment-avatar-pro"
-                    />
-                    <div className="machine-details-comment-user-info">
-                      <h5>{comentario.usuario}</h5>
-                      <span className="machine-details-comment-date-pro">
-                        {new Date(comentario.fecha).toLocaleDateString(
-                          "es-ES",
-                          {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          }
-                        )}
-                      </span>
-                    </div>
-                    <div className="machine-details-comment-rating">
-                      <div className="machine-details-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-                  </div>
-
-                  <div className="machine-details-comment-body-pro">
-                    <p>{comentario.contenido}</p>
-                  </div>
-
-                  <div className="machine-details-comment-actions-pro">
-                    <button className="machine-details-comment-action">
-                      <FaThumbsUp />
-                      <span>{comentario.likes}</span>
-                    </button>
-                    <button className="machine-details-comment-action">
-                      <FaComment />
-                      <span>Responder</span>
-                    </button>
-                    <button className="machine-details-comment-action">
-                      <FaShare />
-                      <span>Compartir</span>
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {machineData.hackeados.length > 0 ? (
+                <div className="cards-grid">
+                    {machineData.hackeados.map((item) => (
+                        <div key={item.id} ref={addToCardsRef} className="">
+                            <Card_Machine {...item} />
+                        </div>
+                    ))}
+                </div> 
+              ) : (
+                <div>no hay maquinas hackeadas :c</div>
+              )}
           </div>
-        );
+        ); 
 
       default:
         return null;
@@ -1043,6 +1003,7 @@ const MaquinaDetails = () => {
 
   return (
     <div ref={containerRef} className="machine-details-maquina-details">
+      <CreateHackedMachineModal show={showModal} onClose={() => setShowModal(false)} />
       {/* Background Elements */}
       <div className="machine-details-details-background">
         <div className="machine-details-floating-elements">
@@ -1057,6 +1018,7 @@ const MaquinaDetails = () => {
 
       {/* Header */}
       <div ref={headerRef} className="machine-details-details-header">
+        <div className="container-telails-header-machine">
         <button
           onClick={() => navigate(-1)}
           className="machine-details-back-button"
@@ -1064,6 +1026,9 @@ const MaquinaDetails = () => {
           <FaArrowLeft />
           <span>Volver</span>
         </button>
+
+        <button className="btn-create-machine-construye-machine" onClick={() => setShowModal(true)}>Crear Maquina hackeada</button>
+        </div>
 
         <div className="machine-details-machine-header-info">
           <div className="machine-details-machine-title-section">
@@ -1173,10 +1138,10 @@ const MaquinaDetails = () => {
               description: "Aplicaciones prácticas",
             },
             {
-              id: "comentarios",
-              label: "Comunidad",
+              id: "hackeados",
+              label: "hackeados",
               icon: FaComment,
-              description: `${machineData.comentarios.length} comentarios`,
+              description: `${machineData.hackeados.length} Maquinas hackeadas`,
             },
           ].map((tab) => {
             const IconComponent = tab.icon;
@@ -1213,7 +1178,7 @@ const MaquinaDetails = () => {
               ? "Guía de Construcción"
               : activeSection === "aplicaciones"
               ? "Casos de Uso"
-              : "Comentarios de la Comunidad"}
+              : "Hackeados"}
           </h2>
         </div>
         {renderSection()}

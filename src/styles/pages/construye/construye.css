@@ -222,6 +222,38 @@
   margin-right: auto;
   opacity: 0;
 }
+.section-title-construye{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e5e7eb;
+}
+.section-title-construye h2{
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4949e9, #abc3ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn-create-machine-construye{
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: #4949e9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-create-machine-construye:hover{
+  background-color: #3b3b98;
+}
 
 .tabs-section {
   margin-bottom: 2rem;

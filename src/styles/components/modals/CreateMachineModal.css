@@ -1,0 +1,168 @@
+/* General Modal Overlay */
+.modal-overlay-create-machine {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* New Modal Content Style */
+.modal-content-create-machine {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+}
+
+/* Modal Header */
+.modal-header-create-machine {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-title-container-create-machine {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-title-line-create-machine {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-title-icon-create-machine {
+  font-size: 1.7rem;
+  color: var(--primary-blue);
+}
+
+.modal-header-create-machine h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+.close-button-create-machine {
+  background: transparent;
+  border: none;
+  font-size: 2.5rem; 
+  color: #718096;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Modal Body */
+.modal-body-create-machine {
+  padding: 16px 24px 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-title-container-create-machine p {
+  font-size: 0.875rem; 
+  color: #4a5568;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #2d3748;
+  margin: 0;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #2d3748;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Two-column layout for selects */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Modal Footer */
+.modal-footer-create-machine {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  background-color: #f7fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-modal-primary-create-machine,
+.btn-modal-secondary-create-machine {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-modal-primary-create-machine {
+  background-color: #2d3748;
+  color: white;
+  border-color: #2d3748;
+}
+
+.btn-modal-primary-create-machine:hover {
+  background-color: #1a202c;
+}
+
+.btn-modal-secondary-create-machine {
+  background-color: white;
+  color: #2d3748;
+  border-color: #cbd5e0;
+}
+
+.btn-modal-secondary-create-machine:hover {
+  background-color: #edf2f7;
+  border-color: #a0aec0;
+}

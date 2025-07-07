@@ -38,6 +38,15 @@
   width: 100%;
   height: 100%;
 }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
 
 .machine-details-floating-element {
   position: absolute;
@@ -1878,6 +1887,22 @@
 .machine-details-comments-content {
   padding: 2rem;
 }
+.machine-details-hacker-header{
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  width: 80%;
+  margin: auto;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+}
+.machine-details-hacker-header h2{
+  font-weight: 300;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #4949e9, #1a1a1a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .machine-details-comments-stats {
   margin-bottom: 2rem;
@@ -2096,6 +2121,34 @@
 .machine-details-comment-action:hover {
   background: rgba(73, 73, 233, 0.1);
   color: #4949e9;
+}
+
+.container-telails-header-machine{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-create-machine-construye-machine{
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.btn-create-machine-construye-machine:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive Design - Professional */

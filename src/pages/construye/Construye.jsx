@@ -4,8 +4,10 @@ import { FaFilter, FaSearch, FaSortAmountDown } from "react-icons/fa";
 import Card_Machine from "../../components/cards/card_machine/Card_Machine";
 import { cardData } from "../../utils/mock/construyeMock";
 import "../../styles/pages/construye/construye.css";
+import CreateMachineModal from "../../components/modals/CreateMachineModal";
 
 const Construye = () => {
+  const [showModal, setShowModal] = useState(false);
   const [filters, setFilters] = useState({
     difficulty: "all",
     category: "all",
@@ -139,6 +141,7 @@ const Construye = () => {
 
   return (
     <div ref={containerRef} className="construye-container">
+      <CreateMachineModal show={showModal} onClose={() => setShowModal(false)} />
       {/* Background Elements */}
       <div className="construye-background">
         <div className="floating-elements">
@@ -177,8 +180,9 @@ const Construye = () => {
 
       {/* Title and Filters */}
       <div ref={controlsRef} className="construye-controls">
-        <div className="section-title">
+        <div className="section-title-construye">
           <h2>Máquinas Hackeadas</h2>
+          <button className="btn-create-machine-construye" onClick={() => setShowModal(true)}>Crear maquina</button>
         </div>
 
         {/* Search and Filters */}
