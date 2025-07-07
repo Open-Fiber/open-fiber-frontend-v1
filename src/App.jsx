@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { initializeAuth } from "./actions/auth";
+import { initializeAuth } from "./slices/authSlice";
 import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
