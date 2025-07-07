@@ -48,46 +48,74 @@ const CreateMachineModal = ({ show, onClose }) => {
   }
 
   return (
-    <div className="modal-overlay-machine" onClick={handleClose}>
-      <form className="modal-content-machine" onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
-        <button type="button" onClick={handleClose} className="close-button-machine">X</button>
-        {step === 1 && (
-          <>
-            <h2>Nuevo Proyecto</h2>
-            <p>Rellena todos los campos con información de su proyecto.</p>
-            <label htmlFor="titulo">Título</label>
-            <input id="titulo" type="text" required name="titulo" placeholder="Título del proyecto" value={formData.titulo} onChange={handleChange} />
-            <label htmlFor="objetivo">Objetivo</label>
-            <input id="objetivo" type="text" required name="objetivo" placeholder="Objetivo principal" value={formData.objetivo} onChange={handleChange} />
-            <label htmlFor="descripcion">Descripción</label>
-            <textarea id="descripcion" required name="descripcion" placeholder="Describe tu proyecto" value={formData.descripcion} onChange={handleChange}></textarea>
-            <button type="submit" className='btn-create-machine-modal'>Siguiente</button>
-          </>
-        )}
-        {step === 2 && (
-          <>
-            <h2>Nueva maquina</h2>
-            <p>Rellene todos los campos para su nueva maquina.</p>
-            <label htmlFor="informacion">Información</label>
-            <input id="informacion" type="text" required name="informacion" placeholder="Información detallada de la máquina" value={formData.informacion} onChange={handleChange} />
-            <label htmlFor="impacto">Impacto</label>
-            <input id="impacto" type="text" required name="impacto" placeholder="Alto impacto en el rendimiento del sistema" value={formData.impacto} onChange={handleChange} />
-            <label htmlFor="evolucion">Evolución</label>
-            <input id="evolucion" type="text" required name="evolucion" placeholder="Ha evolucionado desde el prototipo básico" value={formData.evolucion} onChange={handleChange} />
-            <label htmlFor="categoria">Categoría</label>
-            <select id="categoria" required name="categoria" value={formData.categoria} onChange={handleChange}>
-              <option value="estetica">Estética</option>
-              <option value="electronica">Electrónica</option>
-              <option value="mecanica">Mecánica</option>
-            </select>
-            <label htmlFor="visibility-select">Visibilidad</label>
-            <select id="visibility-select" required name="isPrivate" value={formData.isPrivate} onChange={handleChange}>
-                <option value="publico">Público</option>
-                <option value="privado">Privado</option>
-            </select>
-            <button type="submit" className='btn-create-machine-modal'>Guardar Proyecto</button>
-          </>
-        )}
+    <div className="modal-overlay-create-machine" onClick={handleClose}>
+      <form className="modal-content-create-machine" onClick={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
+        <div className="modal-header-create-machine">
+          <h2>{step === 1 ? 'Nuevo Proyecto' : 'Nueva Máquina'}</h2>
+          <button type="button" onClick={handleClose} className="close-button-create-machine">×</button>
+        </div>
+
+        <div className="modal-body-create-machine">
+          {step === 1 ? (
+            <>
+              <div className="form-group">
+                <label htmlFor="titulo">Título</label>
+                <input id="titulo" type="text" required name="titulo" placeholder="Título del proyecto" value={formData.titulo} onChange={handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="objetivo">Objetivo</label>
+                <input id="objetivo" type="text" required name="objetivo" placeholder="Objetivo principal" value={formData.objetivo} onChange={handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="descripcion">Descripción</label>
+                <textarea id="descripcion" required name="descripcion" placeholder="Describe tu proyecto" value={formData.descripcion} onChange={handleChange}></textarea>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="form-group">
+                <label htmlFor="informacion">Información</label>
+                <input id="informacion" type="text" required name="informacion" placeholder="Información detallada de la máquina" value={formData.informacion} onChange={handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="impacto">Impacto</label>
+                <input id="impacto" type="text" required name="impacto" placeholder="Alto impacto en el rendimiento del sistema" value={formData.impacto} onChange={handleChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="evolucion">Evolución</label>
+                <input id="evolucion" type="text" required name="evolucion" placeholder="Ha evolucionado desde el prototipo básico" value={formData.evolucion} onChange={handleChange} />
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="categoria">Categoría</label>
+                  <select id="categoria" required name="categoria" value={formData.categoria} onChange={handleChange}>
+                    <option value="estetica">Estética</option>
+                    <option value="electronica">Electrónica</option>
+                    <option value="mecanica">Mecánica</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="visibility-select">Visibilidad</label>
+                  <select id="visibility-select" required name="isPrivate" value={formData.isPrivate} onChange={handleChange}>
+                    <option value="publico">Público</option>
+                    <option value="privado">Privado</option>
+                  </select>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className="modal-footer-create-machine">
+          {step === 1 ? (
+            <button type="submit" className='btn-modal-primary-create-machine'>Siguiente</button>
+          ) : (
+            <>
+              <button type="button" className='btn-modal-secondary-create-machine' onClick={() => setStep(1)}>Atrás</button>
+              <button type="submit" className='btn-modal-primary-create-machine'>Guardar Proyecto</button>
+            </>
+          )}
+        </div>
       </form>
     </div>
   );

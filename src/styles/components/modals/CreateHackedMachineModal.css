@@ -1,95 +1,147 @@
-.modal-overlay-machine {
+/* General Modal Overlay */
+.modal-overlay-hacked-machine {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-.modal-content-machine {
-  background: white;
-  padding: 20px;
+/* New Modal Content Style */
+.modal-content-hacked-machine {
+  background: #ffffff;
   border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   width: 500px;
   max-width: 90%;
-  position: relative;
-  padding-top: 60px; /* Espacio para el título y el botón */
-  max-height: 85vh; /* Limita la altura máxima de la modal */
-  overflow-y: auto; /* Añade scroll si el contenido se desborda */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;     
+  padding: 0 0 20px 0;
+  max-height: 85vh; 
+  overflow-y: auto; 
 }
 
-.close-button-machine {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+/* Modal Header */
+.modal-header-hacked-machine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-header-hacked-machine h2 {
+  font-size: 1.125rem; 
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+.close-button-hacked-machine {
   background: transparent;
   border: none;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.5rem; 
+  color: #718096;
   cursor: pointer;
-  color: #666;
+  padding: 0;
   line-height: 1;
 }
 
-.close-button-machine:hover {
-  color: #000;
+/* Modal Body */
+.modal-body-hacked-machine {
+  padding: 24px;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
-.modal-content-machine h2 {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  margin: 0;
-  color: #007bff; /* Color del título principal */
+.form-group-hacked-machine {
+  margin-bottom: 16px;
 }
 
-.modal-content-machine p {
-  margin-bottom: 15px;
-  color: #666;
-}
-
-.modal-content-machine label {
+.form-group-hacked-machine label {
   display: block;
-  margin-top: 12px; /* Ajuste de margen */
-  margin-bottom: 4px; /* Ajuste de margen */
-  font-weight: 600;
-  color: #444;
+  font-size: 0.875rem; 
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 8px;
 }
 
-.modal-content-machine input,
-.modal-content-machine textarea,
-.modal-content-machine select {
+.form-group-hacked-machine input,
+.form-group-hacked-machine textarea,
+.form-group-hacked-machine select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 8px; /* Reducción de margen */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.modal-content-machine textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.btn-create-machine-modal {
-  width: 100%;
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 15px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: bold;
+  color: #2d3748;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.btn-create-machine-modal:hover {
-  background-color: #0056b3;
+.form-group-hacked-machine input:focus,
+.form-group-hacked-machine textarea:focus,
+.form-group-hacked-machine select:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+.form-group-hacked-machine textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Two-column layout for selects */
+.form-row-hacked-machine {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Modal Footer */
+.modal-footer-hacked-machine {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  background-color: #f7fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-modal-primary-hacked-machine,
+.btn-modal-secondary-hacked-machine {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-modal-primary-hacked-machine {
+  background-color: #2d3748;
+  color: white;
+  border-color: #2d3748;
+}
+
+.btn-modal-primary-hacked-machine:hover {
+  background-color: #1a202c;
+}
+
+.btn-modal-secondary-hacked-machine {
+  background-color: white;
+  color: #2d3748;
+  border-color: #cbd5e0;
+}
+
+.btn-modal-secondary-hacked-machine:hover {
+  background-color: #edf2f7;
+  border-color: #a0aec0;
 }
