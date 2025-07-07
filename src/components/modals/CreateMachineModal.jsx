@@ -7,7 +7,6 @@ const CreateMachineModal = ({ show, onClose }) => {
     objetivo: '',
     descripcion: '',
     informacion: '',
-    version: '',
     impacto: '',
     evolucion: '',
     categoria: 'estetica',
@@ -71,8 +70,6 @@ const CreateMachineModal = ({ show, onClose }) => {
             <p>Rellene todos los campos para su nueva maquina.</p>
             <label htmlFor="informacion">Información</label>
             <input id="informacion" type="text" required name="informacion" placeholder="Información detallada de la máquina" value={formData.informacion} onChange={handleChange} />
-            <label htmlFor="version">Versión</label>
-            <input id="version" type="text" required name="version" placeholder="v1.0.0" value={formData.version} onChange={handleChange} />
             <label htmlFor="impacto">Impacto</label>
             <input id="impacto" type="text" required name="impacto" placeholder="Alto impacto en el rendimiento del sistema" value={formData.impacto} onChange={handleChange} />
             <label htmlFor="evolucion">Evolución</label>

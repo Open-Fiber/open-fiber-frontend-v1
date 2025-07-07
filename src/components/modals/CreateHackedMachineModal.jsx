@@ -4,7 +4,6 @@ import '../../styles/components/modals/CreateHackedMachineModal.css';
 const CreateHackedMachineModal = ({ show, onClose }) => {
   const initialFormData = {
     informacion: '',
-    version: '',
     impacto: '',
     evolucion: '',
     categoria: 'estetica',
@@ -44,8 +43,6 @@ const CreateHackedMachineModal = ({ show, onClose }) => {
           <p>Rellene todos los campos para su nueva maquina.</p>
           <label htmlFor="hacked-informacion">Información</label>
           <input id="hacked-informacion" type="text" required name="informacion" placeholder="Información detallada de la máquina" value={formData.informacion} onChange={handleChange} />
-          <label htmlFor="hacked-version">Versión</label>
-          <input id="hacked-version" type="text" required name="version" placeholder="v1.0.0" value={formData.version} onChange={handleChange} />
           <label htmlFor="hacked-impacto">Impacto</label>
           <input id="hacked-impacto" type="text" required name="impacto" placeholder="Alto impacto en el rendimiento del sistema" value={formData.impacto} onChange={handleChange} />
           <label htmlFor="hacked-evolucion">Evolución</label>

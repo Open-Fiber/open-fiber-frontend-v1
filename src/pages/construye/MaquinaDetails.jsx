@@ -18,8 +18,11 @@ import {
   FaThumbsUp,
   FaComment,
 } from "react-icons/fa";
+import Card_Machine from "../../components/cards/card_machine/Card_Machine";
+import machine1 from "../../assets/machine/machine1.jpeg";
+import machine2 from "../../assets/machine/machine2.jpeg";
+import machine3 from "../../assets/machine/machine3.jpeg";
 import { IoCheckmarkCircle, IoSend } from "react-icons/io5";
-import { IoIosArrowBack, IoIosHeart, IoIosShareAlt } from "react-icons/io";
 import CreateHackedMachineModal from '../../components/modals/CreateHackedMachineModal';
 import "../../styles/pages/construye/maquinadetails.css";
 
@@ -133,13 +136,87 @@ const MaquinaDetails = () => {
     hackeados : [
       {
         id: 1,
-        usuario: "Diego Mamani",
-        avatar:
-          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face",
-        fecha: "2024-03-01",
-        contenido:
-          "Excelente proyecto! Conseguí construirla en mi FabLab y funciona perfectamente. Los planos están muy claros.",
-        likes: 12,
+        nombre: "PET Bottle Shredder v2.1",
+        descripcion:
+          "Máquina trituradora de botellas PET para reciclaje automatizado con control por Arduino",
+        pais: "BO",
+        likes: 127,
+        difficulty: "Intermedio",
+        category: "Mecanica",
+        createdAt: new Date(2024, 10, 15),
+        image: machine1,
+        tags: ["PET", "Reciclaje", "Automatización", "Arduino"],
+        author: "Carlos Mendoza",
+      },
+      {
+        id: 2,
+        nombre: "Extrusora de Filamento 3D",
+        descripcion:
+          "Sistema de extrusión para fabricar filamento 3D reciclado con sensores y control PID",
+        pais: "AR",
+        likes: 89,
+        difficulty: "Avanzado",
+        category: "Electronica",
+        createdAt: new Date(2024, 9, 3),
+        image: machine2,
+        tags: ["3D Print", "Extrusión", "PID", "Sensores"],
+        author: "María González",
+      },
+      {
+        id: 3,
+        nombre: "Prensa Hidráulica para Ladrillos Ecológicos",
+        descripcion:
+          "Prensa hidráulica manual para fabricar ladrillos ecológicos usando materiales sostenibles",
+        pais: "PE",
+        likes: 156,
+        difficulty: "Principiante",
+        category: "Mecanica",
+        createdAt: new Date(2024, 8, 22),
+        image: machine3,
+        tags: ["Construcción", "Ecológico", "Hidráulica", "DIY"],
+        author: "Jorge Ramirez",
+      },
+      {
+        id: 4,
+        nombre: "PET Bottle Shredder v2.1",
+        descripcion:
+          "Máquina trituradora de botellas PET para reciclaje automatizado con control por Arduino",
+        pais: "BO",
+        likes: 127,
+        difficulty: "Intermedio",
+        category: "Mecanica",
+        createdAt: new Date(2024, 10, 15),
+        image: machine1,
+        tags: ["PET", "Reciclaje", "Automatización", "Arduino"],
+        author: "Carlos Mendoza",
+      },
+      {
+        id: 5,
+        nombre: "Extrusora de Filamento 3D",
+        descripcion:
+          "Sistema de extrusión para fabricar filamento 3D reciclado con sensores y control PID",
+        pais: "AR",
+        likes: 89,
+        difficulty: "Avanzado",
+        category: "Electronica",
+        createdAt: new Date(2024, 9, 3),
+        image: machine2,
+        tags: ["3D Print", "Extrusión", "PID", "Sensores"],
+        author: "María González",
+      },
+      {
+        id: 6,
+        nombre: "Prensa Hidráulica para Ladrillos Ecológicos",
+        descripcion:
+          "Prensa hidráulica manual para fabricar ladrillos ecológicos usando materiales sostenibles",
+        pais: "PE",
+        likes: 156,
+        difficulty: "Principiante",
+        category: "Mecanica",
+        createdAt: new Date(2024, 8, 22),
+        image: machine3,
+        tags: ["Construcción", "Ecológico", "Hidráulica", "DIY"],
+        author: "Jorge Ramirez",
       },
     ],
   };
@@ -147,6 +224,13 @@ const MaquinaDetails = () => {
   const addToSectionsRef = (el) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
+    }
+  };
+  const cardsRef = useRef([]);
+
+  const addToCardsRef = (el) => {
+    if (el && !cardsRef.current.includes(el)) {
+      cardsRef.current.push(el);
     }
   };
 
@@ -213,13 +297,6 @@ const MaquinaDetails = () => {
     setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
   };
 
-  /* const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (newComment.trim()) {
-      // Add comment logic here
-      setNewComment("");
-    }
-  }; */
 
   const renderSection = () => {
     switch (activeSection) {
@@ -901,8 +978,21 @@ const MaquinaDetails = () => {
       case "hackeados":
         return (
           <div className="machine-details-comments-content">
-
-            <div className="">no hay maquinas hackeadas :c</div>
+            <div className="machine-details-hacker-header">
+              <h2>Maquinas hackeadas</h2>
+              <p>Todas las maquinas hackeadas creada por la comunidad de open fiber, crea más maquinas hackeadas para compartir con la comunidad</p>
+            </div>
+            {machineData.hackeados.length > 0 ? (
+                <div className="cards-grid">
+                    {machineData.hackeados.map((item) => (
+                        <div key={item.id} ref={addToCardsRef} className="">
+                            <Card_Machine {...item} />
+                        </div>
+                    ))}
+                </div> 
+              ) : (
+                <div>no hay maquinas hackeadas :c</div>
+              )}
           </div>
         ); 
 
@@ -1088,7 +1178,7 @@ const MaquinaDetails = () => {
               ? "Guía de Construcción"
               : activeSection === "aplicaciones"
               ? "Casos de Uso"
-              : "Hackeados por la Comunidad"}
+              : "Hackeados"}
           </h2>
         </div>
         {renderSection()}
